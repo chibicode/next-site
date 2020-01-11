@@ -3,60 +3,13 @@ import { useAmp } from 'next/amp';
 
 import Container from '../container';
 import Window from '../window';
-import Highlight from '../highlight';
 import TitleOverlay from './svg/title-overlay';
 import AvatarOverlay from './svg/avatar-overlay';
 import SidebarOverlay from './svg/sidebar-overlay';
 import Checkmark from '../icons/checkmark';
-
-const files = [
-  {
-    name: 'Avatar.js',
-    content: `export default function Avatar({ src }) {
-  return (
-    <>
-      <img src={ src } />
-
-      <style jsx>{\`
-        img { border-radius: 50%; width: 24px; height: 24px; }
-      \`}</style>
-    </>
-  )
-}`
-  },
-  {
-    name: 'TitleBlock.js',
-    content: `export default function TitleBlock({ title, description }) {
-  return (
-    <div>
-      <h1>{ title }</h1>
-      <p>{ description }</p>
-
-      <style jsx>{\`
-        h1 { font-size: 32px; margin-bottom: 16px; }
-        p { font-size: 16px; }
-      \`}</style>
-    </div>
-  )
-}`
-  },
-  {
-    name: 'Sidebar.js',
-    content: `export default function Sidebar({ name, items }) {
-  return (
-    <div>
-      <h2>{ name }</h2>
-      { items.map(({ data }) => <span>{data}</span>) }
-
-      <style jsx>{\`
-        h2 { font-size: 24px; }
-        span { font-weight: 600; }
-      \`}</style>
-    </div>
-  )
-}`
-  }
-];
+import Avatar from './avatar.mdx';
+import TitleBlock from './title-block.mdx';
+import Sidebar from './sidebar.mdx';
 
 export default () => {
   const isAmp = useAmp();
@@ -97,13 +50,10 @@ export default () => {
         <div className="flex">
           <div className="terminal-container">
             <Window height={297} backgroundColor="black" scroll={false}>
-              {files.map((file, idx) => (
-                <Highlight
-                  key={idx}
-                  className={`javascript slide slide-${idx}`}
-                >
-                  {file.content}
-                </Highlight>
+              {[Avatar, TitleBlock, Sidebar].map((file, idx) => (
+                <div key={idx} className={`slide slide-${idx}`}>
+                  {React.createElement(file, {})}
+                </div>
               ))}
             </Window>
           </div>
@@ -111,13 +61,11 @@ export default () => {
           <div className="site-container">
             <Img src="/static/images/site.png" height={297} width={472} />
             <div className="overlay-container">
-              {[AvatarOverlay, TitleOverlay, SidebarOverlay].map(
-                (overlay, idx) => (
-                  <div key={idx} className={`slide slide-${idx}`}>
-                    {React.createElement(overlay, {})}
-                  </div>
-                )
-              )}
+              {[AvatarOverlay, TitleOverlay, SidebarOverlay].map((overlay, idx) => (
+                <div key={idx} className={`slide slide-${idx}`}>
+                  {React.createElement(overlay, {})}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -168,9 +116,17 @@ export default () => {
         }
         .terminal-container,
         .site-container {
-          box-shadow: rgba(0, 0, 0, 0.48) 0px 2px 10px,
-            rgba(0, 0, 0, 0.38) 0px 14px 50px;
+          box-shadow: rgba(0, 0, 0, 0.48) 0px 2px 10px, rgba(0, 0, 0, 0.38) 0px 14px 50px;
           border-radius: 4px;
+        }
+        .terminal-container :global(.token) {
+          color: #f1f1f1;
+        }
+        .terminal-container :global(.token.tag .token.punctuation) {
+          color: #f1f1f1;
+        }
+        .terminal-container :global(.token.plain-text) {
+          color: #c3c3c3;
         }
         .overlay-container {
           position: absolute;

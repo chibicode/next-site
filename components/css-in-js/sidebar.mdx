@@ -1,0 +1,15 @@
+```jsx
+export default function Sidebar({ name, items }) {
+  return (
+    <div>
+      <h2>{ name }</h2>
+      { items.map(({ data }) => <span>{data}</span>) }
+
+      <style jsx>{\`
+        h2 { font-size: 24px; }
+        span { font-weight: 600; }
+      \`}</style>
+    </div>
+  )
+}
+```
