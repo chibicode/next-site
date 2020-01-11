@@ -116,6 +116,7 @@ function DocsPage({ path, html }) {
         /* Code */
         .docs pre {
           background: #1d1f21;
+          color: #f8f8f2;
           white-space: pre;
           overflow: auto;
           padding: 1.5rem;
