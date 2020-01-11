@@ -35,7 +35,7 @@ const Lesson = ({ course, lesson, selected }) => {
       <Link href={`/learn/${course.id}/${lesson.id}`}>
         <a className={classNames('f5', { fw7: selected, selected, finished })}>
           <span className="step" title={`${finishedSteps} / ${totalSteps} finished`}>
-            {finished && <CheckIcon color="#2BDB66" />}
+            {finished && <CheckIcon color="#0070F3" />}
           </span>
           <span className="label">{lesson.name}</span>
         </a>
