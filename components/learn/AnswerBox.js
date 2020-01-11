@@ -82,7 +82,7 @@ const Symbol = ({ correct, selected }) => {
 
   return (
     <span>
-      {correct ? <CheckIcon color="#19ce56" /> : <CrossIcon color="red" />}
+      {correct ? <CheckIcon color="#0070f3" /> : <CrossIcon color="#e00" />}
       <style jsx>{`
         span {
           display: inline-block;
@@ -94,6 +94,30 @@ const Symbol = ({ correct, selected }) => {
     </span>
   );
 };
+
+const AnswerResultMessage = ({ correct }) => (
+  <>
+    <Symbol correct={correct} selected />{' '}
+    {correct ? (
+      <span className="correct-message">
+        <strong>Correct.</strong> Good job!
+      </span>
+    ) : (
+      <span className="incorrect-message">
+        <strong>Incorrect,</strong> but nice try!
+      </span>
+    )}
+    <style jsx>{`
+      .correct-message {
+        color: #0070f3;
+      }
+
+      .incorrect-message {
+        color: #e00;
+      }
+    `}</style>
+  </>
+);
 
 const AnswerBox = ({ answers, correctAnswer, record, dispatchRecord }) => (
   <Area>
@@ -111,8 +135,10 @@ const AnswerBox = ({ answers, correctAnswer, record, dispatchRecord }) => (
         )}
       </Answer>
     ))}
-    {!record.submitted && (
-      <div>
+    <div>
+      {record.submitted ? (
+        <AnswerResultMessage correct={record.answer === correctAnswer} />
+      ) : (
         <Button
           onClick={() => {
             dispatchRecord({ type: 'submit' });
@@ -126,13 +152,13 @@ const AnswerBox = ({ answers, correctAnswer, record, dispatchRecord }) => (
         >
           Submit
         </Button>
-        <style jsx>{`
-          div {
-            margin: 2rem 0 4rem;
-          }
-        `}</style>
-      </div>
-    )}
+      )}
+      <style jsx>{`
+        div {
+          margin: 2rem 0 4rem;
+        }
+      `}</style>
+    </div>
   </Area>
 );
 
