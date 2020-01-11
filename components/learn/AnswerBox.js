@@ -86,9 +86,9 @@ const Symbol = ({ correct, selected }) => {
       <style jsx>{`
         span {
           display: inline-block;
-          lineheight: 1;
-          verticalalign: middle;
-          marginleft: 0.25rem;
+          line-height: 1;
+          vertical-align: middle;
+          margin-left: 0.25rem;
         }
       `}</style>
     </span>
