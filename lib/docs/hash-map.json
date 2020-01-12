@@ -17,7 +17,7 @@
     "dynamic-routing": "/routing/dynamic-routes",
     "populating-head": "/api-reference/next/head",
     "fetching-data-and-component-lifecycle": "/api-reference/data-fetching/getInitialProps",
-    "routing": "/api-routes/introduction",
+    "routing": "/routing/introduction",
     "with-link": "/api-reference/next/link",
     "basic-example": "/api-reference/next/link",
     "custom-routes-using-props-from-url": "/routing/dynamic-routes",
