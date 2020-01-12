@@ -4,7 +4,6 @@ import formatDate from 'date-fns/format';
 
 import Container from '../container';
 import Button from '../button';
-import ArrowRightLong from '../icons/arrow-right-long';
 
 export default ({ type, thumbnail, detail, link, title, date, alt, children }) => {
   return (
@@ -105,12 +104,7 @@ export default ({ type, thumbnail, detail, link, title, date, alt, children }) =
             </p>
             {detail && <section className="description f5">{children}</section>}
             <div className="read-more">
-              <Button href={link}>
-                Read More{' '}
-                <span className="icon">
-                  <ArrowRightLong color="currentColor" />
-                </span>
-              </Button>
+              <Button href={link}>Read More →</Button>
             </div>
           </div>
           {thumbnail && (
