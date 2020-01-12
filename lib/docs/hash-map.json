@@ -31,7 +31,7 @@
     "with-url-object-1": "/api-reference/next/router#with-url-object",
     "router-events": "/api-reference/next/router#routerevents",
     "shallow-routing": "/routing/shallow-routing",
-    "useRouter": "/api-reference/next/router#userouter",
+    "userouter": "/api-reference/next/router#userouter",
     "using-a-higher-order-component": "/api-reference/next/router#withrouter",
     "prefetching-pages": "/api-reference/next/link",
     "with-link-1": "/api-reference/next/link",
