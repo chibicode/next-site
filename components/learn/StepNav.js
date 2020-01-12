@@ -1,7 +1,6 @@
 import React from 'react';
 import RightArrow from '../icons/arrow-right';
 import LeftArrow from '../icons/arrow-left';
-import LongRightArrow from '../icons/arrow-right-long';
 import Button from './button';
 
 const Icon = ({ left, right, children }) => (
@@ -28,10 +27,7 @@ const StepNav = ({ steps, nextLessonId, meta: { stepId, courseId, lessonId } }) 
   if (!stepId) {
     return (
       <Button invert href={`/learn/${courseId}/${lessonId}/${steps[0].id}`}>
-        Start Now
-        <Icon right>
-          <LongRightArrow color="white" />
-        </Icon>
+        Start Now →
       </Button>
     );
   }
