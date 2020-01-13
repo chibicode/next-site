@@ -73,6 +73,11 @@ const nextConfig = {
           destination: '/learn/excel/automatic-static-optimization'
         },
         {
+          source: '/learn/basics/navigate-between-pages/hoc{/}?',
+          statusCode: 301,
+          destination: '/learn/basics/navigate-between-pages/link'
+        },
+        {
           source: '/features{/}?',
           statusCode: 301,
           destination: '/features/static-exporting'
