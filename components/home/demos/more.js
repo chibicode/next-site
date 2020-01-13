@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import withPure from '../../hoc/pure';
-import ArrowRightLong from '../../icons/arrow-right-long';
 
 const EXAMPLES = [
   {
@@ -73,12 +72,7 @@ const ExampleCard = withPure(({ name, href, description }) => (
     <span className="example-container">
       <span className="example-name fw6 f5">{name}</span>
       <span className="example-desc f6">{description}</span>
-      <span className="example-link fw6 f6">
-        See this example{' '}
-        <span className="icon">
-          <ArrowRightLong size="14" color="#2195ff" />
-        </span>
-      </span>
+      <span className="example-link fw6 f6">See this example →</span>
       <style jsx>{`
         .example-container {
           display: block;

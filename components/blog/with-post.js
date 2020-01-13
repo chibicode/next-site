@@ -11,7 +11,6 @@ import Container from '../container';
 import Button from '../button';
 import { components } from './post-components';
 import SocialMeta from '../social-meta';
-import ArrowLeftLong from '../icons/arrow-left-long';
 
 const Author = meta => {
   const isAmp = useAmp();
@@ -150,10 +149,7 @@ export default meta => ({ children }) => {
             <main>{children}</main>
             <div className="back-button">
               <Button href="/blog" invert amp>
-                <span className="icon">
-                  <ArrowLeftLong color="white" />
-                </span>{' '}
-                Back to Blog
+                ← Back to Blog
               </Button>
             </div>
           </Container>
