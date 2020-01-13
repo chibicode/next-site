@@ -43,7 +43,7 @@ export default () => (
           your application. Seamlessly add and remove components without constantly ballooning
           stylesheet size and complexity.
         </p>
-        <Button href="/docs#css-in-js" amp>
+        <Button href="/docs/basic-features/built-in-css-support" amp>
           View Full Documentation
         </Button>
       </div>

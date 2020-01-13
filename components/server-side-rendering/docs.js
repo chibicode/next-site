@@ -19,7 +19,7 @@ export default () => {
             </p>
           </div>
           <div>
-            <Button invert href="/docs#fetching-data-and-component-lifecycle" amp>
+            <Button invert href="/docs/api-reference/data-fetching/getInitialProps" amp>
               View Documentation
             </Button>
           </div>
