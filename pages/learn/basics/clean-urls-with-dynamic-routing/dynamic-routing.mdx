@@ -19,9 +19,9 @@ export const meta = {
 
 ## Dynamic Routing
 
-Here, we are going to use the [Dynamic Routing](https://nextjs.org/docs#dynamic-routing) feature of Next.js, it allows you to handle dynamic routes in `/pages`.
+Here, we are going to use the [Dynamic Routing](https://nextjs.org/docs#dynamic-routing) feature of Next.js. It allows you to handle dynamic routes in `/pages`.
 
-Let's create our first dynamic route by adding a new page to `pages/p/[id].js`, notice that you need to add the folder `/p` inside `/pages` first, and that the page is called `[id].js`. Then add the following content:
+Let's create our first dynamic route by adding a new page to `pages/p/[id].js`. Notice that you need to add the folder `/p` inside `/pages` first, and that the page is called `[id].js`. Then add the following content:
 
 ```jsx
 import { useRouter } from 'next/router';
@@ -39,9 +39,9 @@ export default function Post() {
 }
 ```
 
-The previous page is special, instead of handling a static route like `/about`, it will handle routes that come after `/p/`. For example, `/p/hello-nextjs` will be handled by this page. Although, `/p/post-1/another` will not.
+This page is special. Instead of handling a static route like `/about`, it will handle routes that come after `/p/`. For example, `/p/hello-nextjs` will be handled by this page. It will not handle routes like `/p/post-1/another` though.
 
-Having brackets (`[]`) in the page name makes it a dynamic route. Currently, you can not make part of a page name dynamic, only the full name. For example, `/pages/p/[id].js` is supported but `/pages/p/post-[id].js` is not currently.
+Having brackets (`[]`) in the page name makes it a dynamic route. Currently, you can not make part of a page name dynamic. For example, `/pages/p/[id].js` is supported but `/pages/p/post-[id].js` won’t work.
 
 When creating the dynamic route we added `id` between the brackets (`[]`). This is the name of the query param received by the page, so for `/p/hello-nextjs` the `query` object will have `{ id: 'hello-nextjs'}`, and we can access it with [useRouter()](https://nextjs.org/docs#userouter).
 
