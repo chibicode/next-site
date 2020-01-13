@@ -1,0 +1,14 @@
+import Layout from '../../../../components/learn/Layout';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'link'
+};
+
+## Link is Just a Wrapper Component
+
+Actually, the title prop on the `Link` component has no effect. That's because `Link` is just a wrapper component which only accepts `href` and some similar props. If you need to add props to it, you need to add them to its child. In this case, the child of the `Link` component is the anchor tag.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
