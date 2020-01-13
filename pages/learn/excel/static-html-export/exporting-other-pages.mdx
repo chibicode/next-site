@@ -50,9 +50,9 @@ As is shown in the above config, the `/about` path is very similar to the `/` pa
 
 Here's what's going on:
 
-To render the shows in our app, we first fetch the list of shows, this is the same fetch we do in `/`. We then loop the shows and add a new path and query for every one of them.
+To render the shows in our app, we first fetch the list of shows. This is the same fetch we do in `/`. We then loop the shows and add a new path for each show.
 
-For example for the show of `Batman` with the id `975` the loop will add the following path:
+For example, for the show `Batman` (id `975`) the loop will add the following path:
 
 ```js
 '/show/975': { page: '/show/[id]', query: { id: '975' } }
@@ -60,7 +60,7 @@ For example for the show of `Batman` with the id `975` the loop will add the fol
 
 The page `/show/[id]` will then use the `query` object to get the `id` and fetch more info about the show.
 
-Now close the existing app running with serve and run the following commands in the root folder:
+Now close the existing app running with `serve` and run the following commands in the root folder:
 
 ```bash
 npm run export
