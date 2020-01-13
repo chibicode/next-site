@@ -95,10 +95,18 @@ const Symbol = ({ correct, selected }) => {
   );
 };
 
-const AnswerResultMessage = ({ correct }) => (
+const AnswerResultMessage = ({ answer, correctAnswer }) => (
   <>
-    <Symbol correct={correct} selected />{' '}
-    {correct ? (
+    {typeof answer !== 'undefined' && (
+      <>
+        <Symbol correct={answer === correctAnswer} selected />{' '}
+      </>
+    )}
+    {typeof answer === 'undefined' ? (
+      <>
+        The correct answer is: <strong>{correctAnswer}</strong>.
+      </>
+    ) : answer === correctAnswer ? (
       <span className="correct-message">
         <strong>Correct.</strong> Good job!
       </span>
@@ -137,7 +145,7 @@ const AnswerBox = ({ answers, correctAnswer, record, dispatchRecord }) => (
     ))}
     <div>
       {record.submitted ? (
-        <AnswerResultMessage correct={record.answer === correctAnswer} />
+        <AnswerResultMessage answer={record.answer} correctAnswer={correctAnswer} />
       ) : (
         <Button
           onClick={() => {
