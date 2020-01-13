@@ -104,7 +104,7 @@ const AnswerResultMessage = ({ answer, correctAnswer }) => (
     )}
     {typeof answer === 'undefined' ? (
       <>
-        The correct answer is: <strong>{correctAnswer}</strong>.
+        The correct answer is: <strong>{correctAnswer}</strong>
       </>
     ) : answer === correctAnswer ? (
       <span className="correct-message">
