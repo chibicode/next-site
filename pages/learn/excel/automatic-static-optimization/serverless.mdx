@@ -23,7 +23,7 @@ We can have static and SSR pages in the same app by only using `next build`.
 
 Static HTML should always be fast since it can be cached very well, although there are still cases where you need to handle dynamic data. For these cases you can create lambda functions for each page.
 
-We don't need a server if we can create a lambda per page, pages are independent after all, let's add the file `next.config.js` in the root folder with the following content:
+We don't need a server if we can create a lambda per page. Our pages are independent after all. Let's add the file `next.config.js` in the root folder with the following content:
 
 ```jsx
 module.exports = {
