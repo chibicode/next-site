@@ -24,7 +24,7 @@ export default (req, res) => {
 };
 ```
 
-And now let's consume our API and display the random quote in a page.
+And now let's consume our API and display a random quote in a page.
 
 Open `pages/index.js` and replace its content with the following:
 
@@ -76,6 +76,6 @@ export default function Index() {
 
 In your browser, open http://localhost:3000 and you'll be able to see a random quote from the API, and you can refresh the page to update the quote.
 
-We're using a package called [SWR](https://github.com/zeit/swr) to fetch our API, it's a React Hook for remote data fetching. You can learn more about it [here](https://swr.now.sh/).
+We're using a package called [SWR](https://github.com/zeit/swr) to fetch our API. It's a React Hook for remote data fetching. You can learn more about it [here](https://swr.now.sh/).
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
