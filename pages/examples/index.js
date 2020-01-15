@@ -8,6 +8,7 @@ import SocialMeta from '../../components/social-meta';
 import { Sidebar, SidebarMobile } from '../../components/sidebar';
 import manifest from '../../lib/examples/manifest';
 import SidebarRoutes from '../../components/examples/sidebar-routes';
+import ExamplesIndexPage from '../../components/examples/examples-index-page';
 
 const Index = ({ routes }) => {
   const title = `Examples | Next.js`;
@@ -29,6 +30,7 @@ const Index = ({ routes }) => {
             <Sidebar fixed>
               <SidebarRoutes routes={routes} />
             </Sidebar>
+            <ExamplesIndexPage />
           </div>
         </Container>
         <SocialMeta
