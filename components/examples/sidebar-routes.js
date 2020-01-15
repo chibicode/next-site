@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router';
 import { getCategoryPath } from '../../lib/docs/utils';
+import { getSlug } from '../../lib/examples/utils';
 import { Post, Category, Heading } from '../sidebar';
-
-export function getSlug({ slug }) {
-  return `/examples/${slug.join('/')}`;
-}
 
 function SidebarRoutes({ isMobile, routes: currentRoutes, level = 1 }) {
   const router = useRouter();

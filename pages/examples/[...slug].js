@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import matter from 'gray-matter';
 import Page from '../../components/page';
 import PageContent from '../../components/page-content';
 import Header from '../../components/header';
@@ -8,9 +9,15 @@ import SocialMeta from '../../components/social-meta';
 import { Sidebar, SidebarMobile } from '../../components/sidebar';
 import manifest from '../../lib/examples/manifest';
 import SidebarRoutes from '../../components/examples/sidebar-routes';
+import { findRouteByPath } from '../../lib/docs/page';
+import { getSlug } from '../../lib/examples/utils';
+import { getRawFileFromRepo } from '../../lib/github';
+import markdownToHtml from '../../lib/docs/markdown-to-html';
+import ExamplesSlugPage from '../../components/examples/examples-slug-page';
+import rehypeExamples from '../../lib/examples/rehype-examples';
 
-const Examples = ({ routes }) => {
-  const title = `Examples | Next.js`;
+const Examples = ({ route, data, routes, html }) => {
+  const title = `${data.title || route.title} - Examples | Next.js`;
   const description = 'TBD';
   const router = useRouter();
   const { asPath } = router;
@@ -29,6 +36,7 @@ const Examples = ({ routes }) => {
             <Sidebar fixed>
               <SidebarRoutes routes={routes} />
             </Sidebar>
+            <ExamplesSlugPage title={data.title || route.title} path={route.path} html={html} />
           </div>
         </Container>
         <SocialMeta
@@ -53,12 +61,17 @@ const Examples = ({ routes }) => {
   );
 };
 
-export async function unstable_getStaticProps() {
-  return {
-    props: {
-      routes: manifest.routes
-    }
-  };
+export async function unstable_getStaticProps({ params }) {
+  const slug = getSlug(params);
+  const route = findRouteByPath(slug, manifest.routes);
+
+  if (!route) return {};
+
+  const md = await getRawFileFromRepo(`${route.path}/README.md`);
+  const { content, data } = matter(md);
+  const html = await markdownToHtml(route.path, content, rehypeExamples);
+
+  return { props: { routes: manifest.routes, data, route, html } };
 }
 
 export default Examples;

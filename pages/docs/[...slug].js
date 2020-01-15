@@ -15,6 +15,7 @@ import DocsPage from '../../components/docs/docs-page';
 import SocialMeta from '../../components/social-meta';
 import { Sidebar, SidebarMobile, Post, Category, Heading } from '../../components/sidebar';
 import Page from '../../components/page';
+import rehypeDocs from '../../lib/docs/rehype-docs';
 
 function getCategoryPath(routes) {
   const route = routes.find(r => r.path);
@@ -132,7 +133,7 @@ export async function unstable_getStaticProps({ params }) {
 
   const md = await getRawFileFromRepo(route.path);
   const { content, data } = matter(md);
-  const html = await markdownToHtml(route.path, content);
+  const html = await markdownToHtml(route.path, content, rehypeDocs);
 
   return { props: { routes: manifest.routes, data, route, html } };
 }
