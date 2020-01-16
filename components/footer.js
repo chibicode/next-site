@@ -151,7 +151,7 @@ export default withPure(() => (
           <a href="https://zeit.co" rel="noopener noreferrer" target="_blank" aria-label="ZEIT">
             <ZEITLogo />
           </a>
-          <div> Copyright © 2019 ZEIT, Inc. All rights reserved.</div>
+          <div> Copyright © {`${new Date().getFullYear()}`} ZEIT, Inc. All rights reserved.</div>
         </div>
       </footer>
     </Container>
