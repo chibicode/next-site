@@ -1,0 +1,606 @@
+{
+  "active-class-name": {
+    "name": "activeClassName",
+    "categories": ["routing"]
+  },
+  "amp": { "name": "Google AMP", "categories": ["amp"] },
+  "amp-first": { "name": "AMP First Boilerplate", "categories": ["amp"] },
+  "amp-story": { "name": "Google AMP Story", "categories": ["amp"] },
+  "analyze-bundles": { "name": "Analyzer Bundles", "categories": ["bundle-analyzer"] },
+  "api-routes": { "name": "Basic API routes", "categories": ["api-routes"] },
+  "api-routes-apollo-server-and-client": {
+    "name": "Apollo Server and Client",
+    "categories": ["api-routes", "graphql-backendless"]
+  },
+  "api-routes-graphql": {
+    "name": "API routes with GraphQL server",
+    "categories": ["api-routes", "graphql-backendless"]
+  },
+  "api-routes-micro": {
+    "name": "API routes with Micro",
+    "categories": ["api-routes", "micro"]
+  },
+  "api-routes-middleware": { "name": "API routes with middleware", "categories": ["api-routes"] },
+  "api-routes-rest": { "name": "API routes with REST", "categories": ["api-routes"] },
+  "auth0": { "name": "Auth0", "categories": ["api-routes", "authentication"] },
+  "basic-css": { "name": "Basic CSS", "categories": ["css-styling-ui-components"] },
+  "basic-export": {
+    "name": "Basic export",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "blog-starter": { "name": "Blog starter", "categories": ["mdx"] },
+  "custom-charset": { "name": "Custom charset", "categories": ["custom-server"] },
+  "custom-server": { "name": "Custom server", "categories": ["custom-server"] },
+  "custom-server-actionhero": {
+    "name": "ActionHero",
+    "categories": ["custom-server"]
+  },
+  "custom-server-express": {
+    "name": "Custom Express Server",
+    "categories": ["custom-server"]
+  },
+  "custom-server-fastify": {
+    "name": "Custom Fastify Server",
+    "categories": ["custom-server"]
+  },
+  "custom-server-hapi": {
+    "name": "Custom Hapi Server",
+    "categories": ["custom-server"]
+  },
+  "custom-server-koa": { "name": "Custom Koa Server", "categories": ["custom-server"] },
+  "custom-server-micro": { "name": "Custom Micro Server", "categories": ["custom-server"] },
+  "custom-server-nodemon": {
+    "name": "Custom server with Nodemon",
+    "categories": ["custom-server"]
+  },
+  "custom-server-polka": {
+    "name": "Custom Polka Server",
+    "categories": ["custom-server"]
+  },
+  "custom-server-reasonml": {
+    "name": "Custom server with ReasonML",
+    "categories": ["custom-server", "custom-languages-libraries"]
+  },
+  "custom-server-typescript": {
+    "name": "Custom server with TypeScript + Nodemon",
+    "categories": ["custom-server", "typescript"]
+  },
+  "data-fetch": { "name": "Data fetch", "categories": ["static-generation-data-fetching"] },
+  "dynamic-routing": {
+    "name": "Dynamic Routing",
+    "categories": ["routing"]
+  },
+  "form-handler": { "name": "Form Handler", "categories": ["state-management"] },
+  "gh-pages": { "name": "GitHub pages", "categories": ["deploy"] },
+  "head-elements": {
+    "name": "Head elements",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "hello-world": {
+    "name": "Hello World",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "layout-component": {
+    "name": "Layout component",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "nested-components": {
+    "name": "Nested components",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "only-client-render-external-dependencies": {
+    "name": "Only client render for external dependencies",
+    "categories": ["dynamic-import"]
+  },
+  "page-transitions": { "deprecated": true },
+  "parameterized-routing": { "deprecated": true },
+  "progressive-render": {
+    "name": "Progressive server-side render",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "shared-modules": {
+    "name": "Shared modules",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "ssr-caching": {
+    "name": "Caching SSR'ed pages in the memory",
+    "categories": ["custom-server"]
+  },
+  "svg-components": { "name": "SVG components", "categories": ["others"] },
+  "using-nerv": {
+    "name": "Nerv",
+    "categories": ["custom-languages-libraries"]
+  },
+  "using-preact": { "name": "Preact", "categories": ["custom-languages-libraries"] },
+  "using-router": {
+    "name": "next/router",
+    "categories": ["routing"]
+  },
+  "using-with-router": {
+    "name": "withRouter",
+    "categories": ["routing"]
+  },
+  "with-absolute-imports": {
+    "name": "Absolute imports",
+    "categories": ["configuration-plugins"]
+  },
+  "with-algolia-react-instantsearch": {
+    "name": "With Algolia React InstantSearch",
+    "categories": ["others"]
+  },
+  "with-ant-design": { "name": "Ant Design", "categories": ["css-styling-ui-components"] },
+  "with-ant-design-less": { "name": "Ant Design", "categories": ["css-styling-ui-components"] },
+  "with-antd-mobile": {
+    "name": "Ant Design Mobile",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-aphrodite": {
+    "name": "Aphrodite",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-apollo": { "name": "Apollo", "categories": ["graphql-backendless"] },
+  "with-apollo-and-redux": { "name": "Apollo & Redux", "categories": ["state-management"] },
+  "with-apollo-and-redux-saga": {
+    "name": "Apollo & Redux Saga",
+    "categories": ["state-management"]
+  },
+  "with-app-layout": {
+    "name": "App layout",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-asset-imports": {
+    "name": "Asset imports",
+    "categories": ["configuration-plugins"]
+  },
+  "with-astroturf": {
+    "name": "Astroturf",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-aws-amplify": { "name": "AWS Amplify with NextJS", "categories": ["deploy"] },
+  "with-aws-amplify-typescript": {
+    "name": "AWS Amplify and Typescript with NextJS",
+    "categories": ["deploy", "typescript"]
+  },
+  "with-babel-macros": {
+    "name": "Babel-macros",
+    "categories": ["configuration-plugins"]
+  },
+  "with-carbon-components": {
+    "name": "carbon-components-react",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-carlo": { "name": "Carlo", "categories": ["custom-server"] },
+  "with-cerebral": {
+    "name": "CerebralJS",
+    "categories": ["state-management"]
+  },
+  "with-chakra-ui": {
+    "name": "chakra-ui",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-cloud9": { "name": "Cloud 9 (c9.io)", "categories": ["deploy"] },
+  "with-componentdidcatch": {
+    "name": "componentDidCatch",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-configured-preset-env": {
+    "name": "Preconfigured Babel preset-env",
+    "categories": ["configuration-plugins"]
+  },
+  "with-context-api": {
+    "name": "Context API",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-cookie-auth": {
+    "name": "Cookie-based authentication",
+    "categories": ["authentication"]
+  },
+  "with-cookie-auth-fauna": {
+    "name": "Cookie Auth and Fauna",
+    "categories": ["authentication", "graphql-backendless"]
+  },
+  "with-custom-babel-config": {
+    "name": "Custom Babel config",
+    "categories": ["configuration-plugins"]
+  },
+  "with-custom-reverse-proxy": { "name": "Reverse Proxy", "categories": ["custom-server"] },
+  "with-cxs": { "name": "cxs", "categories": ["css-styling-ui-components"] },
+  "with-data-prefetch": {
+    "name": "Prefetching data",
+    "categories": ["static-generation-data-fetching"]
+  },
+  "with-docker": { "name": "Docker", "categories": ["deploy"] },
+  "with-dotenv": { "name": "Dotenv", "categories": ["configuration-plugins"] },
+  "with-draft-js": { "name": "DraftJS Medium editor inspiration", "categories": ["rich-text"] },
+  "with-dynamic-app-layout": {
+    "name": "Dynamic App layout",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-dynamic-import": {
+    "name": "Dynamic imports",
+    "categories": ["dynamic-import"]
+  },
+  "with-electron": { "name": "Electron app", "categories": ["others"] },
+  "with-electron-typescript": {
+    "name": "Electron app with TypeScript",
+    "categories": ["others", "typescript"]
+  },
+  "with-emotion": {
+    "name": "Emotion",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-emotion-fiber": {
+    "name": "Emotion with Fiber",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-env-from-next-config-js": {
+    "name": "Env From next.config.js",
+    "categories": ["configuration-plugins"]
+  },
+  "with-external-styled-jsx-sass": {
+    "name": "next-sass",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-fela": { "name": "Fela", "categories": ["css-styling-ui-components"] },
+  "with-firebase-authentication": {
+    "name": "Firebase Authentication",
+    "categories": ["authentication", "graphql-backendless"]
+  },
+  "with-firebase-cloud-messaging": {
+    "name": "Firebase Cloud Messaging",
+    "categories": ["graphql-backendless"]
+  },
+  "with-firebase-hosting": { "name": "Firebase Hosting", "categories": ["deploy"] },
+  "with-firebase-hosting-and-docker": {
+    "name": "Firebase Hosting with Docker",
+    "categories": ["deploy"]
+  },
+  "with-firebase-hosting-and-typescript": {
+    "name": "Firebase Hosting with Typescript",
+    "categories": ["deploy", "typescript"]
+  },
+  "with-flow": {
+    "name": "Flow",
+    "categories": ["custom-languages-libraries"]
+  },
+  "with-framer-motion": { "name": "framer-motion", "categories": ["page-transitions"] },
+  "with-freactal": { "name": "Freactal", "categories": ["state-management"] },
+  "with-glamor": { "name": "Glamor", "categories": ["css-styling-ui-components"] },
+  "with-glamorous": {
+    "name": "Glamorous",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-global-stylesheet": { "name": "Global Stylesheet" },
+  "with-global-stylesheet-simple": { "name": "Global Stylesheet (simple)" },
+  "with-google-analytics": {
+    "name": "Google Analytics",
+    "categories": ["analytics-logging"]
+  },
+  "with-google-analytics-amp": {
+    "name": "Google Analytics and Amp",
+    "categories": ["amp", "analytics-logging"]
+  },
+  "with-graphql-faunadb": {
+    "name": "FaunaDB Graphql Starter",
+    "categories": ["graphql-backendless"]
+  },
+  "with-graphql-hooks": {
+    "name": "GraphQL Hooks",
+    "categories": ["graphql-backendless"]
+  },
+  "with-graphql-react": {
+    "name": "graphql-react",
+    "categories": ["graphql-backendless"]
+  },
+  "with-grommet": {
+    "name": "Grommet",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-hashed-statics": {
+    "name": "Imported and hashed statics",
+    "categories": ["configuration-plugins"]
+  },
+  "with-higher-order-component": {
+    "name": "Higher Order Component",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-http2": { "name": "HTTP2 server", "categories": ["custom-server"] },
+  "with-immutable-redux-wrapper": {
+    "name": "Immutable Redux",
+    "categories": ["state-management"]
+  },
+  "with-ioc": {
+    "name": "Dependency Injection (IoC)",
+    "categories": ["others"]
+  },
+  "with-jest": { "name": "Jest tests", "categories": ["testing"] },
+  "with-jest-flow": {
+    "name": "Jest tests and Flow",
+    "categories": ["testing"]
+  },
+  "with-jest-react-testing-library": {
+    "name": "React Testing Library and Jest",
+    "categories": ["testing"]
+  },
+  "with-jest-typescript": {
+    "name": "Jest tests with TypeScript",
+    "categories": ["testing", "typescript"]
+  },
+  "with-kea": { "name": "Kea", "categories": ["state-management"] },
+  "with-linaria": {
+    "name": "linaria",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-lingui": { "name": "Lingui", "categories": ["i18n"] },
+  "with-loading": {
+    "name": "Page loading indicator",
+    "categories": ["page-transitions"]
+  },
+  "with-markdown": { "name": "Markdown", "categories": ["mdx"] },
+  "with-material-ui": { "deprecated": true },
+  "with-mdx": { "name": "MDX", "categories": ["mdx"] },
+  "with-mobx": { "name": "MobX", "categories": ["state-management"] },
+  "with-mobx-keystone-typescript": {
+    "name": "mobx-keystone",
+    "categories": ["state-management"]
+  },
+  "with-mobx-react-lite": { "name": "mobx-react-lite", "categories": ["state-management"] },
+  "with-mobx-state-tree": { "name": "MobX State Tree", "categories": ["state-management"] },
+  "with-mobx-state-tree-typescript": {
+    "name": "MobX State Tree with TypeScript",
+    "categories": ["state-management", "typescript"]
+  },
+  "with-mocha": { "name": "Mocha tests", "categories": ["testing"] },
+  "with-netlify-cms": {
+    "name": "Netlify CMS",
+    "categories": ["graphql-backendless"]
+  },
+  "with-next-css": { "name": "next-css", "categories": ["css-styling-ui-components"] },
+  "with-next-i18next": { "deprecated": true },
+  "with-next-less": {
+    "name": "next-less",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-next-offline": {
+    "name": "next-offline",
+    "categories": ["configuration-plugins"]
+  },
+  "with-next-page-transitions": {
+    "name": "next-page-transitions",
+    "categories": ["page-transitions"]
+  },
+  "with-next-routes": {
+    "name": "Named routes with next-routes",
+    "categories": ["routing"]
+  },
+  "with-next-sass": {
+    "name": "next-sass",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-next-seo": { "name": "Next SEO", "categories": ["configuration-plugins"] },
+  "with-noscript": { "name": "Noscript", "categories": ["nextjs-react-techniques"] },
+  "with-now-env": { "name": "Now-env", "categories": ["configuration-plugins"] },
+  "with-office-ui-fabric-react": {
+    "name": "Office UI Fabric React",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-orbit-components": {
+    "name": "orbit-components",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-overmind": { "name": "Overmind", "categories": ["state-management"] },
+  "with-patternfly": { "name": "Patternfly", "categories": ["css-styling-ui-components"] },
+  "with-pkg": { "name": "pkg", "categories": ["others"] },
+  "with-polyfills": {
+    "name": "Polyfills",
+    "categories": ["configuration-plugins"]
+  },
+  "with-portals": {
+    "name": "React Portals",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-portals-ssr": {
+    "name": "SSR Portals",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-prefetching": {
+    "name": "Prefetching pages",
+    "categories": ["routing"]
+  },
+  "with-pretty-url-routing": {
+    "name": "Pretty url routing",
+    "categories": ["routing"]
+  },
+  "with-quill-js": { "name": "Quilljs editor", "categories": ["rich-text"] },
+  "with-rbx-bulma-pro": {
+    "name": "rbx and bulma-pro",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-react-esi": { "name": "React ESI", "categories": ["custom-server"] },
+  "with-react-ga": { "name": "React-GA", "categories": ["analytics-logging"] },
+  "with-react-helmet": { "name": "react-helmet", "categories": ["others"] },
+  "with-react-intl": { "name": "React Intl", "categories": ["i18n"] },
+  "with-react-jss": { "name": "react-jss", "categories": ["css-styling-ui-components"] },
+  "with-react-md": {
+    "name": "react-md",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-react-multi-carousel": {
+    "name": "react-multi-carousel",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-react-native-web": {
+    "name": "React Native Web",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-react-relay-network-modern": {
+    "name": "Relay Modern",
+    "categories": ["graphql-backendless"]
+  },
+  "with-react-toolbox": {
+    "name": "react-toolbox",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-react-useragent": { "name": "react-useragent", "categories": ["others"] },
+  "with-react-uwp": { "name": "React-UWP", "categories": ["css-styling-ui-components"] },
+  "with-react-with-styles": {
+    "name": "react-with-styles",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-reasonml": {
+    "name": "ReasonML & ReasonReact components",
+    "categories": ["custom-languages-libraries"]
+  },
+  "with-reasonml-todo": {
+    "name": "Todo with ReasonML & ReasonReact components",
+    "categories": ["custom-languages-libraries"]
+  },
+  "with-rebass": { "name": "Rebass", "categories": ["css-styling-ui-components"] },
+  "with-recompose": {
+    "name": "Recompose",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "with-redux": { "name": "Redux", "categories": ["state-management"] },
+  "with-redux-code-splitting": {
+    "name": "Redux with code splitting",
+    "categories": ["state-management"]
+  },
+  "with-redux-observable": {
+    "name": "Redux-Observable",
+    "categories": ["state-management"]
+  },
+  "with-redux-persist": { "name": "Redux Persist", "categories": ["state-management"] },
+  "with-redux-reselect-recompose": {
+    "name": "Redux with reselect and recompose",
+    "categories": ["state-management"]
+  },
+  "with-redux-saga": { "name": "redux-saga", "categories": ["state-management"] },
+  "with-redux-thunk": { "name": "Redux Thunk", "categories": ["state-management"] },
+  "with-redux-wrapper": { "name": "Redux Wrapper", "categories": ["state-management"] },
+  "with-reflux": {
+    "name": "Reflux",
+    "categories": ["state-management"]
+  },
+  "with-refnux": { "name": "Refnux", "categories": ["state-management"] },
+  "with-relay-modern": { "name": "Relay Modern", "categories": ["graphql-backendless"] },
+  "with-relay-modern-server-express": {
+    "name": "Relay Modern Server Express",
+    "categories": ["graphql-backendless"]
+  },
+  "with-rematch": { "name": "Rematch", "categories": ["state-management"] },
+  "with-segment-analytics": {
+    "name": "Segment analytics",
+    "categories": ["analytics-logging"]
+  },
+  "with-semantic-ui": { "name": "Semantic UI", "categories": ["css-styling-ui-components"] },
+  "with-sentry": { "name": "Sentry", "categories": ["analytics-logging"] },
+  "with-sentry-simple": {
+    "name": "Sentry (Simple Example)",
+    "categories": ["analytics-logging"]
+  },
+  "with-shallow-routing": {
+    "name": "Shallow Routing",
+    "categories": ["routing"]
+  },
+  "with-sitemap-and-robots-express-server": {
+    "name": "sitemap.xml and robots.txt with Express server",
+    "categories": ["custom-server"]
+  },
+  "with-slate": { "name": "slate.js", "categories": ["rich-text"] },
+  "with-socket.io": { "name": "Socket.io", "categories": ["custom-server"] },
+  "with-static-export": {
+    "name": "Static export",
+    "categories": ["static-generation-data-fetching"]
+  },
+  "with-stomp": { "name": "Stomp", "categories": ["others"] },
+  "with-storybook": {
+    "name": "Storybook",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-strict-csp": { "name": "Strict CSP", "categories": ["custom-server"] },
+  "with-strict-csp-hash": {
+    "name": "Strict CSP generating script hash",
+    "categories": ["custom-server"]
+  },
+  "with-style-sheet": {
+    "name": "style-sheet",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-styled-components": {
+    "name": "Styled-components",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-styled-components-rtl": {
+    "name": "Styled-components RTL",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-styled-jsx-plugins": {
+    "name": "styled-jsx plugins",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-styled-jsx-postcss": { "deprecated": true },
+  "with-styled-jsx-scss": {
+    "name": "styled-jsx SASS / SCSS",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-styletron": {
+    "name": "styletron",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-sw-precache": {
+    "name": "sw-precache",
+    "categories": ["configuration-plugins"]
+  },
+  "with-tailwindcss": { "name": "Tailwind CSS", "categories": ["css-styling-ui-components"] },
+  "with-tailwindcss-emotion": {
+    "name": "Tailwind CSS with Emotion",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-ts-node": {
+    "name": "ts-node",
+    "categories": ["custom-server", "typescript"]
+  },
+  "with-typescript": { "name": "TypeScript", "categories": ["typescript"] },
+  "with-typescript-graphql": {
+    "name": "GraphQL and TypeScript",
+    "categories": ["graphql-backendless", "typescript"]
+  },
+  "with-typescript-styled-components": {
+    "name": "TypeScript & Styled Components",
+    "categories": ["css-styling-ui-components", "typescript"]
+  },
+  "with-typestyle": {
+    "name": "typestyle",
+    "categories": ["css-styling-ui-components"]
+  },
+  "with-universal-configuration-build-time": {
+    "name": "Universal build-time configuration",
+    "categories": ["configuration-plugins"]
+  },
+  "with-universal-configuration-runtime": {
+    "name": "Universal runtime configuration",
+    "categories": ["configuration-plugins"]
+  },
+  "with-unstated": { "name": "Unstated", "categories": ["state-management"] },
+  "with-url-object-routing": {
+    "name": "URL object routing",
+    "categories": ["routing"]
+  },
+  "with-videojs": { "name": "video.js", "categories": ["others"] },
+  "with-webassembly": { "name": "WebAssembly", "categories": ["others"] },
+  "with-webpack-bundle-analyzer": { "deprecated": true },
+  "with-webpack-bundle-size-analyzer": {
+    "name": "Webpack Bundle Size Analyzer",
+    "categories": ["bundle-analyzer"]
+  },
+  "with-yarn-workspaces": { "name": "Yarn workspaces", "categories": ["others"] },
+  "with-zeit-fetch": {
+    "name": "@zeit/fetch",
+    "categories": ["static-generation-data-fetching"]
+  },
+  "with-zones": {
+    "name": "Using multiple zones",
+    "categories": ["nextjs-react-techniques"]
+  },
+  "z-experimental-next-news": { "experimental": true }
+}
