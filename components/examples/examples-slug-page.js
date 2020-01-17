@@ -9,7 +9,6 @@ function areEqual(prevProps, props) {
 }
 
 function ExamplesSlugPage({ title, path, html }) {
-  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${REPO_BRANCH}${path}/README.md`;
   const viewUrl = `${GITHUB_URL}/${REPO_NAME}/tree/${REPO_BRANCH}${path}/`;
 
   const notification = (
