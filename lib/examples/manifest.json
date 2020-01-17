@@ -129,7 +129,10 @@
     "categories": ["others"]
   },
   "with-ant-design": { "name": "Ant Design", "categories": ["css-styling-ui-components"] },
-  "with-ant-design-less": { "name": "Ant Design", "categories": ["css-styling-ui-components"] },
+  "with-ant-design-less": {
+    "name": "Ant Design with Less",
+    "categories": ["css-styling-ui-components"]
+  },
   "with-antd-mobile": {
     "name": "Ant Design Mobile",
     "categories": ["css-styling-ui-components"]
@@ -238,7 +241,7 @@
     "categories": ["configuration-plugins"]
   },
   "with-external-styled-jsx-sass": {
-    "name": "next-sass",
+    "name": "External Styled JSX Sass",
     "categories": ["css-styling-ui-components"]
   },
   "with-fela": { "name": "Fela", "categories": ["css-styling-ui-components"] },
@@ -434,7 +437,7 @@
     "categories": ["css-styling-ui-components"]
   },
   "with-react-relay-network-modern": {
-    "name": "Relay Modern",
+    "name": "Relay Modern with react-relay-network-modern",
     "categories": ["graphql-backendless"]
   },
   "with-react-toolbox": {

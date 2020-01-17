@@ -2,6 +2,7 @@ import { memo } from 'react';
 import { GITHUB_URL, REPO_NAME, REPO_BRANCH } from '../../lib/github-constants';
 import Feedback from '../docs/feedback';
 import DocsLayout from '../docs/docs-layout';
+import Notification from '../docs/notification';
 
 function areEqual(prevProps, props) {
   return prevProps.path === props.path;
@@ -11,25 +12,32 @@ function ExamplesSlugPage({ title, path, html }) {
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${REPO_BRANCH}${path}/README.md`;
   const viewUrl = `${GITHUB_URL}/${REPO_NAME}/tree/${REPO_BRANCH}${path}/`;
 
-  return (
-    <DocsLayout>
-      {/* eslint-disable-next-line */}
-      <h1>{title}</h1>
-      <p>
-        You can{' '}
+  const notification = (
+    <Notification>
+      <strong>
+        You can view{' '}
         <a href={viewUrl} className="absolute" target="_blank" rel="noopener noreferrer">
-          view this example on GitHub
+          the source code for this example on GitHub
         </a>
         .
-      </p>
+      </strong>
+    </Notification>
+  );
+
+  return (
+    <DocsLayout>
+      <h1>{title}</h1>
+      {notification}
+      {/* eslint-disable-next-line */}
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <hr />
+      {notification}
       <Feedback />
-      <footer>
-        <a href={editUrl} target="_blank" rel="noopener noreferrer">
-          Edit this page on GitHub
-        </a>
-      </footer>
+      <style jsx>{`
+        h1 {
+          margin-bottom: 1.5rem;
+        }
+      `}</style>
     </DocsLayout>
   );
 }

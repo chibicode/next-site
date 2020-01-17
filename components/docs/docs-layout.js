@@ -31,6 +31,8 @@ export default function DocsLayout({ children }) {
         .docs h1 {
           font-size: 3rem;
           font-weight: 700;
+          line-height: 1.5;
+          letter-spacing: -0.066875rem;
         }
         .docs h2 {
           font-size: 2rem;

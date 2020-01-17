@@ -28,34 +28,26 @@ function SidebarRoutes({ isMobile, routes: currentRoutes, level = 1 }) {
         }
 
         if (routes) {
-          const pathname = getCategoryPath(routes);
-          const selected = slug.startsWith(pathname);
+          const selected = routes.find(route => slug.startsWith(route.path));
           const opened = selected || isMobile ? false : open;
 
           if (heading) {
             return (
               <Heading key={title} title={title}>
-                {pathname}
                 <SidebarRoutes isMobile={isMobile} routes={routes} level={level + 1} />
               </Heading>
             );
           }
 
           return (
-            <Category
-              key={pathname}
-              level={level}
-              title={title}
-              selected={selected}
-              opened={opened}
-            >
+            <Category key={title} level={level} title={title} selected={selected} opened={opened}>
               <SidebarRoutes isMobile={isMobile} routes={routes} level={level + 1} />
             </Category>
           );
         }
 
         const href = '/examples/[...slug]';
-        const selected = slug.startsWith(path);
+        const selected = slug === path;
         const route = { href, title, pathname: path, selected };
 
         return <Post key={title} isMobile={isMobile} level={level} route={route} />;

@@ -6,9 +6,9 @@ import Navbar from '../../components/navbar';
 import Container from '../../components/container';
 import SocialMeta from '../../components/social-meta';
 import { Sidebar, SidebarMobile } from '../../components/sidebar';
-import manifest from '../../lib/examples/manifest';
 import SidebarRoutes from '../../components/examples/sidebar-routes';
 import ExamplesIndexPage from '../../components/examples/examples-index-page';
+import exampleRoutes from '../../lib/examples/example-routes';
 
 const Index = ({ routes }) => {
   const title = `Examples | Next.js`;
@@ -58,7 +58,7 @@ const Index = ({ routes }) => {
 export async function unstable_getStaticProps() {
   return {
     props: {
-      routes: manifest.routes
+      routes: exampleRoutes
     }
   };
 }

@@ -7,7 +7,7 @@ import Navbar from '../../components/navbar';
 import Container from '../../components/container';
 import SocialMeta from '../../components/social-meta';
 import { Sidebar, SidebarMobile } from '../../components/sidebar';
-import manifest from '../../lib/examples/manifest';
+import exampleRoutes from '../../lib/examples/example-routes';
 import SidebarRoutes from '../../components/examples/sidebar-routes';
 import { findRouteByPath } from '../../lib/docs/page';
 import { getSlug } from '../../lib/examples/utils';
@@ -63,7 +63,7 @@ const Examples = ({ route, data, routes, html }) => {
 
 export async function unstable_getStaticProps({ params }) {
   const slug = getSlug(params);
-  const route = findRouteByPath(slug, manifest.routes);
+  const route = findRouteByPath(slug, exampleRoutes);
 
   if (!route) return {};
 
@@ -71,7 +71,7 @@ export async function unstable_getStaticProps({ params }) {
   const { content, data } = matter(md);
   const html = await markdownToHtml(route.path, content, rehypeExamples);
 
-  return { props: { routes: manifest.routes, data, route, html } };
+  return { props: { routes: exampleRoutes, data, route, html } };
 }
 
 export default Examples;
