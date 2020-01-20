@@ -43,7 +43,7 @@
     "intersection-observer": "^0.5.0",
     "md5": "2.2.1",
     "mdast-util-to-string": "1.0.7",
-    "next": "9.1.8-canary.2",
+    "next": "9.2.1-canary.4",
     "node-fetch": "2.6.0",
     "nprogress": "0.2.0",
     "polished": "^2.0.3",
