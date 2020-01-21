@@ -6,27 +6,31 @@ export const meta = {
   lessonId: 'getting-started',
   stepId: 'setup',
   question: {
-    answers: [
-      'Error No Page Found',
-      '404 - This page could not be found',
-      'Hello Next.js',
-      'Hello World'
-    ],
-    correctAnswer: '404 - This page could not be found'
+    answers: ['404 - This page could not be found', 'Hello Next.js'],
+    correctAnswer: 'Hello Next.js'
   }
 };
 
 ## Setup
 
-Next.js works with Windows, Mac and Linux alike. You only need to have Node.js installed on your system to begin building Next.js applications.
+Here’s the system requirements for this tutorial:
 
-Besides that you need to have a text editor to write code, and a Terminal application to invoke some commands.
+- [Node.js](https://nodejs.org/) 10 or later
+- Your favorite text editor and terminal
 
-> If you are on Windows, try to use PowerShell or Git Bash (Comes with [git](https://git-scm.com/downloads)).
-> Next.js works with any shell or terminal, but we'll be using some UNIX-specific commands in this guide.
-> We recommend using PowerShell to make it easy to follow along.
+macOS, Windows (including WSL), and Linux are all supported.
 
-To start, create a sample project by running the following commands:
+> If you are on Windows, try to use PowerShell or Git Bash (Comes with [git](https://git-scm.com/downloads)). Here’s why: Next.js works with any shell or terminal, but we'll be using some UNIX-specific commands in this guide.
+
+### Step 1: Create files
+
+First, we will:
+
+- Create and move into the `hello-next` directory
+- Use `npm` to create `package.json` and install `react`, `react-dom`, and `next`
+- Create `index.js` under the `pages` directory
+
+Run these commands in order:
 
 ```bash
 mkdir hello-next
@@ -34,25 +38,50 @@ cd hello-next
 npm init -y
 npm install --save react react-dom next
 mkdir pages
+touch pages/index.js
 ```
 
-Then open the `package.json` file in the `hello-next` directory and replace `scripts` with the following:
+> If you prefer [Yarn](https://yarnpkg.com/), you can use `yarn add` instead of `npm install --save`.
+
+### Step 2: Create a page component
+
+Next, open `index.js` in the `pages` directory inside `hello-next` and add the following:
+
+```jsx
+const Index = () => <h1>Hello Next.js</h1>;
+
+export default Index;
+```
+
+This is a simple React.js component that displays <strong>Hello Next.js</strong> in `<h1>` tag.
+
+### Step 3: Set up scripts
+
+Finally, open `package.json` in the `hello-next` directory and replace the contents of `scripts` with the following:
 
 ```json
 "scripts": {
   "dev": "next",
   "build": "next build",
   "start": "next start"
-}
+},
 ```
 
-Now everything is ready. Run the following command to start the dev server:
+This adds the following commands:
+
+- `npm run dev`: Start the development server. You’ll use this often!
+- `npm run build`: Build the project for production.
+- `npm run start`: Start the production server.
+
+### Running Next.js
+
+Run the following command to start the development server:
 
 ```bash
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000/) from your favourite browser.
+Then open [http://localhost:3000](http://localhost:3000/) from your browser.
 
 What's the output you see on the screen?
 
