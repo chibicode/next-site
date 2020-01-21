@@ -19,6 +19,18 @@ const H2 = ({ children }) => (
   </h2>
 );
 
+const H3 = ({ children }) => (
+  <h3>
+    {children}
+    <style jsx>{`
+      h3 {
+        margin-top: 2rem;
+        font-size: 1.125rem;
+      }
+    `}</style>
+  </h3>
+);
+
 const Hr = () => (
   <>
     <hr />
@@ -111,6 +123,7 @@ const components = {
   blockquote: Blockquote,
   code: Code,
   h2: H2,
+  h3: H3,
   img: Img,
   hr: Hr,
   inlineCode: InlineCode
