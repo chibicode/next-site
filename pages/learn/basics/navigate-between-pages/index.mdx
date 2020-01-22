@@ -6,24 +6,20 @@ export const meta = {
   lessonId: 'navigate-between-pages'
 };
 
-Now we know how to create a simple Next.js app and run it. Our simple app only had a single page, but we can add as many pages as we want. For example, we can create an "About" page by adding the following content to `pages/about.js`:
+In this lesson, you’ll learn how **page navigation** works in Next.js.
 
-```jsx
-export default function About() {
-  return (
-    <div>
-      <p>This is the about page</p>
-    </div>
-  );
-}
+### Setup (Optional)
+
+**If you’re continuing from the previous lesson,** you can skip the following and go straight to the next page.
+
+Otherwise, you can download, install, and run the starter code below. Again, this is NOT necessary if you’ve just finished the previous lesson.
+
+```bash
+git clone https://github.com/zeit/next-learn-demo.git
+cd next-learn-demo
+cd 1-navigate-between-pages
+npm install
+npm run dev
 ```
-
-Then we can access that page with http://localhost:3000/about.
-
-After that, we need to connect these pages. We could use an HTML `<a />` tag for that. However, it won't perform client-side navigation; instead the browser will do a request to the server for the next page and refresh the page, which is not what we want.
-
-In order to support client-side navigation, we need to use Next.js's `Link` component, which is exported via `next/link`. By using the `Link` component, navigation will happen without a page refresh.
-
-Let's see how to use it.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

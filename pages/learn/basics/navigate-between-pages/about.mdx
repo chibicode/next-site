@@ -1,0 +1,29 @@
+import Layout from '../../../../components/learn/Layout';
+import AnswerBox from '../../../../components/learn/AnswerBox';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'about'
+};
+
+## About Page
+
+Let’s create an “About” page. We’ll use this page to demonstrate how page navigation works in Next.js.
+
+Create a file called `about.js` inside the `pages` directory and add the following:
+
+```jsx
+const About = () => <h1>About</h1>;
+
+export default About;
+```
+
+You can view this page by going to [http://localhost:3000/about](http://localhost:3000/about) in the browser.
+
+This is how you can create different pages in Next.js. Simply create a JS file in the `pages` directory, and the file name becomes the URL path. In a way, this is similar to building websites using HTML or PHP files.
+
+Now, let’s add a link to each page so you can go back and forth between the index page and the about page.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
