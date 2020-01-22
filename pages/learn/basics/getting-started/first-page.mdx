@@ -7,13 +7,8 @@ export const meta = {
   lessonId: 'getting-started',
   stepId: 'first-page',
   question: {
-    answers: [
-      'Nothing happened',
-      "There's an error with page not found",
-      "There's an error showing the syntax error",
-      "There's an error with 500 - Internal Error"
-    ],
-    correctAnswer: "There's an error showing the syntax error"
+    answers: ['Nothing happened', "There's an error"],
+    correctAnswer: "There's an error"
   }
 };
 
@@ -41,9 +36,11 @@ If you save the file, it _automatically_ updates the browser with the new text. 
 Let’s experiment for a bit and see what happens if you forget to `export default` the component. Comment out the last line like so, and save the file:
 
 ```jsx
-const Index = () => <h1>Hello Next.js</h1>;
+const Index = () => <h1>Test Test</h1>;
 
 // export default Index
 ```
+
+What happened to the page?
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
