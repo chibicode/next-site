@@ -371,6 +371,21 @@ function Page({ title, description, children }) {
             height: auto;
             clip: auto;
           }
+
+          kbd {
+            box-sizing: border-box;
+            color: #666;
+            background: #fafafa;
+            border: 1px solid #eaeaea;
+            display: inline-block;
+            font-family: -apple-system, system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+              'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 2em;
+            text-align: center;
+            padding: 0 4px;
+            font-size: 0.9em;
+            border-radius: 5px;
+          }
         `}
       </style>
       {children}
