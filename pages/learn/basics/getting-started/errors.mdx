@@ -7,10 +7,20 @@ export const meta = {
   stepId: 'errors'
 };
 
-## Handling Errors
+## Error Messages in the Browser
 
-By default, Next.js will track errors like these and show it in the browser. This helps you identify errors and fix them quickly.
+It should have automatically shown you an error message in the browser. In Next.js, most errors you’ll encounter will be displayed in the browser. You usually won’t need to look at your terminal to debug.
 
-Once you fix the issue, the page will appear instantly without a full page reload. We do this with the help of Webpack's [hot module replacement](https://webpack.js.org/concepts/hot-module-replacement/) facility, which is supported in Next.js by default.
+If you uncomment the last line and save the file, the browser will show the page automatically again.
+
+```jsx
+const Index = () => <h1>Test Test</h1>;
+
+export default Index;
+```
+
+That’s it for the first lesson. Good job!
+
+In the next lesson, we’ll start adding more pages to our app.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
