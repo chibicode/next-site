@@ -1,4 +1,5 @@
 import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/Image';
 
 export const meta = {
   title: 'Getting Started',
@@ -16,41 +17,33 @@ export const meta = {
   }
 };
 
-## Creating Our First Page
+## Hot Reloading
 
-Now let's create our first page.
-
-Create a file named `pages/index.js` and add the following content:
+Let’s try editing the page. In `pages/index.js`, change what’s inside the `<h1>` tag to some random text:
 
 ```jsx
-const Index = () => (
-  <div>
-    <p>Hello Next.js</p>
-  </div>
-);
-
-export default Index;
+const Index = () => <h1>Test Test</h1>;
 ```
 
-Now if you visit [http://localhost:3000](http://localhost:3000/) again, you'll see a page with "Hello Next.js"
+If you save the file, it _automatically_ updates the browser with the new text. This is the <strong>hot reloading</strong> feature of Next.js.
 
-Here, we've exported a simple React Component from the `pages/index.js` module. Likewise, you could write your own React component and export it.
+<Image
+  shadow
+  alt="Test Test"
+  oversize={false}
+  src="/static/images/learn/getting-started/basics-test.png"
+  width={1108 / 2}
+  height={532 / 2}
+/>
 
-> Make sure your React Component is the **default** export.
+### What happens if you forget `export default`?
 
-Now try to prompt a syntax error in your Index page. Here's an example:
-(We have simply removed the **&#x3C;/p&#x3E;** HTML tag)
+Let’s experiment for a bit and see what happens if you forget to `export default` the component. Comment out the last line like so, and save the file:
 
 ```jsx
-const Index = () => (
-  <div>
-    <p>Hello Next.js
-  </div>
-)
+const Index = () => <h1>Hello Next.js</h1>;
 
-export default Index
+// export default Index
 ```
-
-What will happen to the app loaded at [http://localhost:3000](http://localhost:3000/)?
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
