@@ -250,7 +250,7 @@ function Page({ title, description, children }) {
           .token.prolog,
           .token.doctype,
           .token.cdata {
-            color: #7c7c7c;
+            color: #999;
           }
 
           .token.punctuation {

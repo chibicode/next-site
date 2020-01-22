@@ -52,7 +52,7 @@ const Blockquote = ({ children }) => (
         padding: 1rem 1.25rem;
         background: #f7f7f7;
       }
-      blockquote p {
+      blockquote :global(p) {
         margin: 0;
       }
     `}</style>
