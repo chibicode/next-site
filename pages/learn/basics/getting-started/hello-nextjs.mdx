@@ -1,0 +1,32 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/Image';
+import PrerenderIndicator from '../../../../components/learn/prerender-indicator';
+import Link from 'next/link';
+
+export const meta = {
+  title: 'Getting Started',
+  courseId: 'basics',
+  lessonId: 'getting-started',
+  stepId: 'hello-nextjs'
+};
+
+## Hello Next.js
+
+Congratulations! You’ve created the first page in Next.js.
+
+<Image
+  shadow
+  alt="Hello Next.js"
+  oversize={false}
+  src="/static/images/learn/getting-started/basics-hello.png"
+  width={1108 / 2}
+  height={532 / 2}
+/>
+
+**Summary:** If you create a React.js component on `pages/index.js` (and export it with `export default`), it will show that component on [http://localhost:3000](http://localhost:3000/).
+
+> **Note:** The <PrerenderIndicator /> icon on the bottom right means that Next.js will do <Link href="https://nextjs.org/docs/api-reference/next.config.js/static-optimization-indicator"><a>static optimization</a></Link> on this page. You can ignore it for now. This icon will disappear when you build the app for production.
+
+Next, we’ll take a look at Next.js’s **hot reloading** feature.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
