@@ -1,0 +1,65 @@
+import Layout from '../../../../components/learn/Layout';
+import AnswerBox from '../../../../components/learn/AnswerBox';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'not-client-side'
+};
+
+## Not Using Client-Side Navigation (Slow)
+
+We’ll add links between pages using regular `<a>` tags. This is NOT the correct way to do page navigation in Next.js, and we’ll see why in this lesson.
+
+First, modify `pages/index.js` as follows to add a link to the about page:
+
+```jsx
+const Index = () => (
+  <div>
+    <h1>Index</h1>
+    <p>
+      <a href="/about">About</a>
+    </p>
+  </div>
+);
+
+export default Index;
+```
+
+Then, modify `pages/about.js` as follows to add a link to the index page:
+
+```jsx
+const About = () => (
+  <div>
+    <h1>About</h1>
+    <p>
+      <a href="/">Index</a>
+    </p>
+  </div>
+);
+
+export default About;
+```
+
+Now, go to [http://localhost:3000/](http://localhost:3000/) and open the browser’s developer tools (<kbd>⌘ ⌥ I</kbd> on Mac, <kbd>Ctrl + Shift + I</kbd> on Windows/Linux).
+
+Open the **Network** panel on the developer tools and try clicking the link on each page multiple times. (This is in Safari, but other browsers should look similar)
+
+<Image
+  shadow
+  alt="Network panel - client side navigation"
+  oversize={false}
+  src="/static/images/learn/navigate-between-pages/not-client-side-nav.gif"
+  width={900 / 1.5}
+  height={796 / 1.5}
+/>
+
+Notice that _all of the items in the Network panel get refreshed_ every time you click a link. This is because it’s doing full page refresh. And it’s slow!
+
+Because we’re building a JS app, we should instead be able to do **client-side navigation**: Navigating to different pages without doing full refresh. It’ll be faster because we won’t need to make a big request to the server.
+
+Let’s see how we can do client-side navigation the right way in Next.js.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
