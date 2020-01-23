@@ -18,24 +18,18 @@ First, let’s create a file to store information about each blog post:
 ```js
 export const postsData = {
   'first-post': {
-    title: 'First Post',
-    date: new Date('2020-01-01')
+    title: 'First Post'
   },
   'second-post': {
-    title: 'Second Post',
-    date: new Date('2020-01-02')
+    title: 'Second Post'
   }
 };
 
-// postsData keys sorted from the newest to the oldest
-// ['second-post', 'first-post']
-export const postsKeysSorted = Object.keys(postsData).sort(
-  (a, b) => postsData[b].date - postsData[a].date
-);
+export const postsKeys = ['second-post', 'first-post'];
 ```
 
-- `postsData` contains data about each blog post. It stores post data such as `title` and `date`.
-- `postsKeysSorted` is a sorted list of `postsData` keys. It’ll be ordered from the newest to the oldest based on `date`.
+- `postsData` contains data about each blog post. It stores post data such as `title`.
+- `postsKeys` is a list of `postsData` keys. We’ll display our bog posts in this order.
 
 ### Display the post names on the index page
 
@@ -43,13 +37,13 @@ Let’s display the post names on the index page. Modify `pages/index.js` as fol
 
 ```jsx
 import Link from 'next/link';
-import { postsData, postsKeysSorted } from '../lib/posts';
+import { postsData, postsKeys } from '../lib/posts';
 
 const Index = () => (
   <div>
     <h1>Index</h1>
     <ul>
-      {postsKeysSorted.map(key => (
+      {postsKeys.map(key => (
         <li key={key}>{postsData[key].title}</li>
       ))}
     </ul>
