@@ -5,94 +5,70 @@ export const meta = {
   title: 'Dynamic Routing',
   courseId: 'basics',
   lessonId: 'dynamic-routing',
-  stepId: 'dynamic-routing',
-  question: {
-    answers: [
-      'It throws an error.',
-      'It goes back to the index page and navigates again to the post page.',
-      'It goes back to the index page but nothing happens after that.',
-      'It goes back to the index page then throws an error.'
-    ],
-    correctAnswer: 'It goes back to the index page and navigates again to the post page.'
+  stepId: 'dynamic-routing'
+};
+
+## Blog Post Information
+
+First, let’s create a file to store information about each blog post:
+
+- Create the `lib` directory (on the top level of the project folder)
+- Add `posts.js` inside with the following contents:
+
+```js
+export const postsData = {
+  'first-post': {
+    title: 'First Post',
+    date: new Date('2020-01-01')
+  },
+  'second-post': {
+    title: 'Second Post',
+    date: new Date('2020-01-02')
   }
 };
 
-## Dynamic Routing
-
-Here, we are going to use the [Dynamic Routing](https://nextjs.org/docs/routing/dynamic-routes) feature of Next.js, it allows you to handle dynamic routes in `/pages`.
-
-Let's create our first dynamic route by adding a new page to `pages/p/[id].js`, notice that you need to add the folder `/p` inside `/pages` first, and that the page is called `[id].js`. Then add the following content:
-
-```jsx
-import { useRouter } from 'next/router';
-import Layout from '../../components/MyLayout';
-
-export default function Post() {
-  const router = useRouter();
-
-  return (
-    <Layout>
-      <h1>{router.query.id}</h1>
-      <p>This is the blog post content.</p>
-    </Layout>
-  );
-}
+// postsData keys sorted from the newest to the oldest
+// ['second-post', 'first-post']
+export const postsKeysSorted = Object.keys(postsData).sort(
+  (a, b) => postsData[b].date - postsData[a].date
+);
 ```
 
-The previous page is special, instead of handling a static route like `/about`, it will handle routes that come after `/p/`. For example, `/p/hello-nextjs` will be handled by this page. Although, `/p/post-1/another` will not.
+- `postsData` contains data about each blog post. It stores post data such as `title` and `date`.
+- `postsKeysSorted` is a sorted list of `postsData` keys. It’ll be ordered from the newest to the oldest based on `date`.
 
-Having brackets (`[]`) in the page name makes it a dynamic route. Currently, you can not make part of a page name dynamic, only the full name. For example, `/pages/p/[id].js` is supported but `/pages/p/post-[id].js` is not currently.
+### Display the post names on the index page
 
-When creating the dynamic route we added `id` between the brackets (`[]`). This is the name of the query param received by the page, so for `/p/hello-nextjs` the `query` object will have `{ id: 'hello-nextjs'}`, and we can access it with [useRouter()](https://nextjs.org/docs/api-reference/next/router#userouter).
-
----
-
-Now let's add multiple links that use our new dynamic route, Use the following code for `pages/index.js`:
+Let’s display the post names on the index page. Modify `pages/index.js` as follows:
 
 ```jsx
-import Layout from '../components/MyLayout';
 import Link from 'next/link';
+import { postsData, postsKeysSorted } from '../lib/posts';
 
-const PostLink = props => (
-  <li>
-    <Link href="/p/[id]" as={`/p/${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
+const Index = () => (
+  <div>
+    <h1>Index</h1>
+    <ul>
+      {postsKeysSorted.map(key => (
+        <li key={key}>{postsData[key].title}</li>
+      ))}
+    </ul>
+    <p>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+    </p>
+  </div>
 );
 
-export default function Blog() {
-  return (
-    <Layout>
-      <h1>My Blog</h1>
-      <ul>
-        <PostLink id="hello-nextjs" />
-        <PostLink id="learn-nextjs" />
-        <PostLink id="deploy-nextjs" />
-      </ul>
-    </Layout>
-  );
-}
+export default Index;
 ```
 
-Have a look at the following code block:
+If you open [http://localhost:3000](http://localhost:3000), you should now see:
 
-```jsx
-const PostLink = props => (
-  <li>
-    <Link href="/p/[id]" as={`/p/${props.id}`}>
-      <a>{props.id}</a>
-    </Link>
-  </li>
-);
-```
+- Second Post
+- First Post
 
-In the `<Link>` element, the `href` prop is now the path of the page in the `pages` folder and `as` is the URL to show in URL bar of the browser.
-
----
-
-Now try to click on the first blog post and you'll be navigated to the blog post.
-
-After that, hit the **back** button and then hit the **forward** button. What happened?
+Next, let’s create these pages using dynamic routes!
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
