@@ -79,6 +79,11 @@ const nextConfig = {
           destination: '/learn/basics/navigate-between-pages/link'
         },
         {
+          source: '/learn/basics/clean-urls-with-dynamic-routing{/}?',
+          statusCode: 301,
+          destination: '/learn/basics/dynamic-routing'
+        },
+        {
           source: '/features{/}?',
           statusCode: 301,
           destination: '/features/static-exporting'

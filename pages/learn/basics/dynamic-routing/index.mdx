@@ -1,0 +1,20 @@
+import Layout from '../../../../components/learn/Layout';
+
+export const meta = {
+  title: 'Dynamic Routing',
+  courseId: 'basics',
+  lessonId: 'dynamic-routing'
+};
+
+So far, we’ve created two pages with specific routes: `/` and `/about`.
+
+As mentioned in the beginning, we’d like to create a blog app. So we’d like to support <strong>dynamic routes</strong> like below:
+
+- `/posts/first-post` should display the first blog post.
+- `/posts/second-post` should display the second blog post.
+
+So if the path looks like with `/posts/[slug]`, it should show a blog post that corresponds to `slug`.
+
+Let’s take a look at how we can implement dynamic routes in Next.js!
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
