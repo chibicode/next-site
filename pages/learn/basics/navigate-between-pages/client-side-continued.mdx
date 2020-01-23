@@ -1,0 +1,41 @@
+import Layout from '../../../../components/learn/Layout';
+import AnswerBox from '../../../../components/learn/AnswerBox';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'client-side-continued'
+};
+
+## Client-Side Navigation (Continued)
+
+If you click on each link, new items get added to the Network panel without refreshing. This is because it’s NOT doing full page refresh. Page transitions happen on client-side and are much faster.
+
+<Image
+  shadow
+  alt="Network panel - client side navigation"
+  oversize={false}
+  src="/static/images/learn/navigate-between-pages/client-side-nav.gif"
+  width={900 / 1.5}
+  height={876 / 1.5}
+/>
+
+### Code splitting and prefetching
+
+Next.js does code splitting automatically so each page only loads what’s necessary for that page. That means when the index page is rendered, the code for the about page is not served initially. This makes the index page load quickly.
+
+Now, here’s the awesome part:
+
+In a production build of Next.js (which we’ll cover later), whenever `Link` components appear in the browser’s viewport, Next.js automatically **prefetches** the code for the linked page in the background.
+
+So in our example, when the link for the about page becomes visible, Next.js prefetches the code for the about page in the background. By the time you click the link, the code will already be loaded, and the page transition will be instant!
+
+**Summary:** Next.js automatically optimizes your site for the best performance by code splitting, client-side navigation, and prefetching (in production). You just need to create routes as files under `pages` and use `Link`.
+
+You can learn more about the `Link` component [in our documentation](https://nextjs.org/docs/api-reference/next/link).
+
+> **Note:** If you need to link to an external page, just use an `<a>` tag without `Link`.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

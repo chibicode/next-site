@@ -1,0 +1,64 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'client-side',
+  question: {
+    answers: [
+      'All items on the Network panel get refreshed.',
+      'New items get added to the Network panel without refreshing.'
+    ],
+    correctAnswer: 'New items get added to the Network panel without refreshing.'
+  }
+};
+
+## Client-Side Navigation (Fast)
+
+To do client-side navigation, you need to use the `Link` component provided by Next.js.
+
+First, modify `pages/index.js` as follows to use the `Link` component:
+
+```jsx
+import Link from 'next/link';
+
+const Index = () => (
+  <div>
+    <h1>Index</h1>
+    <p>
+      <Link href="/about">
+        <a>About</a>
+      </Link>
+    </p>
+  </div>
+);
+
+export default Index;
+```
+
+**Note:** The `href` attribute was moved to `Link` from the `a` tag.
+
+Then, modify `pages/about.js` as follows:
+
+```jsx
+import Link from 'next/link';
+
+const About = () => (
+  <div>
+    <h1>About</h1>
+    <p>
+      <Link href="/">
+        <a>Index</a>
+      </Link>
+    </p>
+  </div>
+);
+
+export default About;
+```
+
+Go to [http://localhost:3000/](http://localhost:3000/) and open the Network panel on your browser’s developer tools again. What happens when you click on the links on each page?
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
