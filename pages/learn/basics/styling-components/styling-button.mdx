@@ -1,0 +1,58 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'creating-button'
+};
+
+## Styling the Button
+
+To style the button component, you can use [CSS Modules](https://github.com/css-modules/css-modules). Here’s how.
+
+Inside the `components` directory, create a file called `ButtonLink.module.css` and add the following CSS:
+
+```css
+.link {
+  color: #fff;
+  background: #0070f3;
+  line-height: 2.5em;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 2.5em;
+  border-radius: 5px;
+}
+```
+
+Now, this can be imported in `ButtonLink.js` as `styles`. You can then use `styles.link` for `className` to apply the CSS.
+
+```jsx
+import React from 'react';
+import Link from 'next/link';
+import styles from './ButtonLink.module.css';
+
+const ButtonLink = ({ href, children }) => (
+  <Link href={href}>
+    <a className={styles.link}>{children}</a>
+  </Link>
+);
+
+export default ButtonLink;
+```
+
+The CSS is now applied!
+
+<Image
+  shadow
+  alt="Component-Level CSS"
+  oversize={false}
+  src="/static/images/learn/styling-components/component-level-css.png"
+  width={1008 / 2}
+  height={532 / 2}
+/>
+
+On the next page, let’s continue using this [CSS Modules](https://github.com/css-modules/css-modules) styling method to see why it’s so useful.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

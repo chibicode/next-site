@@ -1,0 +1,60 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'creating-button'
+};
+
+## Creating a Button Component
+
+In this lesson, we’ll change the link on the post page to look like a button like this:
+
+<Image
+  shadow
+  alt="Component-Level CSS"
+  oversize={false}
+  src="/static/images/learn/styling-components/component-level-css.png"
+  width={1008 / 2}
+  height={532 / 2}
+/>
+
+First, let’s create a React component for this button.
+
+- Create a top-level directory called `components`.
+- Inside, create a file called `ButtonLink.js` with the following content:
+
+```jsx
+import Link from 'next/link';
+
+const ButtonLink = ({ href, children }) => (
+  <Link href={href}>
+    <a>{children}</a>
+  </Link>
+);
+
+export default ButtonLink;
+```
+
+And on `pages/posts/first-pos.js`, import this component and replace `<Link>` with it:
+
+```jsx
+import ButtonLink from '../../components/ButtonLink';
+
+const FirstPost = () => (
+  <div>
+    <h1>First Post</h1>
+    <p>
+      <ButtonLink href="/">← Back to Home</ButtonLink>
+    </p>
+  </div>
+);
+
+export default FirstPost;
+```
+
+The link text has changed to "← Back to Home", but nothing else has changed. Let’s now add some styling.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
