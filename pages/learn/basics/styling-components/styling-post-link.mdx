@@ -1,0 +1,26 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'styling-post-link'
+};
+
+## Styling the Link to the First Post
+
+Let’s go back to our index page. Suppose that we’d like to style the link to the first blog post like this: bold font, blue color, underline only on hover:
+
+<Image
+  shadow
+  alt="Component-Level CSS"
+  oversize={false}
+  src="/static/images/learn/styling-components/link-css-modules.png"
+  width={1008 / 2}
+  height={532 / 2}
+/>
+
+Let’s do this using CSS modules.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
