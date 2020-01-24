@@ -13,14 +13,14 @@ export const meta = {
 
 We’ll add links between pages using regular `<a>` tags. This is NOT the correct way to do page navigation in Next.js, and we’ll see why in this lesson.
 
-First, modify `pages/index.js` as follows to add a link to the about page:
+First, modify `pages/index.js` as follows to add a link to the first post page:
 
 ```jsx
 const Index = () => (
   <div>
     <h1>Index</h1>
     <p>
-      <a href="/about">About</a>
+      <a href="/posts/first-post">First Post</a>
     </p>
   </div>
 );
@@ -28,19 +28,19 @@ const Index = () => (
 export default Index;
 ```
 
-Then, modify `pages/about.js` as follows to add a link to the index page:
+Then, modify `pages/posts/first-post.js` as follows to add a link to the index page:
 
 ```jsx
-const About = () => (
+const FirstPost = () => (
   <div>
-    <h1>About</h1>
+    <h1>First Post</h1>
     <p>
       <a href="/">Index</a>
     </p>
   </div>
 );
 
-export default About;
+export default FirstPost;
 ```
 
 Now, go to [http://localhost:3000/](http://localhost:3000/) and open the browser’s developer tools (<kbd>⌘ ⌥ I</kbd> on Mac, <kbd>Ctrl + Shift + I</kbd> on Windows/Linux).
@@ -52,8 +52,8 @@ Open the **Network** panel on the developer tools and try clicking the links on 
   alt="Network panel - client side navigation"
   oversize={false}
   src="/static/images/learn/navigate-between-pages/not-client-side-nav.gif"
-  width={900 / 1.5}
-  height={796 / 1.5}
+  width={1008 / 2}
+  height={1008 / 2}
 />
 
 Notice that _all of the items in the Network panel get refreshed_ every time you click a link. This is because it’s doing full page refresh. And it’s slow!

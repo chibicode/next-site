@@ -28,8 +28,8 @@ const Index = () => (
   <div>
     <h1>Index</h1>
     <p>
-      <Link href="/about">
-        <a>About</a>
+      <Link href="/posts/first-post">
+        <a>First Post</a>
       </Link>
     </p>
   </div>
@@ -40,14 +40,14 @@ export default Index;
 
 **Note:** The `href` attribute was moved to `Link` from the `a` tag.
 
-Then, modify `pages/about.js` as follows:
+Then, modify `pages/posts/first-post.js` as follows:
 
 ```jsx
 import Link from 'next/link';
 
-const About = () => (
+const FirstPost = () => (
   <div>
-    <h1>About</h1>
+    <h1>First Post</h1>
     <p>
       <Link href="/">
         <a>Index</a>
@@ -56,7 +56,7 @@ const About = () => (
   </div>
 );
 
-export default About;
+export default FirstPost;
 ```
 
 Go to [http://localhost:3000/](http://localhost:3000/) and open the Network panel on your browser’s developer tools again. What happens when you click on the links on each page?

@@ -1,0 +1,30 @@
+import Layout from '../../../../components/learn/Layout';
+import AnswerBox from '../../../../components/learn/AnswerBox';
+
+export const meta = {
+  title: 'Navigate Between Pages',
+  courseId: 'basics',
+  lessonId: 'navigate-between-pages',
+  stepId: 'post-page'
+};
+
+## Post Page
+
+We’d like to create a blog app, so let’s create a **post page**. We’ll use this page to demonstrate how page navigation works in Next.js.
+
+- First, create a new directory called `posts` inside the `pages` directory.
+- Inside the `posts` directory, create a file called `first-post.js` with the following content:
+
+```jsx
+const FirstPost = () => <h1>First Post</h1>;
+
+export default FirstPost;
+```
+
+You can view this page by going to [http://localhost:3000/posts/first-post](http://localhost:3000/posts/first-post) in the browser.
+
+This is how you can create different pages in Next.js. Simply create a JS file under the `pages` directory, and the path to the file becomes the URL path. In a way, this is similar to building websites using HTML or PHP files.
+
+Now, let’s add a link to each page so you can go back and forth between the index page and the post page.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
