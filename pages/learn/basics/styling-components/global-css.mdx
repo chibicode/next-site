@@ -1,0 +1,53 @@
+import Layout from '../../../../components/learn/Layout';
+import AnswerBox from '../../../../components/learn/AnswerBox';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'global-css'
+};
+
+## Global CSS
+
+First, we’ll add global CSS. On the top level, create a file called `styles.css` and add the following CSS:
+
+```css
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+```
+
+Next, in the `pages` directory, create a file called `_app.js`. This creates a [global `MyApp` component](https://nextjs.org/docs/advanced-features/custom-app), which will be the top-level component for every page.
+
+```js
+import '../styles.css';
+
+export default function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
+```
+
+After you make the change, **restart** the development server (press <kbd>Ctrl + c</kbd> and `npm run dev`). This is only necessary when you create `pages/_app.js`.
+
+> **Note:** You may only import global styles from `pages/_app.js`. You can’t import it from other pages.
+
+The CSS is now applied on **both** the index page and the post page!
+
+<Image
+  shadow
+  alt="Network panel - client side navigation"
+  oversize={false}
+  src="/static/images/learn/styling-components/global-css.png"
+  width={1008 / 2}
+  height={566 / 2}
+/>
+
+Next, we’ll talk about component-level CSS.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

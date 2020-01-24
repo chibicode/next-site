@@ -7,23 +7,18 @@ export const meta = {
   stepId: 'setup'
 };
 
-## Setup
+### Setup (Optional)
 
-In order to follow this lesson, you will need to have a simple Next.js app. For that, you can download the following example app:
+**If you’re continuing from the previous lesson,** you can skip the following and go straight to the next page.
+
+Otherwise, you can download, install, and run the starter code below. Again, this is NOT necessary if you’ve just finished the previous lesson.
 
 ```bash
 git clone https://github.com/zeit/next-learn-demo.git
 cd next-learn-demo
 cd 7-styling-components
-```
-
-You can run it with:
-
-```bash
 npm install
 npm run dev
 ```
-
-Now you can access the app by navigating into http://localhost:3000.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
