@@ -6,21 +6,13 @@ export const meta = {
   lessonId: 'styling-components'
 };
 
-Until now, styling components was largely an afterthought. But your app deserves some style.
+Let’s add some some styles to our blog. Next.js has _built-in_ support for the following styling methods:
 
-For a React app, there are many different techniques that we can use to style it, and those can be categorized into two broad methods:
+1. Importing global CSS and component-level CSS Modules files using `import`
+2. Writing CSS inside a component using `styled-jsx`
 
-1. Traditional CSS-file-based styling (including SASS, PostCSS etc)
-2. [CSS in Js](https://github.com/MicheleBertoli/css-in-js) styling
+We’ll take a look at each method in this lesson.
 
-Consequently, there are a bunch of practical issues to consider with traditional CSS-file-based styling (especially with SSR), so we suggest avoiding this method when styling for Next.js.
-
-Instead we recommend CSS in JS, which you can use to style individual components rather than importing CSS files.
-
-Next.js comes preloaded with a CSS in JS framework called [styled-jsx](https://github.com/zeit/styled-jsx), specifically designed to make your life easier. It allows you to write familiar CSS rules for your components; rules will have no impact on anything other than the components (not even child components).
-
-> That means, your CSS rules are scoped.
-
-Let's see how we can use styled-jsx.
+> Next.js supports other styling solutions. For example, you can use CSS-in-JS libraries such as [styled-components](https://styled-components.com/) or write CSS in [Sass](https://sass-lang.com/). Take a look at [our documentation](https://nextjs.org/docs/basic-features/built-in-css-support) to learn more.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
