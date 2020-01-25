@@ -1,0 +1,20 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'styling-summary'
+};
+
+## Styling Summary
+
+Next.js has built-in support for the following styling methods:
+
+- Global CSS (import from `pages/_app.js`) or CSS Modules (`*.module.css`)
+- CSS-in-JS with `styled-jsx` (both component-scoped and global styles)
+
+Next.js supports other styling solutions. For example, you can use CSS-in-JS libraries such as [styled-components](https://styled-components.com/) or write CSS in [Sass](https://sass-lang.com/). Take a look at [our documentation](https://nextjs.org/docs/basic-features/built-in-css-support) to learn more.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

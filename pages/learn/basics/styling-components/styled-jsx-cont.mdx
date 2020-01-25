@@ -1,0 +1,44 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'styled-jsx-cont'
+};
+
+## styled-jsx (Continued)
+
+The `<h1>` tag on the previous page is unchanged (not centered).
+
+<Image
+  shadow
+  alt="Component-Level CSS"
+  oversize={false}
+  src="/static/images/learn/styling-components/button-css-modules.png"
+  width={1008 / 2}
+  height={532 / 2}
+/>
+
+This is because CSS declared using `styled-jsx`, like CSS Modules, is component-scoped by default. The styles will not be applied to other components.
+
+If you need to write global CSS using `styled-jsx`, you can do so using `<style jsx global>`:
+
+```jsx
+const SomeComponent = () => (
+  <div>
+    <style jsx global>{`
+      /* Global styles */
+    `}</style>
+  </div>
+);
+```
+
+To learn more about `styled-jsx`, [take a look at the documentation](https://github.com/zeit/styled-jsx).
+
+### Third Party CSS-in-JS solutions
+
+`styled-jsx` is not the only option. Next.js works with third party CSS-in-JS solutions such as [styled-components](https://styled-components.com/), [emotion](https://emotion.sh/), and more.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

@@ -1,0 +1,59 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'styled-jsx',
+  question: {
+    answers: [
+      'The <h1> tag on the post page is also centered.',
+      'The <h1> tag on the post page is unchanged.'
+    ],
+    correctAnswer: 'The <h1> tag on the post page is unchanged.'
+  }
+};
+
+## CSS-in-JS using styled-jsx
+
+If you prefer to write CSS inside JS (a technique called CSS-in-JS), Next.js has built-in support for that. It’s called `styled-jsx` ([documentation](https://github.com/zeit/styled-jsx)).
+
+Suppse that you want to center-align the heading on the index page. Modify `pages/index.js` like so:
+
+```jsx
+import PostLink from '../components/PostLink';
+
+const Index = () => (
+  <div>
+    <h1>Index</h1>
+    <p>
+      <PostLink href="/posts/first-post">First Post</PostLink>
+    </p>
+    <style jsx>{`
+      h1 {
+        text-align: center;
+      }
+    `}</style>
+  </div>
+);
+
+export default Index;
+```
+
+The text "Index" (which is in `<h1>`) should now be center aligned.
+
+<Image
+  shadow
+  alt="Center Aligned"
+  oversize={false}
+  src="/static/images/learn/styling-components/center-aligned.png"
+  width={1008 / 2}
+  height={432 / 2}
+/>
+
+### What about `<h1>` in `FirstPost`?
+
+Now, here’s a question: There’s also a `<h1>` tag inside `pages/posts/first-post.js`. Navigate to the post page and check: Is the `<h1>` tag there also centered?
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

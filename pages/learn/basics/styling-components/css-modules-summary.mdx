@@ -36,10 +36,12 @@ Notice that they both have the class name `link`, but the styles aren’t collid
   height={860 / 2}
 />
 
-As long as you use CSS modules, you don’t have to worry about CSS class name collisions.
+As long as you use CSS Modules, you don’t have to worry about CSS class name collisions.
 
-Furthermore, Next.js’s code splitting feature works on CSS modules as well. It ensures the minimal amount of CSS is loaded for your application to paint.
+Furthermore, Next.js’s code splitting feature works on CSS Modules as well. It ensures the minimal amount of CSS is loaded for your application to paint.
 
-> **Note:** To use this CSS modules, the CSS file name must end with `.module.css`.
+> **Important:** To use this CSS Modules, the CSS file name must end with `.module.css`.
+
+> **Note:** You may write CSS in Sass. [Take a look at our documentation](https://nextjs.org/docs/basic-features/built-in-css-support#sass-support) to learn more.
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
