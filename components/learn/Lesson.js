@@ -62,7 +62,7 @@ const Lesson = ({ meta, children }) => {
           margin: 3rem 0 0 0;
         }
         .lesson-step-nav {
-          margin-top: 3rem;
+          margin-top: 4rem;
         }
       `}</style>
     </div>

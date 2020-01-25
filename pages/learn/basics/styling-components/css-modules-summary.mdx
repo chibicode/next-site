@@ -1,0 +1,45 @@
+import Layout from '../../../../components/learn/Layout';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Styling Components',
+  courseId: 'basics',
+  lessonId: 'styling-components',
+  stepId: 'css-modules-summary'
+};
+
+## CSS Modules Summary
+
+Let’s review what we just did. We’ve added:
+
+- A `link` class in `ButtonLink.module.css` and loaded it from `ButtonLink.js`.
+- A `link` class in `PostLink.module.css` and loaded it from `PostLink.js`.
+
+Notice that they both have the class name `link`, but the styles aren’t colliding.
+
+**Here’s why:** CSS Modules automatically generates unique class names for each component to avoid collisions. If you open the developer tools and inspect each compnoent, they both have different `class` names:
+
+<Image
+  shadow
+  alt="PostLink Class Name"
+  oversize={false}
+  src="/static/images/learn/styling-components/postlink-classname.png"
+  width={1008 / 2}
+  height={866 / 2}
+/>
+<Image
+  shadow
+  alt="ButtonLink Class Name"
+  oversize={false}
+  src="/static/images/learn/styling-components/buttonlink-classname.png"
+  width={1008 / 2}
+  height={860 / 2}
+/>
+
+As long as you use CSS modules, you don’t have to worry about CSS class name collisions.
+
+Furthermore, Next.js’s code splitting feature works on CSS modules as well. It ensures the minimal amount of CSS is loaded for your application to paint.
+
+> **Note:** To use this CSS modules, the CSS file name must end with `.module.css`.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
