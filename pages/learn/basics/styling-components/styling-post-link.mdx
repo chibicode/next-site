@@ -10,7 +10,7 @@ export const meta = {
 
 ## Styling the Link to the First Post
 
-Let’s go back to our index page. Suppose that we’d like to style the link to the first blog post like this: bold font, blue color, underline only on hover:
+Let’s go back to our index page. Suppose that we’d like to style the link to the first blog post like this: slightly larger bold font, blue color, underline only on hover:
 
 <Image
   shadow
@@ -21,6 +21,63 @@ Let’s go back to our index page. Suppose that we’d like to style the link to
   height={532 / 2}
 />
 
-Let’s do this using CSS modules.
+Let’s do this using CSS modules. Create `PostLink.js` under `components`:
+
+```jsx
+import React from 'react';
+import Link from 'next/link';
+import styles from './PostLink.module.css';
+
+const PostLink = ({ href, children }) => (
+  <Link href={href}>
+    <a className={styles.link}>{children}</a>
+  </Link>
+);
+
+export default PostLink;
+```
+
+And create `PostLink.module.css`, also under `components`:
+
+```css
+.link {
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+```
+
+Finally, on `pages/index.js`, replace the link with `PostLink`:
+
+```jsx
+import PostLink from '../components/PostLink';
+
+const Index = () => (
+  <div>
+    <h1>Index</h1>
+    <p>
+      <PostLink href="/posts/first-post">First Post</PostLink>
+    </p>
+  </div>
+);
+
+export default Index;
+```
+
+The link should now be styled:
+
+<Image
+  shadow
+  alt="Component-Level CSS"
+  oversize={false}
+  src="/static/images/learn/styling-components/link-css-modules.png"
+  width={1008 / 2}
+  height={532 / 2}
+/>
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
