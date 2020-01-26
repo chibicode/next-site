@@ -7,6 +7,7 @@ const rehypeReadme = require('./lib/rehype-readme');
 // only enable rehypeReadme for this file
 // because the github relative path replacement
 // might break things in other markdowns
+//
 const withGitHubMDX = nextMDX({
   extension: path.join(__dirname, 'components', 'docs', 'docs.mdx'),
   options: {
