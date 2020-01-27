@@ -31,8 +31,10 @@ const PostLayout = ({ title, children }) => (
         <a className={styles.homeLink}>My Blog</a>
       </Link>
     </h2>
-    <h1>{title}</h1>
-    <div className={styles.content}>{children}</div>
+    <article className={styles.content}>
+      <h1>{title}</h1>
+      <div>{children}</div>
+    </article>
     <p>
       <ButtonLink href="/">← Back to Home</ButtonLink>
     </p>
