@@ -1,0 +1,90 @@
+import Layout from '../../../../components/learn/Layout';
+import Link from 'next/link';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Markdown and Metadata',
+  courseId: 'basics',
+  lessonId: 'markdown-metadata',
+  stepId: 'post-layout'
+};
+
+## Post Layout
+
+First, let’s create a `PostLayout` component so we can reuse it for every post page in this blog.
+
+In the `components` directory, create a file called `PostLayout.js`. Some notable features are:
+
+- It adds a link to the home page at the top.
+- It takes `children`, which will be rendered after `title`.
+- It uses CSS Modules to apply the styles.
+
+```jsx
+import ButtonLink from './ButtonLink';
+import Link from 'next/link';
+import styles from './PostLayout.module.css';
+
+const PostLayout = ({ title, children }) => (
+  <div>
+    <h2>
+      <Link href="/">
+        <a className={styles.homeLink}>My Blog</a>
+      </Link>
+    </h2>
+    <h1>{title}</h1>
+    <div className={styles.content}>{children}</div>
+    <p>
+      <ButtonLink href="/">← Back to Home</ButtonLink>
+    </p>
+  </div>
+);
+
+export default PostLayout;
+```
+
+Next, add `PostLayout.module.css` in the `components` directory:
+
+```css
+.homeLink {
+  color: #0070f3;
+  text-decoration: none;
+  font-size: 0.85em;
+}
+
+.homeLink:hover {
+  text-decoration: underline;
+}
+
+.content {
+  margin-bottom: 4em;
+}
+```
+
+Finally, use `PostLayout` in `pages/posts/first-post.js` like this. Note that we’re passing a paragraph as a child element.
+
+```jsx
+import PostLayout from '../../components/PostLayout';
+
+const FirstPost = () => (
+  <PostLayout title="First Post">
+    <p>Test</p>
+  </PostLayout>
+);
+
+export default FirstPost;
+```
+
+If you go to [http://localhost:3000/posts/first-post](http://localhost:3000/posts/first-post), the page should now look like this:
+
+<Image
+  shadow
+  alt="Post Layout"
+  oversize={false}
+  src="/static/images/learn/markdown-metadata/post-layout.png"
+  width={1008 / 2}
+  height={744 / 2}
+/>
+
+Now that we’ve set up the layout, let’s add markdown next.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
