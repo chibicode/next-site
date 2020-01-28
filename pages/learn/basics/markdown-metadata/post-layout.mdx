@@ -62,13 +62,18 @@ Next, add `PostLayout.module.css` in the `components` directory:
 }
 ```
 
-Finally, use `PostLayout` in `pages/posts/first-post.js` like this. Note that we’re passing a paragraph as a child element.
+Finally, use `PostLayout` in `pages/posts/first-post.js` like this. Note that:
+
+- We’re passing a paragraph as a child element.
+- We’re exporting `title` so it can be used on other places like the index page.
 
 ```jsx
 import PostLayout from '../../components/PostLayout';
 
+export const title = 'First Post';
+
 const FirstPost = () => (
-  <PostLayout title="First Post">
+  <PostLayout title={title}>
     <p>Test</p>
   </PostLayout>
 );

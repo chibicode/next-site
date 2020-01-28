@@ -1,0 +1,51 @@
+import Layout from '../../../../components/learn/Layout';
+import Link from 'next/link';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Markdown and Metadata',
+  courseId: 'basics',
+  lessonId: 'markdown-metadata',
+  stepId: 'add-mdx'
+};
+
+## Add MDX
+
+First, rename `pages/posts/first-post.js` to `first-post.mdx`.
+
+Then, modify `first-post.mdx` as follows:
+
+```md
+import PostLayout from '../../components/PostLayout';
+
+export const title = "First Post"
+
+This is the first blog post.
+
+**Technologies used:**
+
+- Next.js
+- CSS Modules
+- MDX
+
+export default ({ children }) => <PostLayout title={title}>
+{children}
+</PostLayout>;
+```
+
+`import` and `export` are similar to before, but everything in between is now in Markdown. As you can see, MDX lets you mix JSX and markdown. You can learn more about MDX on [their documentation](https://mdxjs.com/).
+
+If you save the file, the page should now look like this:
+
+<Image
+  shadow
+  alt="Post Layout"
+  oversize={false}
+  src="/static/images/learn/markdown-metadata/add-mdx.png"
+  width={1008 / 2}
+  height={968 / 2}
+/>
+
+It successfully rendered markdown syntax for bold texts and bulleted lists.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
