@@ -1,0 +1,40 @@
+import Layout from '../../../../components/learn/Layout';
+import Link from 'next/link';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Markdown and Metadata',
+  courseId: 'basics',
+  lessonId: 'markdown-metadata',
+  stepId: 'update-config'
+};
+
+## Update Next.js Config
+
+Next.js works well out of the box, but you can also customize it however you like. To use Markdown, you need to add [the `@next/mdx` plugin](https://github.com/zeit/next.js/tree/canary/packages/next-mdx).
+
+First, install the plugin and the webpack loader by running the following commands:
+
+```bash
+npm install @next/mdx @mdx-js/loader
+```
+
+Then, create `next.config.js` in the root directory with the following content (from [the `@next/mdx` README](https://github.com/zeit/next.js/tree/canary/packages/next-mdx)):
+
+```js
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/
+});
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'mdx']
+});
+```
+
+After you make the change, **restart** the development server (press <kbd>Ctrl + c</kbd> and `npm run dev`).
+
+> You can use `next.config.js` to add [environment variables](https://nextjs.org/docs/api-reference/next.config.js/environment-variables), [customize webpack config](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config), and [more](https://nextjs.org/docs/api-reference/next.config.js/introduction).
+
+Now we’re ready to add Markdown files.
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
