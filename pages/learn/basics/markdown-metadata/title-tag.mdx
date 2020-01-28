@@ -1,0 +1,49 @@
+import Layout from '../../../../components/learn/Layout';
+import Link from 'next/link';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Markdown and Metadata',
+  courseId: 'basics',
+  lessonId: 'markdown-metadata',
+  stepId: 'title-tag'
+};
+
+## Title Tag
+
+We still need to add metadata to the page such as the `title` tag. To do so, you can use the `Head` component.
+
+Here’s how. On `components/PostLayout.js`, import `Head` from `next/head` and put the `title` tag inside:
+
+```jsx
+import ButtonLink from './ButtonLink';
+import Link from 'next/link';
+import styles from './PostLayout.module.css';
+import Head from 'next/head';
+
+const PostLayout = ({ title, children }) => (
+  <div>
+    <Head>
+      <title>{title}</title>
+    </Head>
+    {/* (Same code as before) */}
+  </div>
+);
+
+export default PostLayout;
+```
+
+If you go to the post page and open the developer tools, you can see that there’s a `title` tag inside `<head>`:
+
+<Image
+  shadow
+  alt="Title Tag"
+  oversize={false}
+  src="/static/images/learn/markdown-metadata/title-tag.png"
+  width={1008 / 2}
+  height={492 / 2}
+/>
+
+You can use this technique to add other tags to `<head>`. You can learn more about `next/head` in [our documentation](https://nextjs.org/docs/api-reference/next/head).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;

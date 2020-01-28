@@ -1,0 +1,52 @@
+import Layout from '../../../../components/learn/Layout';
+import Link from 'next/link';
+import Image from '../../../../components/image';
+
+export const meta = {
+  title: 'Markdown and Metadata',
+  courseId: 'basics',
+  lessonId: 'markdown-metadata',
+  stepId: 'index-page'
+};
+
+## Updating Index Page
+
+Let’s wrap up this lesson by updating our index page:
+
+- Import `title` from `first-post.mdx` instead of hardcoding the post title.
+- Update the page title and the `title` tag using `next/head`.
+
+Update `pages/index.js` as follows:
+
+```jsx
+import PostLink from '../components/PostLink';
+import { title } from './posts/first-post.mdx';
+import Head from 'next/head';
+
+const Index = () => (
+  <div>
+    <Head>
+      <title>My Blog</title>
+    </Head>
+    <h1>My Blog</h1>
+    <p>
+      <PostLink href="/posts/first-post">{title}</PostLink>
+    </p>
+    <style jsx>{`
+      h1 {
+        text-align: center;
+      }
+    `}</style>
+  </div>
+);
+
+export default Index;
+```
+
+Both the `h1` tag and the `title` tag should now say "My Blog".
+
+That’s it for this lesson!
+
+> To learn more about MDX, take a look at [the official documentation](https://mdxjs.com/) and [our plugin documentation](https://github.com/zeit/next.js/tree/canary/packages/next-mdx). To learn more about `next/head`, check out our [API reference](https://nextjs.org/docs/api-reference/next/head).
+
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
