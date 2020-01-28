@@ -217,6 +217,60 @@ export default function DocsLayout({ children }) {
           position: absolute;
           margin-left: -1rem;
         }
+
+        .docs .inline-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-column-gap: 16px;
+          grid-row-gap: 16px;
+          padding-left: 0;
+        }
+
+        @media screen and (max-width: 640px) {
+          .docs .inline-buttons {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+
+        .docs .inline-buttons li {
+          margin-bottom: 0;
+        }
+
+        .docs .inline-buttons li:before {
+          content: '';
+        }
+
+        .docs .inline-buttons li a {
+          -webkit-appearance: none;
+          display: flex;
+          height: 100%;
+          -webkit-box-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          justify-content: center;
+          font-weight: 500;
+          font-size: 0.875rem;
+          text-align: center;
+          line-height: 1.5;
+          color: #666;
+          background-color: #fff;
+          user-select: none;
+          cursor: pointer;
+          box-sizing: border-box;
+          text-decoration: none;
+          padding: 12px 25px;
+          margin: 0px;
+          transition: all 0.2s ease 0s;
+          overflow: hidden;
+          outline: none;
+          border: 1px solid #eaeaea;
+          border-radius: 5px;
+        }
+
+        .docs .inline-buttons li a:hover {
+          color: #000;
+          border-color: #000;
+        }
       `}</style>
     </div>
   );
