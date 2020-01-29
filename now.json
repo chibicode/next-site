@@ -5,9 +5,5 @@
       "src": "package.json",
       "use": "@now/next@canary"
     }
-  ],
-  "env": {
-    "GITHUB_WEBHOOK_SECRET": "@next-site-deploy-hook-secret",
-    "GITHUB_WEBHOOK": "@next-site-deploy-hook"
-  }
+  ]
 }
