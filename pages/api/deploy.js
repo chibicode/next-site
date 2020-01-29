@@ -1,3 +1,12 @@
+const crypto = require('crypto');
+
 export default (req, res) => {
-  res.json(req.body.head_commit.modified);
+  const hmac = crypto.createHmac('sha1', process.env.secret);
+  hmac.update(req.body);
+
+  if (req.headers.HTTP_X_HUB_SIGNATURE === hmac.digest('hex')) {
+    res.json(req.body.head_commit.modified);
+  } else {
+    res.json({});
+  }
 };
