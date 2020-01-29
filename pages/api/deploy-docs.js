@@ -8,6 +8,8 @@ export default async (req, res) => {
   if (req.headers['x-hub-signature'] === `sha1=${hmac.digest('hex')}`) {
     if (
       req.body.ref === 'refs/heads/canary' &&
+      req.body.head_commit &&
+      req.body.head_commit.modified &&
       req.body.head_commit.modified.some(x => x.startsWith('docs/'))
     ) {
       await fetch(process.env.GITHUB_WEBHOOK);
