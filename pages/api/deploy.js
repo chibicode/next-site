@@ -1,3 +1,3 @@
-export default req => {
-  console.log(req.body);
+export default (req, res) => {
+  res.json(req.body);
 };
