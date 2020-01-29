@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 
 export default (req, res) => {
-  const hmac = crypto.createHmac('sha1', process.env.secret);
+  const hmac = crypto.createHmac('sha1', process.env.GITHUB_WEBHOOK_SECRET);
   hmac.update(req.body);
 
   if (req.headers.HTTP_X_HUB_SIGNATURE === hmac.digest('hex')) {
