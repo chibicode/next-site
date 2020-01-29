@@ -5,8 +5,8 @@ export default (req, res) => {
   hmac.update(JSON.stringify(req.body));
 
   console.log(`github: ${req.headers['x-hub-signature']}`);
-  console.log(`us: ${`sha=${hmac.digest('hex')}`}`);
-  if (req.headers['x-hub-signature'] === `sha=${hmac.digest('hex')}`) {
+  console.log(`us: ${`sha1=${hmac.digest('hex')}`}`);
+  if (req.headers['x-hub-signature'] === `sha1=${hmac.digest('hex')}`) {
     res.json(req.body.head_commit.modified);
   } else {
     res.json({});
