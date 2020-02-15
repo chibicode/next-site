@@ -10,20 +10,20 @@ export const meta = {
 
 ## Deploying to ▲ZEIT Now
 
-First, [download Now](https://zeit.co/download) if you do not already have it installed.
+If you haven’t already done so, push your Next.js app to a Git provider of your choice: [GitHub](http://github.com/), [GitLab](https://gitlab.com/), or [BitBucket](https://bitbucket.org/). Your repository can be private or public.
 
-Then, run the following command in the root directory of your app:
+Then, follow these steps:
 
-```bash
-now
-```
+1. [Sign up to ZEIT Now](https://zeit.co/signup) (no credit card is required).
+2. After signing up, you’ll arrive on the [“Create a new project”](https://zeit.co/new) page. Under “From your existing code”, choose the Git provider you use and set up an integration. (Instructions: [GitHub](https://zeit.co/docs/v2/git-integrations/zeit-now-for-github) / [GitLab](https://zeit.co/docs/v2/git-integrations/zeit-now-for-gitlab) / [BitBucket](https://zeit.co/docs/v2/git-integrations/zeit-now-for-bitbucket)).
+3. Once that’s set up, click “New Project From …” and import your Next.js app. It auto-detects that your app is using Next.js and sets up the build configuration for you. No need to change anything — everything just works!
+4. After importing, it’ll deploy your Next.js app and provide you with a deployment URL. Click “Visit” to see your app in production.
 
-That's it!
+Congratulations! You’ve just deployed your Next.js app! To learn more, take a look at:
 
-Your application is deployed to production.
-You'll see a URL printed in your terminal that your application is accessible at.
+- [Next.js Deployment Documentation](https://nextjs.org/docs/deployment)
+- [ZEIT Now Documentation](https://zeit.co/docs)
 
-To read more about what to do next, please visit [▲ZEIT Now's documentation](https://zeit.co/docs).
-You'll find topics ranging from integrating with Git to deploying with your own domain!
+That’s all for the basics lesson. Thank you for trying out Next.js!
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
