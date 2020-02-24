@@ -20,7 +20,7 @@ export default function Scalable() {
               Next.js supports serverless builds out of the box. Simply set the target and Next.js
               will output an SSR-equipped lambda for each page which can be instantly deployed to
               platforms like{' '}
-              <ExternalLink href="https://zeit.co/new?filter=next.js&utm_source=next-site&utm_medium=link&utm_campaign=next-website">
+              <ExternalLink href="https://zeit.co/import?filter=next.js&utm_source=next-site&utm_medium=link&utm_campaign=next-website">
                 ZEIT Now
               </ExternalLink>
               .

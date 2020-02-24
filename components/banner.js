@@ -13,7 +13,7 @@ const Banner = () => {
         </a>
 
         <a
-          href="https://zeit.co/new?filter=next.js&utm_source=next-site&utm_medium=banner&utm_campaign=next-website"
+          href="https://zeit.co/import?filter=next.js&utm_source=next-site&utm_medium=banner&utm_campaign=next-website"
           target="_blank"
           rel="noopener noreferrer"
         >
