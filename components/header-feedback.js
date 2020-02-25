@@ -289,7 +289,7 @@ class HeaderFeedback extends Component {
             <style jsx>
               {`
                 .geist-feedback-input {
-                  --open-width: 260px;
+                  --open-width: 310px;
                   --open-height: 174px;
                   --closed-width: 90px;
                   --closed-height: 32px;
@@ -367,6 +367,7 @@ class HeaderFeedback extends Component {
                 }
 
                 .geist-feedback-input.focused .textarea-wrapper {
+                  transform: translateX(calc((var(--closed-width) - var(--open-width)) / 2));
                   display: flex;
                   flex-direction: column;
                   border: none;
@@ -492,16 +493,6 @@ class HeaderFeedback extends Component {
                   }
                   to {
                     opacity: 1;
-                  }
-                }
-
-                @media (max-width: 1140px) {
-                  .geist-feedback-input {
-                    --open-width: 310px;
-                  }
-
-                  .geist-feedback-input.focused .textarea-wrapper {
-                    transform: translateX(calc((var(--closed-width) - var(--open-width)) / 2));
                   }
                 }
               `}
