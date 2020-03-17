@@ -16,13 +16,12 @@ export default function Scalable() {
 
           <div className="content">
             <p>
-              When it comes to dynamic applications, scalability is often a
-              concern. Fortunately, Next.js supports serverless builds out of
-              the box. Simply set the target and Next.js will output an
-              SSR-equipped lambda for each page which can be instantly deployed
-              to platforms like{' '}
-              <ExternalLink href="https://zeit.co/guides/deploying-nextjs-with-now/">
-                Now 2.0
+              When it comes to dynamic applications, scalability is often a concern. Fortunately,
+              Next.js supports serverless builds out of the box. Simply set the target and Next.js
+              will output an SSR-equipped lambda for each page which can be instantly deployed to
+              platforms like{' '}
+              <ExternalLink href="https://zeit.co/import?filter=next.js&utm_source=next-site&utm_medium=link&utm_campaign=next-website">
+                ZEIT Now
               </ExternalLink>
               .
             </p>

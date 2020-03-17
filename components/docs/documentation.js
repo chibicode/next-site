@@ -5,20 +5,11 @@ import { InlineCode, Code } from './text/code';
 import { GenericLink } from './text/link';
 import Heading from './heading';
 import Sidebar from './sidebar';
-import Notification from './notification';
 
 export default function Documentation({ children, headings }) {
   return (
     <>
       <Head title="Getting Started" />
-
-      <div className="notification-container">
-        <Notification isFixed mobileWidth="640px">
-          <strong>Note:</strong> You are viewing the old Next.js documentation. For the latest
-          features and a better experience please see{' '}
-          <a href="/docs/getting-started">the new docs</a>.
-        </Notification>
-      </div>
 
       <div className="documentation">
         <Sidebar headings={headings} desktop />
@@ -28,24 +19,10 @@ export default function Documentation({ children, headings }) {
       </div>
 
       <style jsx>{`
-        .notification-container {
-          position: fixed;
-          background: #fff;
-        }
         .documentation {
           display: flex;
-          padding-top: calc(55px + 2rem);
-        }
-        @media screen and (max-width: 960px) {
-          .notification-container {
-            padding-right: 2rem;
-          }
         }
         @media screen and (max-width: 640px) {
-          .notification-container {
-            position: static;
-            padding-right: 0;
-          }
           .documentation {
             display: block;
             padding-top: 0;

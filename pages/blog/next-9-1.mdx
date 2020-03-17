@@ -3,18 +3,9 @@ import Image from '../../components/image'
 import { meta } from '../../blog/next-9-1-preview.mdx'
 import { TerminalInput } from '../../components/text/terminal'
 import Head from 'next/head'
-
-export const config = { amp: true }
+import TweetEmbed from '../../components/blog/tweet-embed.js'
 
 export default withPost({ ...meta })
-
-<Head>
-  <script
-    async
-    custom-element="amp-twitter"
-    src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"
-  />
-</Head>
 
 Today, we are excited to announce Next.js 9.1 with `src` and `public` directory support.
 
@@ -51,7 +42,7 @@ Starting from Next.js 9.1, it's now possible to create a `src/pages` directory i
 Using the `src` directory is optional and covers the case where your company has this standard in place already.
 
 <Image
-  caption={<>The pages folder in the src directory directory</>}
+  caption="The pages folder in the src directory directory"
   captionSpacing={30}
   src="/static/blog/next-9-1/finder.png"
   width={1642 / 2}
@@ -94,7 +85,7 @@ We found that around 50% of all Next.js users add this plugin to their applicati
 
 Because of this extensive usage, we are adding built-in support for CSS imports with automatic reloading of styles in development and production optimizations that were previously not possible in the `next-css` plugin.
 
-The initial implementation is currently being tested on production Next.js applications like [zeit.co](http://zeit.co).
+The initial implementation is currently being tested on production Next.js applications like [zeit.co](https://zeit.co).
 
 Global CSS imports will be introduced first:
 
@@ -163,11 +154,13 @@ This new feature is currently being tested in production by multiple large-scale
 
 One example of initial results we have seen is this comparison by [Natalie Marleny](https://twitter.com/NatalieMarleny) about the bundle sizes before and after enabling built-in module/nomodule support in Next.js:
 
-<amp-twitter width="375"
-  height="320"
-  layout="responsive"
-  data-tweetid="1162841909875892224"
-  data-conversation="none" />
+<TweetEmbed
+  id="1162841909875892224"
+  options={{
+    conversation: 'none',
+    align: 'center'
+  }}
+/>
 
 ### Improved Bundle Splitting
 
@@ -202,6 +195,6 @@ Furthermore, the Next.js community is still expanding:
 - On GitHub, the project has been starred over **41,350** times.
 - The [examples directory](https://github.com/zeit/next.js/tree/canary/examples) has over **210 examples.**
 
-The Next.js community on [spectrum.chat/next-js](https://spectrum.chat/next-js) now has over **11,250** members. [Join us](https://spectrum.chat/next-js)!
+The Next.js community now has over **11,250** members. [Join us!](https://github.com/zeit/next.js/discussions)
 
 We are thankful to our community and all the external feedback and contributions that helped shape this release.

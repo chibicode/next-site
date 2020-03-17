@@ -1,9 +1,7 @@
 import Link from 'next/link';
 
 import Page from '../components/page';
-import Header from '../components/header';
 import Footer from '../components/footer';
-import Navbar from '../components/navbar';
 import Container from '../components/container';
 import SectionHeader from '../components/section-header';
 import Button from '../components/button';
@@ -49,9 +47,6 @@ const PopoverText = () => (
 
 export default () => (
   <Page title="Design | Next.js">
-    <Header height={64} shadow defaultActive>
-      <Navbar />
-    </Header>
     <Container padding>
       <SectionHeader id="design" title="Design" description="Components for nextjs.org" />
       <ComponentTitle>Typography</ComponentTitle>
@@ -75,8 +70,8 @@ export default () => (
         </Button>
       </ComponentModal>
       <ComponentModal title="External Link">
-        <Link href="https://zeit.co/">
-          <a href="https://zeit.co/">https://zeit.co</a>
+        <Link href="https://zeit.co?utm_source=next-site&utm_medium=link&utm_campaign=next-website">
+          <a>https://zeit.co</a>
         </Link>
       </ComponentModal>
       <ComponentTitle>Popover</ComponentTitle>

@@ -5,8 +5,6 @@ import Image from '../../components/image'
 import Container from '../../components/container'
 import withPost from '../../components/blog/with-post'
 
-export const config = { amp: true }
-
 export const meta = {
   title: 'Next.js 5.1: Faster Page Resolution, Environment Config & More',
   description:
@@ -39,8 +37,13 @@ Major performance improvements are introduced: resolving pages is **102x** faste
 
 To upgrade or install, run:
 
-<TerminalInput prefix>{`npm i next@latest react@latest react-dom@latest`}</TerminalInput>
-<Caption>In addition to bumping Next.js, we upgrade the peer dependencies <Caption.Code>react</Caption.Code> and <Caption.Code>react-dom</Caption.Code></Caption>
+<TerminalInput
+  prefix
+>{`npm i next@latest react@latest react-dom@latest`}</TerminalInput>
+<Caption>
+  In addition to bumping Next.js, we upgrade the peer dependencies{' '}
+  <Caption.Code>react</Caption.Code> and <Caption.Code>react-dom</Caption.Code>
+</Caption>
 
 Be sure to upgrade [next-plugins](https://github.com/zeit/next-plugins) like `@zeit/next-css`, `@zeit/next-sass`, `@zeit/next-less` or `@zeit/next-typescript` as well.
 
@@ -196,7 +199,13 @@ This enabled outputting of source maps for all but one file, `app.js`, the reaso
 
 Thanks to a [pull request](https://github.com/zeit/next.js/pull/3793) from [@ptomasroos](https://github.com/ptomasroos) the `app.js` file was replaced by `main.js`. This file will hold the code that was previously compiled to `manifest.js` and `commons.js` and webpack will generate a source map for `main.js`. Source maps will be automatically served, allowing external error tracking tools to show the actual file an line number when errors are detected.
 
-<Image src={'https://assets.zeit.co/image/upload/front' + '/blog/next5-1/sourcemap.png'} width={1874/3} height={1050/3} />
+<Image
+  src={
+    'https://assets.zeit.co/image/upload/front' + '/blog/next5-1/sourcemap.png'
+  }
+  width={1874 / 3}
+  height={1050 / 3}
+/>
 <Caption>The source code is shown in the sources panel</Caption>
 
 ## New plugins / improvements to existing ones
@@ -205,12 +214,10 @@ We've introduced two new official plugins. [@zeit/next-bundle-analyzer](https://
 
 Additionally there were a lot of improvements to the official [`css`](https://github.com/zeit/next-plugins/tree/master/packages/next-css), [`less`](https://github.com/zeit/next-plugins/tree/master/packages/next-less), and [`sass`](https://github.com/zeit/next-plugins/tree/master/packages/next-sass) plugins regarding hot reloading and bundling. For example there is no longer a flash of unstyled content in development mode. And styles in subcomponents get picked up as well.
 
-## Spectrum
+## Community
 
-You can now find the Next.js community on [spectrum.chat](https://spectrum.chat/next-js).
-Recently a list of [notable companies using Next.js](https://spectrum.chat/next-js?thread=e425a8b6-c9cb-4cd1-90bb-740fb3bd7541) was posted there. Feel free to post projects in the thread.
-
-The slack channel is still available [here](/chat).
+You can now find the Next.js community on [GitHub](https://github.com/zeit/next.js/discussions).
+Recently a list of [notable companies using Next.js](https://github.com/zeit/next.js/discussions/10640) was posted there. Feel free to post projects in the thread.
 
 ## Thank you
 

@@ -6,8 +6,7 @@ import { ellipsis } from 'polished';
 import { useRecord, useGetRecord } from '../../lib/learn/records';
 import courses from '../../lib/learn/courses';
 
-import { MediaQueryConsumer } from '../media-query';
-import Header from '../header';
+import { useIsMobile } from '../media-query';
 
 import Profile from './Profile';
 import CheckIcon from '../icons/check';
@@ -137,6 +136,7 @@ const Navigation = ({ meta }) => {
   const [dropdown, setDropdown] = React.useState(false);
   const [record, dispatchRecord] = useRecord(meta);
   const effectDeps = [record.ready, !record.visited];
+  const isMobile = useIsMobile();
 
   React.useEffect(() => {
     if (effectDeps.every(dep => dep)) {
@@ -144,99 +144,91 @@ const Navigation = ({ meta }) => {
     }
   }, effectDeps);
 
-  return (
-    <MediaQueryConsumer>
-      {({ isMobile }) => {
-        if (isMobile) {
-          return (
-            <Header height={56} zIndex={999} offset={64 + 31} shadow defaultActive>
-              <div className="fixed-navigation-container">
-                <div className={`navigation-area dropdown${dropdown ? '' : ' courses-closed'}`}>
-                  {courses.map(course => (
-                    <Course key={course.id} course={course} isMobile={isMobile} meta={meta} />
-                  ))}
-                </div>
-                <div
-                  role="button"
-                  className="no-tap-highlight current f5 fw6"
-                  onClick={() => setDropdown(!dropdown)}
-                >
-                  <span
-                    style={{
-                      verticalAlign: 'middle',
-                      marginRight: 7,
-                      display: 'inline-block',
-                      lineHeight: 0
-                    }}
-                  >
-                    <ArrowIcon />
-                  </span>
-                  <span style={ellipsis()}>{meta.title}</span>
-                </div>
-                <Profile isMobile={isMobile} />
-                <style jsx>{`
-                  .fixed-navigation-container {
-                    position: relative;
-                    display: flex;
-                    height: 56px;
-                    width: 100%;
-                    padding: 0 1rem;
-                    align-items: center;
-                    justify-content: space-between;
-                  }
-                  .current {
-                    flex: 1;
-                    display: flex;
-                    height: 100%;
-                    align-items: center;
-                    padding-right: 0.5rem;
-                    overflow: hidden;
-                    cursor: pointer;
-                  }
-                  .navigation-area.dropdown {
-                    position: absolute;
-                    display: flex;
-                    align-items: flex-start;
-                    flex-direction: column;
-                    left: 0;
-                    top: 100%;
-                    bottom: -50vh;
-                    width: 100%;
-                    padding: 0 0.65rem;
-                    background: white;
-                    border-top: 1px solid #efefef;
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                    transition: bottom 0.5s ease;
-                    overflow-y: auto;
-                    -webkit-overflow-scrolling: touch;
-                  }
-                  .navigation-area.dropdown.courses-closed {
-                    bottom: 100%;
-                  }
-                `}</style>
-              </div>
-            </Header>
-          );
-        }
+  if (isMobile) {
+    return (
+      <div className="fixed-navigation-container">
+        <div className={`navigation-area dropdown${dropdown ? '' : ' courses-closed'}`}>
+          {courses.map(course => (
+            <Course key={course.id} course={course} isMobile={isMobile} meta={meta} />
+          ))}
+        </div>
+        <div
+          role="button"
+          className="no-tap-highlight current f5 fw6"
+          onClick={() => setDropdown(!dropdown)}
+        >
+          <span
+            style={{
+              verticalAlign: 'middle',
+              marginRight: 7,
+              display: 'inline-block',
+              lineHeight: 0
+            }}
+          >
+            <ArrowIcon />
+          </span>
+          <span style={ellipsis()}>{meta.title}</span>
+        </div>
+        <Profile isMobile={isMobile} />
+        <style jsx>{`
+          .fixed-navigation-container {
+            position: relative;
+            display: flex;
+            height: 56px;
+            width: 100%;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .current {
+            flex: 1;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            padding-right: 0.5rem;
+            overflow: hidden;
+            cursor: pointer;
+          }
+          .navigation-area.dropdown {
+            position: absolute;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            left: 0;
+            top: 100%;
+            bottom: -50vh;
+            width: 100%;
+            padding: 0 0.65rem;
+            background: white;
+            border-top: 1px solid #efefef;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: bottom 0.5s ease;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          .navigation-area.dropdown.courses-closed {
+            bottom: 100%;
+          }
+        `}</style>
+      </div>
+    );
+  }
 
-        return (
-          <>
-            <Profile isMobile={isMobile} />
-            <div className="navigation-area">
-              {courses.map(course => (
-                <Course key={course.id} course={course} isMobile={isMobile} meta={meta} />
-              ))}
-              <style jsx>{`
-                .navigation-area {
-                  display: flex;
-                  flex-direction: column;
-                }
-              `}</style>
-            </div>
-          </>
-        );
-      }}
-    </MediaQueryConsumer>
+  return (
+    <>
+      <Profile isMobile={isMobile} />
+      <div className="navigation-area">
+        {courses.map(course => (
+          <Course key={course.id} course={course} isMobile={isMobile} meta={meta} />
+        ))}
+        <style jsx>{`
+          .navigation-area {
+            display: flex;
+            flex-direction: column;
+          }
+        `}</style>
+      </div>
+    </>
   );
 };
 

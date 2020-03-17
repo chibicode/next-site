@@ -3,8 +3,6 @@ import Image from '../../components/image'
 import { meta } from '../../blog/next-9-preview.mdx'
 import { TerminalInput } from '../../components/text/terminal'
 
-export const config = { amp: true }
-
 export default withPost({ ...meta })
 
 After 70 canary releases we are pleased to introduce Next.js 9, featuring:
@@ -68,7 +66,7 @@ already present. This file allows for integrated type-checking in editors like
 [Visual Studio Code](https://code.visualstudio.com/).
 
 <Image
-  caption={<>Next.js 9 Automated TypeScript Setup</>}
+  caption="Next.js 9 Automated TypeScript Setup"
   captionSpacing={30}
   video
   src="/static/blog/next-9/automated-typescript-setup.mp4"
@@ -86,7 +84,7 @@ application in the browser instantly. Type errors will propagate to the browser 
 they become available.
 
 <Image
-  caption={<>Next.js 9 Development Type-Checking</>}
+  caption="Next.js 9 Development Type-Checking"
   captionSpacing={30}
   video
   src="/static/blog/next-9/integrated-development-checks.mp4"
@@ -98,7 +96,7 @@ Next.js will also automatically fail the production build (i.e. `next build`) if
 type errors are present. This helps prevent shipping broken code to production.
 
 <Image
-  caption={<>Next.js 9 Production Type-Checking</>}
+  caption="Next.js 9 Production Type-Checking"
   src="/static/blog/next-9/build-type-error.png"
   width={1418 / 2}
   height={744 / 2}
@@ -114,7 +112,7 @@ For example, when you import `next/link`, editors that support TypeScript will s
 the allowed properties and which values they accept.
 
 <Image
-  caption={<>Next.js Core Types</>}
+  caption="Next.js Core Types"
   src="/static/blog/next-9/next-types.png"
   width={1414 / 2}
   height={740 / 2}
@@ -254,7 +252,7 @@ This visual artifact can be hidden by clicking it.
 <!-- TODO: replace this with closed version -->
 
 <Image
-  caption={<>Next.js Static Optimization Indicator</>}
+  caption="Next.js Static Optimization Indicator"
   captionSpacing={30}
   src="/static/blog/next-9/prerender-indicator.png"
   width={1174 / 2}
@@ -264,7 +262,7 @@ This visual artifact can be hidden by clicking it.
 Statically generated pages will also be displayed in Next.js' build output:
 
 <Image
-  caption={<>Next.js Build Output Type Indicator</>}
+  caption="Next.js Build Output Type Indicator"
   src="/static/blog/next-9/build-types.png"
   width={1418 / 2}
   height={744 / 2}
@@ -429,7 +427,7 @@ Whenever Next.js is doing compilation work you will see a small triangle show up
 the bottom right corner of the page!
 
 <Image
-  caption={<>Next.js Compilation Indicator</>}
+  caption="Next.js Compilation Indicator"
   captionSpacing={30}
   video
   src="/static/blog/next-9/compile-icon.mp4"
@@ -455,7 +453,7 @@ relevant information and flicker less while Next.js will integrate better with t
 that you might already be using.
 
 <Image
-  caption={<>Next.js Development Console Output</>}
+  caption="Next.js Development Console Output"
   captionSpacing={30}
   video
   src="/static/blog/next-9/no-console-clearing.mp4"
@@ -480,7 +478,7 @@ In the future you will also be able to set [performance budgets](https://addyosm
 for pages that will fail the production build.
 
 <Image
-  caption={<>Next.js Built Page Size</>}
+  caption="Next.js Built Page Size"
   src="/static/blog/next-9/build-size.png"
   width={1418 / 2}
   height={744 / 2}
@@ -491,7 +489,7 @@ components are being used in every page.
 This gives an indication of the page complexity.
 
 <Image
-  caption={<>Next.js Page Package Count</>}
+  caption="Next.js Page Package Count"
   src="/static/blog/next-9/build-packages.png"
   width={1418 / 2}
   height={744 / 2}
@@ -501,7 +499,7 @@ Every page also has an indication of if it's statically optimized or server-side
 rendered, as every page can behave differently.
 
 <Image
-  caption={<>Next.js Built Page Type</>}
+  caption="Next.js Built Page Type"
   src="/static/blog/next-9/build-page-type.png"
   width={1418 / 2}
   height={744 / 2}
@@ -598,7 +596,7 @@ syntax as code might be executed in browsers that do not support [`async`/`await
 which would break.
 
 <Image
-  caption={<>Next.js Module/Nomodule Collaboration RFC</>}
+  caption="Next.js Module/Nomodule Collaboration RFC"
   src="/static/blog/next-9/first-collab-rfc.png"
   width={3360 / 4.5}
   height={2100 / 4.5}
@@ -623,7 +621,7 @@ actually required for a particular route) or the code is duplicated across multi
 page bundles.
 
 <Image
-  caption={<>Next.js Chunking Collaboration RFC</>}
+  caption="Next.js Chunking Collaboration RFC"
   src="/static/blog/next-9/chunking-rfc.png"
   width={3360 / 4.5}
   height={2100 / 4.5}
@@ -656,9 +654,7 @@ Including most css-in-js and data-fetching libraries.
 - On GitHub, the project has been starred over **38,600 times**.
 - Over **3,400 pull requests** were submitted since the first release, that is **over 800** since the last major release!
 
-The Next.js community on [spectrum.chat/next-js](https://spectrum.chat/next-js) has
-doubled since the last major release with over **8,600 members**.
-Join us!
+The Next.js community has doubled since the last major release with over **8,600 members**. [Join us!](https://github.com/zeit/next.js/discussions)
 
 We are thankful to our community and all the external feedback and contributions that
 helped shape this release.

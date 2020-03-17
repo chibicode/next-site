@@ -9,7 +9,7 @@ export const meta = {
 
 ## Page Types
 
-Our `index.tsx` page is complaining about missing types, it makes total sense because we're not telling TypeScript that it's a Next.js page and implicit `any` types are unallowed in `strict` mode.
+Our `index.tsx` page is complaining about missing types. It makes total sense because we're not telling TypeScript that it's a Next.js page and implicit `any` types are not allowed in `strict` mode.
 
 Let's add the `NextPage` type to `Home`:
 

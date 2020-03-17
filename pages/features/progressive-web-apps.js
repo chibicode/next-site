@@ -1,6 +1,4 @@
 import Page from '../../components/page';
-import Header from '../../components/header';
-import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import SocialMeta from '../../components/social-meta';
 
@@ -22,9 +20,6 @@ export default () => (
       url="https://nexts.org/features/progressive-web-apps"
       keywords="Progressive Web Apps, PWA, JS, Next, JavaScript, Web Framework"
     />
-    <Header height={{ desktop: 64, mobile: 64 + 32 }} shadow dotBackground>
-      <Navbar />
-    </Header>
     <Hero />
     <OfflineSupport />
     <Learn />

@@ -5,10 +5,10 @@ import withPure from './hoc/pure';
 
 import { links } from '../site-manifest';
 
-import ZEITLogo from './icons/zeit-white-full-logo';
+import ZEITLogo from './icons/zeit-black-full-logo';
 
 export default withPure(() => (
-  <Container wide dark>
+  <Container wide gray>
     <Container>
       <footer>
         <style jsx>
@@ -31,7 +31,7 @@ export default withPure(() => (
               color: inherit;
             }
             a:hover {
-              color: #efefef;
+              color: #111;
             }
             .copyright {
               margin-top: 3rem;
@@ -118,11 +118,6 @@ export default withPure(() => (
               </a>
             </p>
             <p>
-              <a href={links.spectrum} rel="noopener noreferrer" target="_blank">
-                Spectrum
-              </a>
-            </p>
-            <p>
               <Link href="/telemetry" prefetch={false}>
                 <a>Telemetry</a>
               </Link>
@@ -131,7 +126,11 @@ export default withPure(() => (
           <div>
             <h4 className="fw5">About ZEIT</h4>
             <p>
-              <a href="https://zeit.co/oss" rel="noopener noreferrer" target="_blank">
+              <a
+                href="https://zeit.co/oss?utm_source=next-site&utm_medium=footer&utm_campaign=next-website"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 Open Source Software
               </a>
             </p>
@@ -148,7 +147,12 @@ export default withPure(() => (
           </div>
         </div>
         <div className="copyright f6">
-          <a href="https://zeit.co" rel="noopener noreferrer" target="_blank" aria-label="ZEIT">
+          <a
+            href="https://zeit.co?utm_source=next-site&utm_medium=footer&utm_campaign=next-website"
+            rel="noopener noreferrer"
+            target="_blank"
+            aria-label="ZEIT"
+          >
             <ZEITLogo />
           </a>
           <div> Copyright © {`${new Date().getFullYear()}`} ZEIT, Inc. All rights reserved.</div>

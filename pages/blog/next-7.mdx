@@ -1,8 +1,6 @@
 import withPost from '../../components/blog/with-post'
 import Image from '../../components/image'
 
-export const config = { amp: true }
-
 export const meta = {
   title: 'Next.js 7',
   description:
@@ -391,7 +389,11 @@ const ChildComponent = ({ className }) => (
   </div>
 )
 
-const { className, styles } = css.resolve`p { color: black }`
+const { className, styles } = css.resolve`
+  p {
+    color: black;
+  }
+`
 
 export default function Index() {
   return (
@@ -487,7 +489,7 @@ Ever since it's first release Next.js has been used in everything from fortune 5
 - On GitHub, the project has been starred over 29,000 times.
 - Almost 2200 pull requests were submitted since the first release.
 
-The Next.js community on [spectrum.chat/next-js](https://spectrum.chat/next-js) has nearly 2000 members. [Join us!](https://spectrum.chat/next-js)
+The Next.js community has nearly 2000 members. [Join us!](https://github.com/zeit/next.js/discussions)
 
 <style jsx>{`
   table {

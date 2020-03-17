@@ -182,8 +182,8 @@ function AutoComplete({
         }
         .react-autosuggest__suggestions-container {
           display: none;
-          /* 100vh - header size - margin after header - search input container height + margin */
-          max-height: calc(100vh - 64px - 2rem - 5.5rem);
+          /* Full page - content margin - header size - ZEIT banner - search input container height and its margin */
+          max-height: calc(100vh - 2rem - 81px - 50px - 5.5rem);
           overflow-y: auto;
           padding-bottom: 1.5rem;
         }

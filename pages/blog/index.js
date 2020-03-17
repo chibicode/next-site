@@ -1,11 +1,10 @@
 import React from 'react'
 import { SkipNavContent } from '@reach/skip-nav'
 
-import Header from '../../components/header'
 import Footer from '../../components/footer'
-import Navbar from '../../components/navbar'
 import Screen from '../../components/screen'
 import Page from '../../components/page'
+import FeedbackContext from '../../components/feedback-context'
 
 import Container from '../../components/container'
 import SectionHeader from '../../components/section-header'
@@ -32,6 +31,10 @@ function dateSortDesc(a, b) {
 const Li = components.li
 
 const getLi = path => ({ children }) => {
+  if (!children?.props?.props) {
+    return <Li>{children}</Li>
+  }
+
   const { props } = children.props
   const { href } = props
   const isHash = href && href.startsWith('#')
@@ -55,10 +58,7 @@ const items = previewItems
   })
 
 export default () => (
-  <>
-    <Header height={{ desktop: 64, mobile: 64 + 32 }} shadow defaultActive>
-      <Navbar />
-    </Header>
+  <FeedbackContext.Provider value={{ label: 'next-blog' }}>
     <Page title="Blog | Next.js">
       <Screen offset={64 + 400}>
         <Container padding wide>
@@ -69,9 +69,5 @@ export default () => (
       </Screen>
       <Footer />
     </Page>
-  </>
+  </FeedbackContext.Provider>
 )
-
-export const config = {
-  amp: true
-}

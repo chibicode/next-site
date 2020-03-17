@@ -25,16 +25,18 @@ export default function Sidebar({ active, children, fixed }) {
           flex-shrink: 0;
         }
         .sidebar.fixed {
-          position: fixed;
-          top: 0;
-          height: 100vh;
-          padding-top: calc(64px + 2rem);
+          position: sticky;
+          /* content margin + header size */
+          top: calc(2rem + 81px);
+          margin-right: 1rem;
+          /* Full page - content margin - header size - ZEIT banner */
+          height: calc(100vh - 2rem - 81px - 50px);
           padding-bottom: 0;
           display: flex;
           flex-direction: column;
           z-index: 1;
         }
-        .sidebar.fixed.searching .sidebar-content {
+        .sidebar.fixed.searching > .sidebar-content {
           display: none;
         }
         .sidebar-search {

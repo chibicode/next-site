@@ -40,22 +40,9 @@ class LogoContainer extends React.PureComponent {
     const { scroll, mounted } = this.state;
 
     // const LOGO_TOP = isMobile ? 126 : 170;
-    const LOGO_TOP = 170;
+    const LOGO_TOP = 170 + 50; // 170 + height of banner
     return (
-      <div
-        className={classNames('logo-main f4 fw6', { unmounted: !mounted })}
-        style={
-          isAmp
-            ? {}
-            : {
-                top: Math.max(LOGO_TOP - scroll, 7),
-                opacity: `${Math.max(easing(1 - scroll / LOGO_TOP), 0)}`,
-                transform: `scale(${Math.max(easing(1 - scroll / LOGO_TOP), 0) * 0.325 +
-                  0.625}) translate3d(0, 0, 0)`,
-                transformOrigin: 'top'
-              }
-        }
-      >
+      <div className={classNames('logo-main f4 fw6', { unmounted: !mounted })}>
         <Link href="/">
           <a className={scroll >= LOGO_TOP ? null : 'disable'} aria-label="Next.js">
             <Logo size={80} />
@@ -86,7 +73,6 @@ class LogoContainer extends React.PureComponent {
           }
           .logo-main {
             display: flex;
-            position: ${isAmp ? 'relative' : 'fixed'};
             justify-content: center;
             color: #0070f3;
             left: 0;
@@ -140,76 +126,6 @@ export default class extends React.PureComponent {
       >
         <Container>
           <div className="intro-container">
-            <style jsx>{`
-              .intro-container {
-                margin: 0 0 2rem 0;
-                overflow: visible;
-              }
-              h2 {
-                margin-top: 1rem;
-                margin-bottom: 2rem;
-              }
-              .main-button {
-                margin-bottom: 2rem;
-              }
-              .links {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              }
-              .links > * {
-                padding: 0 0.5rem;
-              }
-              .campaign {
-                width: 100%;
-                letter-spacing: -0.02rem;
-                overflow: hidden;
-                cursor: default;
-                z-index: -1;
-                margin: 1rem 0 5rem;
-              }
-              .f-xs-0 {
-                font-size: 2.887rem; /* 2.566rem; /* 2.281rem; */
-              }
-              .f-xs-1 {
-                font-size: 2.027rem; //.566rem;
-              }
-              .logo-main {
-                position: fixed;
-                display: flex;
-                justify-content: center;
-                color: #0070f3;
-                left: 0;
-                right: 0;
-                width: 200px;
-                margin: auto;
-                z-index: 1000;
-              }
-              .title-1 {
-                font-size: 1.5rem;
-              }
-              .title-2 {
-                font-size: 4rem;
-                margin-top: -5rem;
-                margin-bottom: 0;
-              }
-              // CSS only media query for mobile
-              @media screen and (max-width: 640px) {
-                .title-1 {
-                  font-size: 1.423828125em;
-                }
-                .title-2 {
-                  font-size: 1.802032470703125em;
-                  margin-top: -2.4rem;
-                }
-                .campaign {
-                  margin: 0 0 2rem;
-                }
-                .main-button {
-                  margin-top: 2rem;
-                }
-              }
-            `}</style>
             <LogoContainer isAmp={isAmp} />
             <div className="campaign no-drag no-tap-highlight">
               <h1 className={classNames('title-1', 'fw6')}>The React Framework for</h1>
@@ -218,7 +134,7 @@ export default class extends React.PureComponent {
               </h2>
               <div className="main-button">
                 <Button href="#showcases" invert>
-                  See Showcase
+                  View Showcase
                 </Button>
               </div>
             </div>
@@ -239,6 +155,73 @@ export default class extends React.PureComponent {
             </div>
           </div>
         </Container>
+
+        <style jsx>{`
+          .intro-container {
+            margin: 0 0 2rem 0;
+            overflow: visible;
+          }
+          h2 {
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+          }
+          .main-button {
+            margin-bottom: 2rem;
+          }
+          .links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .links > * {
+            padding: 0 0.5rem;
+          }
+          .campaign {
+            width: 100%;
+            letter-spacing: -0.02rem;
+            overflow: hidden;
+            cursor: default;
+            z-index: -1;
+            margin: 1rem 0 5rem;
+          }
+          .f-xs-0 {
+            font-size: 2.887rem; /* 2.566rem; /* 2.281rem; */
+          }
+          .f-xs-1 {
+            font-size: 2.027rem; //.566rem;
+          }
+          .logo-main {
+            display: flex;
+            justify-content: center;
+            color: #0070f3;
+            margin: auto;
+            margin-bottom: 2rem;
+          }
+          .title-1 {
+            font-size: 1.5rem;
+          }
+          .title-2 {
+            font-size: 4rem;
+            margin-top: -5rem;
+            margin-bottom: 0;
+          }
+          /* CSS only media query for mobile */
+          @media screen and (max-width: 640px) {
+            .title-1 {
+              font-size: 22px;
+            }
+            .title-2 {
+              font-size: 30px;
+              margin-top: -2.4rem;
+            }
+            .campaign {
+              margin: 0 0 2rem;
+            }
+            .main-button {
+              margin-top: 2rem;
+            }
+          }
+        `}</style>
       </Container>
     );
   }

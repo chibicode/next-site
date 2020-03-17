@@ -1,10 +1,7 @@
-import { withRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 
 import Page from '../../components/page';
-import Header from '../../components/header';
 import Footer from '../../components/footer';
-import Navbar from '../../components/navbar';
 import Tabs from '../../components/tabs';
 
 import Title from '../../components/showcase/title';
@@ -19,34 +16,23 @@ const HEADER_HEIGHT = 16 * 12;
 
 function Showcase({ item }) {
   return (
-    <>
-      <Header
-        height={{
-          desktop: 0,
-          mobile: 0
-        }}
-        zIndex={1001}
-        shadow={false}
-      >
-        <Navbar />
-      </Header>
+    <Page title="Showcase | Next.js">
+      <SocialMeta
+        image="/static/twitter-cards/showcase.png"
+        title="Showcase | Next.js"
+        url="https://nextjs.org/showcase"
+        description="Meet hundreds of beautiful websites powered by Next.js"
+      />
       <Tabs data={categories} anchor>
         {(onSelect, selectedId) => (
           <>
-            <Header
+            <Title
               height={{
-                desktop: 288 - 114
+                desktop: HEADER_HEIGHT + 64,
+                mobile: HEADER_HEIGHT + 64 + 32
               }}
-              shadow
-            >
-              <Title
-                height={{
-                  desktop: HEADER_HEIGHT + 64,
-                  mobile: HEADER_HEIGHT + 64 + 32
-                }}
-              />
-              <Filter onSelect={onSelect} selectedId={selectedId} />
-            </Header>
+            />
+            <Filter onSelect={onSelect} selectedId={selectedId} />
 
             <div className="wrapList">
               <List category={selectedId} />
@@ -65,22 +51,14 @@ function Showcase({ item }) {
           </>
         )}
       </Tabs>
-      <Page title="Showcase | Next.js">
-        <SocialMeta
-          image="/static/twitter-cards/showcase.png"
-          title="Showcase | Next.js"
-          url="https://nextjs.org/showcase"
-          description="Meet hundreds of beautiful websites powered by Next.js"
-        />
-        {item && mapping[item] && <SiteDetail siteData={mapping[item]} />}
-        <SkipNavContent />
-        <Footer />
-      </Page>
-    </>
+      {item && mapping[item] && <SiteDetail siteData={mapping[item]} />}
+      <SkipNavContent />
+      <Footer />
+    </Page>
   );
 }
 
-export async function unstable_getStaticProps() {
+export async function getStaticProps() {
   return {
     props: {},
     revalidate: false

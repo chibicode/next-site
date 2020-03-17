@@ -25,9 +25,11 @@ export default function Container({
         ${wide && !small ? '' : 'max-width: 1024px;'}
         ${small ? 'max-width: 682px;' : ''}
         ${center ? 'text-align: center;' : ''}
-        ${dark ? 'background-image: linear-gradient(to bottom, #121212 0%, #323232 100%);' : ''}
+        ${dark ? 'background: #111;' : ''}
         ${dark ? 'color: #f1f1f1;' : ''}
-        ${gray ? 'background-color: #f6f6f6;' : ''}
+        ${gray ? 'background-color: #fafafa;' : ''}
+        ${gray ? 'border-top: 1px solid #eaeaea;' : ''}
+        ${gray ? 'border-bottom: 1px solid #eaeaea;' : ''}
         ${wide && !overflow ? 'overflow: hidden;' : ''}
         ${minHeight ? `min-height: ${minHeight}px;` : ''}
         ${vCenter ? 'display: flex; align-items: center;' : ''}

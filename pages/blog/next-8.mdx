@@ -3,18 +3,9 @@ import Image from '../../components/image'
 import { meta } from '../../blog/next-8-preview.mdx'
 import { TerminalInput } from '../../components/text/terminal'
 import Head from 'next/head'
-
-export const config = { amp: true }
+import TweetEmbed from '../../components/blog/tweet-embed.js'
 
 export default withPost({ ...meta })
-
-<Head>
-  <script
-    async
-    custom-element="amp-twitter"
-    src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"
-  />
-</Head>
 
 We are proud today to introduce the production-ready Next.js 8, featuring:
 
@@ -42,9 +33,7 @@ We are thankful to our community and everyone who has bet on our success. Since 
 ## Serverless Next.js
 
 <Image
-  caption={
-    <>The Next.js serverless target outputs Serverless functions from pages</>
-  }
+  caption="The Next.js serverless target outputs Serverless functions from pages"
   captionSpacing={30}
   video
   src="/static/blog/next-8/static-exporting.mp4"
@@ -111,11 +100,13 @@ This effort has resulted in up to **16 times better memory usage with no degrada
 
 Memory gets released much more quickly and processes don't crash anymore under lots of stress (many pages).
 
-<amp-twitter width="375"
-  height="320"
-  layout="responsive"
-  data-tweetid="1085398982753468416"
-  data-conversation="none" />
+<TweetEmbed
+  id="1085398982753468416"
+  options={{
+    conversation: 'none',
+    align: 'center'
+  }}
+/>
 
 We will be going in-depth on how we've achieved this optimization soon. Keep an eye out on the [Next.js blog](/blog).
 
@@ -237,7 +228,7 @@ For example, when visiting `http://localhost:3000/my-page`, the `pages/my-page.j
 This ensures the developer does not have to wait for all pages to compile when launching the development server, which can take quite some time on larger apps. It keeps memory usage low and the compiler fast since the compiler is not required to take all pages into account when bundling.
 
 <Image
-  caption={<>The on-demand entries flow</>}
+  caption="The on-demand entries flow"
   captionSpacing={30}
   src="/static/blog/next-8/flow.jpg"
   width={966 / 2}
@@ -385,12 +376,9 @@ Ever since its first release, Next.js has been used in everything from Fortune 5
 - On GitHub, the project has been starred over **34,400 times**.
 - Over **2600 pull requests** were submitted since the first release.
 
-The Next.js community on [spectrum.chat/next-js](https://spectrum.chat/next-js) has over **4,570 members**. [Join us!](https://spectrum.chat/next-js)
+The Next.js community has over **4,570 members**. [Join us!](https://github.com/zeit/next.js/discussions)
 
 <style jsx>{`
-  :global(.twitter-tweet) {
-    margin: 0 auto;
-  }
   table {
     margin: 0 auto 30px;
   }

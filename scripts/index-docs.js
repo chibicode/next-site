@@ -6,7 +6,8 @@ import toString from 'mdast-util-to-string';
 import GithubSlugger from 'github-slugger';
 import md5 from 'md5';
 import { removeFromLast } from '../lib/docs/utils';
-import { getRawFileFromRepo } from '../lib/github';
+import { getLatestTag } from '../lib/github/api';
+import { getRawFileFromRepo } from '../lib/github/raw';
 
 const processor = unified().use(markdown);
 
@@ -27,7 +28,8 @@ function getText(node) {
 }
 
 async function addRecords(filePath) {
-  const md = await getRawFileFromRepo(filePath);
+  const tag = await getLatestTag();
+  const md = await getRawFileFromRepo(filePath, tag);
   const tree = await processor.parse(md);
   const slugger = new GithubSlugger();
   const records = [];

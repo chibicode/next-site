@@ -4,8 +4,6 @@ import { meta } from '../../blog/next-8-1-preview.mdx'
 import { TerminalInput } from '../../components/text/terminal'
 import Button from '../../components/button'
 
-export const config = { amp: true }
-
 export default withPost({ ...meta })
 
 Today, we're excited to announce we've extended the Next.js experience to authoring AMP pages.
@@ -21,7 +19,7 @@ Today, we're excited to announce we've extended the Next.js experience to author
 AMP is a standard for building high-performance websites that minimizes rendering overhead and can be indexed on well known search engines with enhanced behavior. For example, AMP pages are loaded directly into Google's mobile search results and are marked by a lightning icon.
 
 <Image
-  caption={<>Next.js Google search result</>}
+  caption="Next.js Google search result"
   captionSpacing={0}
   src="/static/blog/next-8-1/next-amp-result.png"
   width={1124 / 2.5}
@@ -54,15 +52,14 @@ export default withAmp(HomePage, { hybrid: true })
 One example of the hybrid AMP pattern being used in production is Reddit. Each thread is stored in [Google's AMP Cache](https://developers.google.com/amp/cache/) to provide a fast user experience across the mobile web while still providing the full version of Reddit for desktops and subsequent navigation.
 
 <Image
-  caption={<>Image of Reddit using AMP to better SEO</>}
+  caption="Image of Reddit using AMP to better SEO"
   captionSpacing={0}
   src="/static/blog/next-8-1/reddit-amp-results.png"
   width={1123 / 2.5}
   height={696 / 2.5}
 />
-
 <Image
-  caption={<>Image of Reddit in AMP viewer</>}
+  caption="Image of Reddit in AMP viewer"
   captionSpacing={0}
   src="/static/blog/next-8-1/amp-viewer.png"
   width={1122 / 2.5}

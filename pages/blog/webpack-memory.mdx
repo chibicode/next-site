@@ -3,8 +3,6 @@ import Image from '../../components/image'
 import { meta } from '../../blog/webpack-memory-preview.mdx'
 import Caption from '../../components/text/caption'
 
-export const config = { amp: true }
-
 export default withPost({ ...meta })
 
 Recently [Next.js 8](/blog/next-8) was introduced. The release included a massive build-time memory usage reduction. This blog post will explore how we have helped optimize webpack for the community.
@@ -28,12 +26,7 @@ In the resulting profiles we discovered a point at which webpack would allocate 
 The amount of memory allocated directly correlated to the amount of pages, meaning more pages resulted in more memory usage.
 
 <Image
-  caption={
-    <>
-      The Chrome Developer Tools memory profiler showed <strong>548 MB</strong>{' '}
-      being allocated at once
-    </>
-  }
+  caption="The Chrome Developer Tools memory profiler showed 548 MB being allocated at once"
   captionSpacing={30}
   src="/static/blog/webpack-memory/allocation-before.png"
   width={2030 / 2.5}
@@ -73,12 +66,7 @@ asyncLib.forEachLimit(compilation.assets, 15, (source, file, callback) => {
 After implementing this concurrency limit and profiling the build memory usage again. We could see the memory allocation being split into smaller pieces of **34 MB**.
 
 <Image
-  caption={
-    <>
-      The profiler now showed chunks of <strong>34 MB</strong> being allocated
-      over time
-    </>
-  }
+  caption="The profiler now showed chunks of 34 MB being allocated over time"
   captionSpacing={30}
   src="/static/blog/webpack-memory/after-limiting.png"
   width={2060 / 2.5}
@@ -100,12 +88,7 @@ After [collaborating](https://github.com/webpack/webpack/pull/8609) with [Tobias
 With this new behavior the chunks being allocated were reduced to **_182 KB_** over time.
 
 <Image
-  caption={
-    <>
-      After all optimizations the profiler shows chunks of{' '}
-      <strong>184 KB</strong> being allocated over time
-    </>
-  }
+  caption="After all optimizations the profiler shows chunks of 184 KB being allocated over time"
   captionSpacing={30}
   src="/static/blog/webpack-memory/allocation-after.png"
   width={1280 / 2}

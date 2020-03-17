@@ -1,7 +1,8 @@
 import { memo, Component } from 'react';
 import cn from 'classnames';
-import ClickOutside from '../click-outside';
-import Button from '../button';
+import ClickOutside from './click-outside';
+import Button from './button';
+import FeedbackContext from './feedback-context';
 
 const EMOJIS = new Map([
   ['😭', 'f62d'],
@@ -20,7 +21,7 @@ function getEmoji(code) {
   return EMOJI_CODES.get(code);
 }
 
-export default class Feedback extends Component {
+export default class FooterFeedback extends Component {
   state = {
     emoji: null,
     loading: false,
@@ -38,10 +39,6 @@ export default class Feedback extends Component {
     this.textAreaRef = node;
   };
 
-  setError = error => {
-    this.setState({ errorMessage: error });
-  };
-
   onFocus = () => {
     this.setState({ focused: true });
   };
@@ -50,22 +47,18 @@ export default class Feedback extends Component {
     this.setState({ errorMessage: null });
   };
 
-  setSuccessState = state => {
-    this.setState({ success: state });
-  };
-
-  done = errorMessage => {
-    if (!errorMessage) {
-      this.setState({ loading: false, success: true });
-    } else {
-      this.setState({ errorMessage, loading: false, emoji: null });
-    }
-  };
-
   onSubmit = () => {
-    if (this.textAreaRef && this.textAreaRef.value.trim() === '') {
+    const value = this.textAreaRef?.value.trim();
+
+    if (!value.length) {
       this.setState({
         errorMessage: "Your feedback can't be empty"
+      });
+      return;
+    }
+    if (value.split(' ').length < 2) {
+      this.setState({
+        errorMessage: 'Please use at least 2 words'
       });
       return;
     }
@@ -78,8 +71,9 @@ export default class Feedback extends Component {
         },
         body: JSON.stringify({
           url: window.location.toString(),
-          note: this.textAreaRef ? this.textAreaRef.value : '',
+          note: value,
           emotion: getEmoji(this.state.emoji),
+          label: this.context?.label,
           ua: `${this.props.uaPrefix || ''} + ${navigator.userAgent} (${navigator.language ||
             'unknown language'})`
         })
@@ -88,14 +82,16 @@ export default class Feedback extends Component {
           this.setState({ loading: false, success: true });
         })
         .catch(err => {
-          this.setState({ loading: false, errorMessage: err });
+          this.setState({
+            loading: false,
+            errorMessage: err?.message || 'An error ocurred. Try again in a few minutes.'
+          });
         });
     });
   };
 
   handleClickOutside = () => {
-    this.setState({ focused: false, emoji: null, value: '' });
-    this.textAreaRef.value = '';
+    this.setState({ focused: false, emoji: null });
   };
 
   onEmojiSelect = emoji => {
@@ -148,9 +144,6 @@ export default class Feedback extends Component {
     } else if (prevState.focused && this.textAreaRef) {
       // needed for when we e.g.: unfocus based on pressing escape
       this.textAreaRef.blur();
-
-      // Remove value visibly from textarea while it's unfocused
-      this.textAreaRef.value = '';
 
       // if we unfocused and there was an error before,
       // clear it
@@ -360,6 +353,7 @@ export default class Feedback extends Component {
             .textarea-wrapper {
               height: 100%;
               margin-top: 16px;
+              transition: all 150ms ease-out, border-radius 150ms step-start;
             }
 
             .geist-feedback-input.focused .textarea-wrapper {
@@ -372,7 +366,7 @@ export default class Feedback extends Component {
               border-radius: 4px;
               overflow: hidden;
               position: relative;
-              transition: all 150ms ease-out;
+              transition: all 150ms ease-out, border-radius 150ms step-end;
               z-index: 1000;
             }
 
@@ -606,6 +600,8 @@ class EmojiSelector extends Component {
     );
   }
 }
+
+FooterFeedback.contextType = FeedbackContext;
 
 const Emoji = memo(({ code }) => (
   <img

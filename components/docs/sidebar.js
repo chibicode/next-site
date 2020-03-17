@@ -1,6 +1,4 @@
 import GithubSlugger from 'github-slugger';
-import Header from '../header';
-import Navbar from '../navbar';
 import Container from '../container';
 import ArrowRight from '../icons/arrow-right';
 
@@ -134,42 +132,31 @@ export default function Sidebar({ headings, mobile, desktop }) {
     <>
       {mobile && (
         <>
-          <Header
-            shadow
-            zIndex={999}
-            offset={64 + 32}
-            height={{
-              desktop: 0,
-              mobile: 114
-            }}
-          >
-            <Navbar />
-            <label htmlFor="dropdown-input" className="dropdown-toggle">
-              <input id="dropdown-input" type="checkbox" />
-              <div className="docs-select f5 fw6">
-                <Container>
-                  <span
-                    style={{
-                      verticalAlign: 'middle',
-                      marginRight: '0.2rem',
-                      display: 'inline-block',
-                      lineHeight: '1rem'
-                    }}
-                  >
-                    <ArrowRight />
-                  </span>
-                  Menu
-                </Container>
-              </div>
-              <div className="documentation__sidebar docs-dropdown">
-                <Container>
-                  <nav>
-                    <SidebarNavItemContainer headings={headings} />
-                  </nav>
-                </Container>
-              </div>
-            </label>
-          </Header>
+          <label htmlFor="dropdown-input" className="dropdown-toggle">
+            <input id="dropdown-input" type="checkbox" />
+            <div className="docs-select f5 fw6">
+              <Container>
+                <span
+                  style={{
+                    verticalAlign: 'middle',
+                    marginRight: '0.2rem',
+                    display: 'inline-block',
+                    lineHeight: '1rem'
+                  }}
+                >
+                  <ArrowRight />
+                </span>
+                Menu
+              </Container>
+            </div>
+            <div className="documentation__sidebar docs-dropdown">
+              <Container>
+                <nav>
+                  <SidebarNavItemContainer headings={headings} />
+                </nav>
+              </Container>
+            </div>
+          </label>
         </>
       )}
       <style jsx>{`
@@ -183,7 +170,7 @@ export default function Sidebar({ headings, mobile, desktop }) {
         .docs-select {
           height: 3rem;
           width: 100%;
-          border-top: 1px solid #f5f5f5;
+          border-top: 1px solid #eaeaea;
           line-height: 3rem;
           text-align: left;
           cursor: pointer;
@@ -199,7 +186,7 @@ export default function Sidebar({ headings, mobile, desktop }) {
           top: 100%;
           bottom: 100%;
           background: white;
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          border-bottom: 1px solid #eaeaea;
           transition: bottom 0.5s ease;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
@@ -236,14 +223,17 @@ export default function Sidebar({ headings, mobile, desktop }) {
           padding-right: 3rem;
         }
         .documentation__sidebar.desktop nav {
-          position: fixed;
+          position: sticky;
+          /* header height + notification height */
+          top: calc(81px + 88px);
+          /* Full page - header height - notification height - ZEIT banner */
+          height: calc(100vh - 81px - 88px - 50px);
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
           display: flex;
           flex-direction: column;
           width: 288px;
           padding: 2rem 1rem 0 0;
-          height: calc(100vh - 64px);
         }
         @media screen and (max-width: 1024px) {
           .documentation__sidebar.desktop nav {

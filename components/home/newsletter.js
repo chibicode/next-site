@@ -42,7 +42,7 @@ class Newsletter extends React.PureComponent {
 
   render() {
     return (
-      <Container gray wide overflow center padding role="region" aria-labelledby="customers">
+      <Container wide overflow center padding role="region" aria-labelledby="customers">
         <div className="content">
           <aside>
             <h2>Next.js is getting better every day — don’t miss out on all the action.</h2>

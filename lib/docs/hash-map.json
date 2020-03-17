@@ -24,7 +24,7 @@
     "with-url-object": "/api-reference/next/link#with-url-object",
     "replace-instead-of-push-url": "/api-reference/next/link#replace-the-url-instead-of-push",
     "using-a-component-that-supports-onclick": "/api-reference/next/link#using-a-component-that-supports-onclick",
-    "forcing-the-link-to-expose-href-to-its-child": "/api-reference/next/link#forcing-link-to-expose-href-to-its-child",
+    "forcing-the-link-to-expose-href-to-its-child": "/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag",
     "disabling-the-scroll-changes-to-top-on-page": "/api-reference/next/link#disable-scrolling-to-the-top-of-the-page",
     "imperatively": "/routing/imperatively",
     "intercepting-popstate": "/api-reference/next/router#routerbeforepopstate",

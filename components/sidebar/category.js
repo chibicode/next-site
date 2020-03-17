@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import cn from 'classnames';
 import ArrowRightSidebar from '../icons/arrow-right-sidebar';
 
-export default function Category({ level = 1, title, selected, opened, children }) {
+export default function Category({ isMobile, level = 1, title, selected, opened, children }) {
   const ref = useRef();
   const [{ toggle, shouldScroll = false }, setToggle] = useState({ toggle: selected || opened });
   const toggleCategory = () => {
@@ -20,10 +20,14 @@ export default function Category({ level = 1, title, selected, opened, children 
   // Navigate to the start of the category when manually opened
   useEffect(() => {
     if (toggle && shouldScroll) {
-      ref.current.scrollIntoView();
+      const content = document.querySelector(isMobile ? '.docs-dropdown' : '.sidebar-content');
+      // 10 is added for better margin
+      const height = ref.current.offsetTop - (isMobile ? 10 : content.offsetTop);
+
+      content.scrollTop = height;
       setToggle({ toggle });
     }
-  }, [toggle, shouldScroll]);
+  }, [toggle, shouldScroll, isMobile]);
 
   return (
     <div ref={ref} className={cn('category', levelClass, { open: toggle, selected })}>
@@ -33,6 +37,15 @@ export default function Category({ level = 1, title, selected, opened, children 
       </a>
       <div className="posts">{children}</div>
       <style jsx>{`
+        .category {
+          margin: 18px 0;
+        }
+        .category:first-child {
+          margin-top: 0;
+        }
+        .category:last-child {
+          margin-bottom: 0;
+        }
         .label {
           font-size: 1rem;
           line-height: 1.5rem;
@@ -65,15 +78,6 @@ export default function Category({ level = 1, title, selected, opened, children 
         .label:hover {
           color: #000;
         }
-        .category {
-          margin: 18px 0;
-        }
-        .category:first-child {
-          margin-top: 0;
-        }
-        .category:last-child {
-          margin-bottom: 0;
-        }
         .separated {
           margin-bottom: 32px;
         }
@@ -83,7 +87,7 @@ export default function Category({ level = 1, title, selected, opened, children 
           height: 0;
           overflow: hidden;
           padding-left: 19px;
-          margin-left: 4px;
+          margin-left: 3px;
         }
         .open > .posts {
           margin-top: 18px;

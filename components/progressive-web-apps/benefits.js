@@ -38,7 +38,7 @@ const Instructions = () => (
         <span>yarn add next-offline</span>
       </li>
       <li>
-        <span>touch static/manifest.json</span>
+        <span>touch public/manifest.json</span>
       </li>
       <li>
         <a href="https://github.com/hanford/next-offline#usage">wrap config</a>
@@ -108,19 +108,14 @@ export default () => (
       <div className="flex">
         <div className="col">
           <Icon>
-            <amp-img
-              src="/static/svg/rocket.svg"
-              alt="rocket"
-              width={26.01}
-              height={25.99}
-            />
+            <amp-img src="/static/svg/rocket.svg" alt="rocket" width={26.01} height={25.99} />
           </Icon>
           <h3 className="f3 fw6">Automated Hard Parts</h3>
           <p>
-            Adapting the technologies involved in progressive web apps to your
-            specific application can often be a challenge. By using Next.js, the
-            heavy lifting is done for you. Requirements like cache management
-            and service worker registration are all handled automatically.
+            Adapting the technologies involved in progressive web apps to your specific application
+            can often be a challenge. By using Next.js, the heavy lifting is done for you.
+            Requirements like cache management and service worker registration are all handled
+            automatically.
           </p>
         </div>
 
@@ -128,20 +123,14 @@ export default () => (
 
         <div className="col">
           <Icon>
-            <amp-img
-              src="/static/svg/wrench.svg"
-              alt="extensible"
-              width={27}
-              height={26}
-            />
+            <amp-img src="/static/svg/wrench.svg" alt="extensible" width={27} height={26} />
           </Icon>
           <h3 className="f3 fw6">Open to Extension</h3>
           <p>
-            Next.js also allows for easy tweaking of the default configuration.
-            By exposing the WorkBox configuration, you can modify whatever you
-            need. By enabling you to hook into any part of the progressive web
-            app tech stack, using Next.js guarantees your application will scale with
-            you.
+            Next.js also allows for easy tweaking of the default configuration. By exposing the
+            WorkBox configuration, you can modify whatever you need. By enabling you to hook into
+            any part of the progressive web app tech stack, using Next.js guarantees your
+            application will scale with you.
           </p>
         </div>
       </div>
@@ -151,20 +140,14 @@ export default () => (
       <div className="flex">
         <div className="col">
           <Icon>
-            <amp-img
-              src="/static/svg/checkmark-dark.svg"
-              alt="checkmark"
-              width={28}
-              height={28}
-            />
+            <amp-img src="/static/svg/checkmark-dark.svg" alt="checkmark" width={28} height={28} />
           </Icon>
           <h3 className="f3 fw6">Easy to Enable</h3>
           <p>
-            With Next.js, converting your application into a progressive web app
-            has never been easier. Simply add the next-offline package, create
-            an app manifest file and your application will be ready to go. This
-            is all you need to score 100 on the industry-standard Lighthouse PWA
-            audit with Next.js.
+            With Next.js, converting your application into a progressive web app has never been
+            easier. Simply add the next-offline package, create an app manifest file and your
+            application will be ready to go. This is all you need to score 100 on the
+            industry-standard Lighthouse PWA audit with Next.js.
           </p>
         </div>
 

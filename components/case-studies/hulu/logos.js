@@ -4,7 +4,7 @@ import ZeitLogo from '../../icons/zeit-logo-outline.js';
 
 export default () => (
   <div>
-    <Link href="https://zeit.co">
+    <Link href="https://zeit.co?utm_source=next-site&utm_medium=logo&utm_campaign=case-studies">
       <a className="home">
         <ZeitLogo />
       </a>

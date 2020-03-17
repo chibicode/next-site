@@ -1,8 +1,6 @@
 import { SkipNavContent } from '@reach/skip-nav';
 import { useAmp } from 'next/amp';
 import Page from '../../components/page';
-import Header from '../../components/header';
-import Navbar from '../../components/navbar';
 import Footer from '../../components/footer';
 import SocialMeta from '../../components/social-meta';
 
@@ -27,9 +25,6 @@ export default () => {
         url="https://nexts.org/features/static-exporting"
         keywords="Static site generation, Static exporting, Static exports, Next, JavaScript, Web Framework"
       />
-      <Header height={{ desktop: 64, mobile: 64 + 32 }} shadow dotBackground>
-        <Navbar />
-      </Header>
       <SkipNavContent />
       <Hero />
       <Build />

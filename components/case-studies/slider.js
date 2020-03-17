@@ -44,7 +44,12 @@ export default function CaseStudiesSlider() {
             </div>
           ))}
         </div>
-        <Button invert href={`/case-studies/${items[count].name.toLowerCase()}`} className="action">
+        <Button
+          invert
+          href={`/case-studies/${items[count].name.toLowerCase()}`}
+          className="action"
+          amp
+        >
           Read Case Study
         </Button>
       </div>

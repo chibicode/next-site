@@ -36,9 +36,6 @@ export default () => {
         url="https://nexts.org/features/server-side-rendering"
         keywords="Server side rendering, Server rendering, SSR, Serverless, JavaScript, Web Framework"
       />
-      <Header height={{ desktop: 64, mobile: 64 + 32 }} shadow dotBackground>
-        <Navbar />
-      </Header>
       <Hero />
       <Features />
       <Benefits isAmp={isAmp} />

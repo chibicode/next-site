@@ -38,13 +38,9 @@ const nextConfig = {
   target: 'experimental-serverless-trace', // Not required for Now, but used by GitHub Actions
   pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'mdx'],
   experimental: {
-    static404: true,
     babelMultiThread: true,
     modern: true,
     granularChunks: true,
-    deferScripts: true,
-    prefetchPreload: true,
-    catchAllRouting: true,
     rewrites() {
       return [
         {
@@ -54,6 +50,10 @@ const nextConfig = {
         {
           source: '/docs{/}?',
           destination: '/docs/getting-started'
+        },
+        {
+          source: '/docs/tag/:tag{/}?',
+          destination: '/docs/tag/:tag/getting-started'
         }
       ];
     },
@@ -113,7 +113,10 @@ const nextConfig = {
     }
   },
   webpack: (config, { dev, isServer }) => {
-    if (isServer && !dev) {
+    if (!dev && isServer) {
+      // we're in build mode so enable shared caching for the GitHub API
+      process.env.USE_CACHE = 'true';
+
       const originalEntry = config.entry;
 
       config.entry = async () => {

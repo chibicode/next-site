@@ -6,8 +6,6 @@ import Caption from '../../components/text/caption'
 import Container from '../../components/container'
 import { GenericLink } from '../../components/text/link'
 
-export const config = { amp: true }
-
 export const meta = {
   title: 'Next.js 6.1',
   description:
@@ -66,7 +64,10 @@ We have also been focusing on adding [Flow](https://flow.org/) types throughout 
 A change we've made that is more visible to users is that `.next/dist` has been renamed to `.next/server`. The `.next` directory that holds build output. For example when you run `next build` the result will be stored in `.next`.
 
 <Image src={'https://assets.zeit.co/image/upload/front' + '/blog/next6-1/server-dist.png'} width={1574/3} height={754/3} />
-<Caption>The pre-rendering files are now in the <Caption.Code>server</Caption.Code> directory</Caption>
+<Caption>
+  The pre-rendering files are now in the <Caption.Code>server</Caption.Code>{' '}
+  directory
+</Caption>
 
 Occurrences of the same constants have been moved into a common file: [`constants.js`](https://github.com/zeit/next.js/blob/canary/lib/constants.js)
 
@@ -117,9 +118,15 @@ The result of this effort is [next&#8209;codemod](https://github.com/zeit/next-c
 The first codemod we're providing is `url-to-withrouter` which automatically transforms many cases where `url` was used to `withRouter`.
 
 <TerminalInput>
-jscodeshift -t ./url-to-withrouter.js pages/**/*.js
+  jscodeshift -t ./url-to-withrouter.js pages/**/*.js
 </TerminalInput>
-<Caption>This will transform uses of <Caption.Code>url</Caption.Code> to <Caption.Code>withRouter</Caption.Code>. <GenericLink href="https://github.com/zeit/next-codemod#url-to-withrouter">Read more here</GenericLink></Caption>
+<Caption>
+  This will transform uses of <Caption.Code>url</Caption.Code> to{' '}
+  <Caption.Code>withRouter</Caption.Code>.{' '}
+  <GenericLink href="https://github.com/zeit/next-codemod#url-to-withrouter">
+    Read more here
+  </GenericLink>
+</Caption>
 
 ## Contributing to Next.js
 
@@ -127,12 +134,18 @@ The Next.js community is growing, with more than 450 contributors that already l
 
 There's many ways to contribute back to Next.js:
 
-- Joining the community and giving advice on [spectrum.chat/next-js](https://spectrum.chat/next-js)
+- Joining the community and giving advice on [GitHub](https://github.com/zeit/next.js/discussions)
 - Contributing examples of common use cases: [examples directory](https://github.com/zeit/next.js/tree/canary/examples)
 - Checking the [good first issue](https://github.com/zeit/next.js/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22) and [help wanted](https://github.com/zeit/next.js/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22help+wanted%22) labels on [GitHub](https://github.com/zeit/next.js)
 
-<Image src={'https://assets.zeit.co/image/upload/front' + '/blog/next6-1/good-first-issue.png'} width={1968/3} height={1468/3} />
-<Caption>There's 30 open issues with the <GenericLink href="https://github.com/zeit/next.js/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22">good first issue</GenericLink> label. Giving new contributors the opportunity to contribute.</Caption>
+  <Image src={'https://assets.zeit.co/image/upload/front' + '/blog/next6-1/good-first-issue.png'} width={1968/3} height={1468/3} />
+  <Caption>
+    There's 30 open issues with the{' '}
+    <GenericLink href="https://github.com/zeit/next.js/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22">
+      good first issue
+    </GenericLink>{' '}
+    label. Giving new contributors the opportunity to contribute.
+  </Caption>
 
 ## nextjs.org open source
 

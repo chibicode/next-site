@@ -634,7 +634,7 @@ const mapping = {
   },
   zeit: {
     title: 'ZEIT',
-    link: 'https://zeit.co',
+    link: 'https://zeit.co?utm_source=next-site&utm_medium=showcase&utm_campaign=next-website',
     src: '/static/images/showcases/showcases-09.jpg',
     srcFallback: true,
     alexa: 34585,

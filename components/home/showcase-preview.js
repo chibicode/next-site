@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useAmp } from 'next/amp';
 import { sortedByAlexa } from '../../showcase-manifest';
-import Image from './../image';
+import Image from '../image';
 
 // length should be odd numbers
 const DATA = sortedByAlexa.slice(0, 7);
@@ -42,7 +42,12 @@ export default () => {
             right: 0;
             z-index: 2;
             bottom: -2rem;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, #f6f6f6 85%);
+            background: linear-gradient(
+              to bottom,
+              rgba(250, 250, 250, 0) 30%,
+              rgba(250, 250, 250, 0.7) 90%,
+              rgba(250, 250, 250, 1) 100%
+            );
           }
           @media screen and (max-width: 640px) {
             .slide {

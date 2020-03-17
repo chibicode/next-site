@@ -13,6 +13,12 @@ Congratulations. You have successfully created your first API route!
 
 Now, let's use random quotes instead of the single quote we currently have. For that we're going to use the quotes inside `quotes.json`.
 
+First, if you didn't clone the starter code [earlier in this lesson](/learn/basics/api-routes/setup), you need to install `swr`. `swr` is a React Hook for remote data fetching. You can learn more about it [here](https://swr.now.sh/).
+
+```bash
+npm install swr
+```
+
 Open `pages/api/randomQuote.js` and replace its content with the following:
 
 ```js
@@ -75,7 +81,5 @@ export default function Index() {
 ```
 
 In your browser, open http://localhost:3000 and you'll be able to see a random quote from the API, and you can refresh the page to update the quote.
-
-We're using a package called [SWR](https://github.com/zeit/swr) to fetch our API, it's a React Hook for remote data fetching. You can learn more about it [here](https://swr.now.sh/).
 
 export default ({ children }) => <Layout meta={meta}>{children}</Layout>;
