@@ -1,0 +1,115 @@
+.page {
+  background: #1b1d1f;
+  color: #fff;
+  min-height: 100vh;
+  padding: 90px 20px 40px;
+  --secondary-color: #8a8f98;
+}
+
+.top {
+  margin: 0 auto 80px;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+}
+
+.next-logo :global(svg) {
+  transform: translateY(4px) !important;
+  margin-right: 17px;
+  height: 112.33px;
+}
+
+.text-and-icons {
+  margin-right: 17px;
+}
+
+.top-separator {
+  height: 56.17px;
+  width: 1px;
+  margin-right: 17px;
+  background: var(--secondary-color);
+}
+
+.text-conf {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 26px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.top-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  line-height: 1.4;
+  color: var(--secondary-color);
+}
+
+.hero {
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 100px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.input {
+  border: none;
+  width: calc(100% - 128px);
+  background: transparent;
+  outline: none;
+  height: 56px;
+  padding-left: 15px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.input::placeholder {
+  color: var(--secondary-color);
+}
+
+.input-label {
+  background: #252729;
+  border-radius: 8px;
+  display: block;
+}
+
+.form-row {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+}
+
+.submit {
+  width: 120px;
+  height: 40px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.contact {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 140px;
+}
+
+.contact-email {
+  color: #fff;
+}
