@@ -13,6 +13,7 @@
   padding-left: 15px;
   font-size: 16px;
   color: #fff;
+  font-family: inherit;
 }
 
 .input::placeholder {
@@ -27,10 +28,19 @@
   display: block;
 }
 
+.input-label.error {
+  background: red;
+}
+
 .input-label.focused {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #34383d;
   transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-text {
+  display: flex;
+  align-items: center;
 }
 
 .form-row {

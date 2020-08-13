@@ -9,14 +9,31 @@ export default function Form() {
   const [email, setEmail] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  return (
+  return formState === 'error' ? (
+    <div className={styles.form}>
+      <div className={styles['form-row']}>
+        <div
+          className={cn(styles['input-label'], {
+            [styles.error]: formState === 'error'
+          })}
+        >
+          <div className={cn(styles.input, styles['input-text'])}>
+            Error! Please try again in a few minutes.
+          </div>
+          <button type="button" className={styles.submit}>
+            Try Again
+          </button>
+        </div>
+      </div>
+    </div>
+  ) : (
     <form
       className={styles.form}
       onSubmit={e => {
-        if (formState === 'error') {
-          setFormState('default');
+        if (formState === 'default') {
+          setFormState('error');
         } else {
-          setFormState('loading');
+          setFormState('default');
         }
         e.preventDefault();
       }}
@@ -41,13 +58,7 @@ export default function Form() {
           />
         </label>
         <button type="submit" className={cn(styles.submit, styles[formState])}>
-          {formState === 'loading' ? (
-            <LoadingDots size={4} />
-          ) : formState === 'error' ? (
-            <>Try Again</>
-          ) : (
-            <>Register</>
-          )}
+          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
         </button>
       </div>
     </form>
