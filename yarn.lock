@@ -1137,6 +1137,11 @@
   resolved "https://registry.yarnpkg.com/@reach/skip-nav/-/skip-nav-0.1.2.tgz#3a154d834c970577117bf6f56b3acc5492d4b8f2"
   integrity sha512-EFj8n6OFQYbxIBG5WPIA6MErIqP8Uzj+epx0Y9YyzQxVXzvAhqz0wiO/jeM7sjnKUiBx8/FlS8xLk2v3SWB4Lg==
 
+"@types/classnames@2.2.10":
+  version "2.2.10"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.10.tgz#cc658ca319b6355399efc1f5b9e818f1a24bf999"
+  integrity sha512-1UzDldn9GfYYEsWWnn/P4wkTlkZDH7lDb0wBMGbtIQc9zXEQq7FlKBdZUn6OBqD8sKZZ2RQO2mAjGpXiDGoRmQ==
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
@@ -1186,6 +1191,21 @@
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
+
+"@types/reach__skip-nav@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@types/reach__skip-nav/-/reach__skip-nav-0.1.0.tgz#6effc20f778a618a3f21b67d7ebbdb4a602790b2"
+  integrity sha512-ZBsim6Komd3PfXj3rzQzR+RK0vT4CKLtNWk0cI/xIPWrRT08TtepqSLI2/BV57oJ0DUnITD1uQRSWHCOA0MHyQ==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "16.9.46"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.9.46.tgz#f0326cd7adceda74148baa9bff6e918632f5069e"
+  integrity sha512-dbHzO3aAq1lB3jRQuNpuZ/mnu+CdD3H0WVaaBQA8LTT3S33xhVBUj232T8M3tAhSWJs/D/UqORYUlJNl/8VQZg==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
 
 "@types/react@16.9.34":
   version "16.9.34"
@@ -2685,6 +2705,11 @@ csstype@^2.2.0, csstype@^2.6.7:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.10.tgz#e63af50e66d7c266edb6b32909cfd0aabe03928b"
   integrity sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
+
+csstype@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.2.tgz#ee5ff8f208c8cd613b389f7b222c9801ca62b3f7"
+  integrity sha512-ofovWglpqoqbfLNOTBNZLSbMuGrblAf1efvvArGKOZMBrIoJeu5UsAipQolkijtyQx5MtAzT/J9IHj/CEY1mJw==
 
 d@1, d@^1.0.1:
   version "1.0.1"

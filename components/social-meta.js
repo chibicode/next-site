@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { TWITTER_USER_NAME } from '../lib/constants';
 
-const SocialMeta = ({ title, description, image, url, keywords }) => (
+const SocialMeta = ({ title, description, image, url, keywords = undefined }) => (
   <Head>
     <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />

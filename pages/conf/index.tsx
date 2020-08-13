@@ -7,7 +7,9 @@ import styles from './conf.module.css';
 import Logo from '../../components/icons/platform-logotype';
 import cn from 'classnames';
 
-function GlobeIcon({ height }) {
+type IconProps = { height: number };
+
+function GlobeIcon({ height }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -26,7 +28,7 @@ function GlobeIcon({ height }) {
   );
 }
 
-function ImageIcon({ height }) {
+function ImageIcon({ height }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -45,7 +47,7 @@ function ImageIcon({ height }) {
   );
 }
 
-function ActivityIcon({ height }) {
+function ActivityIcon({ height }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
