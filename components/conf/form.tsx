@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from 'classnames';
 import LoadingDots from './loading-dots';
 import styles from './form.module.css';
@@ -9,6 +9,10 @@ export default function Form() {
   const [email, setEmail] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
+  useEffect(() => {
+    console.log(document.referrer);
+  }, []);
+
   return formState === 'error' ? (
     <div className={styles.form}>
       <div className={styles['form-row']}>
@@ -20,7 +24,13 @@ export default function Form() {
           <div className={cn(styles.input, styles['input-text'])}>
             Error! Please try again in a few minutes.
           </div>
-          <button type="button" className={styles.submit}>
+          <button
+            type="button"
+            className={styles.submit}
+            onClick={() => {
+              setFormState('default');
+            }}
+          >
             Try Again
           </button>
         </div>
@@ -31,7 +41,23 @@ export default function Form() {
       className={styles.form}
       onSubmit={e => {
         if (formState === 'default') {
-          setFormState('error');
+          setFormState('loading');
+          fetch('https://api.nextjs.org/api/conf-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email
+            })
+          })
+            .then(() => {
+              // Reset the textarea value on success
+              setFormState('default');
+            })
+            .catch(() => {
+              setFormState('error');
+            });
         } else {
           setFormState('default');
         }
