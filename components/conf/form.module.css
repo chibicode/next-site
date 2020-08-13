@@ -32,6 +32,10 @@
   background: red;
 }
 
+.input-label.success {
+  background: #0070f3;
+}
+
 .input-label.focused {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: #34383d;

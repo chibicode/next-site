@@ -1,38 +1,42 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import cn from 'classnames';
 import LoadingDots from './loading-dots';
 import styles from './form.module.css';
 
-type FormState = 'default' | 'loading' | 'error';
+type FormState = 'default' | 'loading' | 'error' | 'success';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  useEffect(() => {
-    console.log(document.referrer);
-  }, []);
 
-  return formState === 'error' ? (
+  return formState === 'error' || formState === 'success' ? (
     <div className={styles.form}>
       <div className={styles['form-row']}>
         <div
           className={cn(styles['input-label'], {
-            [styles.error]: formState === 'error'
+            [styles.error]: formState === 'error',
+            [styles.success]: formState === 'success'
           })}
         >
           <div className={cn(styles.input, styles['input-text'])}>
-            Error! Please try again in a few minutes.
+            {formState === 'error' ? (
+              <>Error! Please try again in a few minutes.</>
+            ) : (
+              <>You’re successfully registered!</>
+            )}
           </div>
-          <button
-            type="button"
-            className={styles.submit}
-            onClick={() => {
-              setFormState('default');
-            }}
-          >
-            Try Again
-          </button>
+          {formState === 'error' && (
+            <button
+              type="button"
+              className={styles.submit}
+              onClick={() => {
+                setFormState('default');
+              }}
+            >
+              Try Again
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -48,12 +52,13 @@ export default function Form() {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              email
+              email,
+              referrer: document.referrer
             })
           })
             .then(() => {
               // Reset the textarea value on success
-              setFormState('default');
+              setFormState('success');
             })
             .catch(() => {
               setFormState('error');
