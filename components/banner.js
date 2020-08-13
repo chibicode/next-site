@@ -1,4 +1,4 @@
-import Logo from './icons/platform-logotype-white';
+import Logo from './icons/platform-logotype';
 import { PLATFORM_URL } from '../lib/constants';
 
 const Banner = () => {
@@ -10,7 +10,7 @@ const Banner = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Logo />
+          <Logo color="#fff" />
         </a>
 
         <a
