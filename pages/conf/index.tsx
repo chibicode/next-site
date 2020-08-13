@@ -1,11 +1,12 @@
 import { SkipNavContent } from '@reach/skip-nav';
 import cn from 'classnames';
-import Page from '../../components/page';
-import { ORG_NAME } from '../../lib/constants';
-import SocialMeta from '../../components/social-meta';
-import NextLogo from '../../components/logo';
+import Page from '@components/page';
+import { ORG_NAME } from '@lib/constants';
+import SocialMeta from '@components/social-meta';
+import NextLogo from '@components/logo';
+import Logo from '@components/icons/platform-logotype';
 import styles from './conf.module.css';
-import Logo from '../../components/icons/platform-logotype';
+import Form from './form';
 
 type IconProps = { height: number };
 
@@ -104,21 +105,7 @@ export default function Conf() {
               <br />
               Everywhere, for Everyone
             </h1>
-            <form className={styles.form}>
-              <div className={styles['form-row']}>
-                <label htmlFor="email-input-field" className={styles['input-label']}>
-                  <input
-                    className={styles.input}
-                    type="email"
-                    id="email-input-field"
-                    defaultValue=""
-                    disabled={false}
-                    placeholder="Please enter your email…"
-                  />
-                </label>
-                <input type="submit" className={styles.submit} value="Register" />
-              </div>
-            </form>
+            <Form />
             <div className={styles.contact}>
               Want to speak or sponsor?{' '}
               <a href="mailto:conf@nextjs.org" className={styles['contact-email']}>
