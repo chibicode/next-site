@@ -1,12 +1,26 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import LoadingDots from './loading-dots';
 import styles from './form.module.css';
+
+type FormState = 'default' | 'loading' | 'error';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [focused, setFocused] = useState(false);
+  const [formState, setFormState] = useState<FormState>('default');
   return (
-    <form className={styles.form}>
+    <form
+      className={styles.form}
+      onSubmit={e => {
+        if (formState === 'error') {
+          setFormState('default');
+        } else {
+          setFormState('error');
+        }
+        e.preventDefault();
+      }}
+    >
       <div className={styles['form-row']}>
         <label
           htmlFor="email-input-field"
@@ -26,7 +40,15 @@ export default function Form() {
             placeholder="Please enter your email…"
           />
         </label>
-        <input type="submit" className={styles.submit} value="Register" />
+        <button type="submit" className={cn(styles.submit, styles[formState])}>
+          {formState === 'loading' ? (
+            <LoadingDots size={4} />
+          ) : formState === 'error' ? (
+            <>Try Again</>
+          ) : (
+            <>Register</>
+          )}
+        </button>
       </div>
     </form>
   );

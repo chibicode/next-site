@@ -55,10 +55,17 @@
   outline: none;
   color: #000;
   transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.submit:hover,
-.submit:focus {
+.submit.loading {
+  cursor: default;
+}
+
+.submit.default:hover,
+.submit.default:focus {
   background: transparent;
   color: #fff;
 }
