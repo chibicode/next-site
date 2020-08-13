@@ -16,7 +16,7 @@ export default function Form() {
         if (formState === 'error') {
           setFormState('default');
         } else {
-          setFormState('error');
+          setFormState('loading');
         }
         e.preventDefault();
       }}
