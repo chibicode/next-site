@@ -1,11 +1,11 @@
 import { SkipNavContent } from '@reach/skip-nav';
+import cn from 'classnames';
 import Page from '../../components/page';
 import { ORG_NAME } from '../../lib/constants';
 import SocialMeta from '../../components/social-meta';
 import NextLogo from '../../components/logo';
 import styles from './conf.module.css';
 import Logo from '../../components/icons/platform-logotype';
-import cn from 'classnames';
 
 type IconProps = { height: number };
 
