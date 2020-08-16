@@ -6,17 +6,22 @@ import TicketForm from './ticket-form';
 export default function Ticket() {
   return (
     <Layout>
-      <div className={styles['ticket-text']}>
-        <h2 className={styles.hero}>
-          You're in.
-          <br />
-          Now make it yours.
-        </h2>
-        <div className={layoutStyles.description}>
-          Generate a unique ticket image with your GitHub username.
+      <div className={styles['ticket-layout']}>
+        <div className={styles.centered}>
+          <div className={styles['ticket-text']}>
+            <h2 className={styles.hero}>
+              You're in.
+              <br />
+              Now make it yours.
+            </h2>
+            <div className={layoutStyles.description}>
+              Generate a unique ticket image with your GitHub username.
+            </div>
+          </div>
+          <TicketForm />
         </div>
+        <div className={styles.centered}>?</div>
       </div>
-      <TicketForm />
     </Layout>
   );
 }
