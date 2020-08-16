@@ -72,57 +72,57 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <div>
-          <div className={styles.top}>
-            <div className={styles['next-logo']}>
-              <NextLogo fill="#fff" />
-            </div>
-            <div className={styles['top-separator']} />
-            <div className={styles['text-and-icons']}>
-              <div className={styles['text-conf']}>Conf</div>
-              <div className={styles['top-icons']}>
-                <GlobeIcon height={16} />
-                <ImageIcon height={16} />
-                <ActivityIcon height={16} />
-              </div>
-            </div>
-            <div className={styles['top-separator']} />
-            <div className={styles.description}>
-              An interactive online experence by the community, free for everyone.
+    <div className={styles.background}>
+      <div className={styles.page}>
+        <header className={styles.header}>
+          <div className={styles['next-logo']}>
+            <NextLogo fill="#fff" />
+          </div>
+          <div className={styles['header-separator']} />
+          <div className={styles['text-and-icons']}>
+            <div className={styles['text-conf']}>Conf</div>
+            <div className={styles['header-icons']}>
+              <GlobeIcon height={16} />
+              <ImageIcon height={16} />
+              <ActivityIcon height={16} />
             </div>
           </div>
-          {children}
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <div>
-          Powered by{' '}
-          <a
-            href="https://vercel.com"
-            className={cn(styles['footer-link'], styles['footer-logo'])}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Logo color="currentColor" />
-          </a>
-        </div>
-        <div className={styles['footer-legal']}>
-          <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
-          <div className={styles['footer-separator']} />
+          <div className={styles['header-separator']} />
+          <div className={styles.description}>
+            An interactive online experence by the community, free for everyone.
+          </div>
+        </header>
+        <main className={styles.main}>
+          <div>{children}</div>
+        </main>
+        <footer className={styles.footer}>
           <div>
+            Powered by{' '}
             <a
-              href="https://vercel.com/legal/privacy-policy"
-              className={styles['footer-link']}
+              href="https://vercel.com"
+              className={cn(styles['footer-link'], styles['footer-logo'])}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Privacy Policy
+              <Logo color="currentColor" />
             </a>
           </div>
-        </div>
-      </footer>
+          <div className={styles['footer-legal']}>
+            <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
+            <div className={styles['footer-separator']} />
+            <div>
+              <a
+                href="https://vercel.com/legal/privacy-policy"
+                className={styles['footer-link']}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
