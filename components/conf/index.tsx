@@ -95,6 +95,13 @@ export default function Conf() {
             <br />
             user conference
           </h1>
+          <div className={styles.info}>
+            <div>October 27, 2020</div>
+            <div className={styles['description-separator']} />
+            <div>
+              <strong>Online</strong>
+            </div>
+          </div>
           <Form />
           <div className={styles.contact}>
             Want to speak or sponsor?{' '}

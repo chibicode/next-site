@@ -64,7 +64,7 @@
   letter-spacing: -0.08em;
   font-weight: 800;
   text-align: center;
-  margin: 0 0 100px;
+  margin: 0 0 40px;
 }
 
 .contact {
@@ -134,4 +134,21 @@
 
 .icon-activity {
   background: linear-gradient(90deg, #57c84f 0%, #53a0ec 100%);
+}
+
+.info {
+  font-size: 24px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.description-separator {
+  height: 24px;
+  width: 1px;
+  background: var(--secondary-color);
+  margin: 0 16px;
 }
