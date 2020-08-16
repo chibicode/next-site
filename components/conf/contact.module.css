@@ -1,0 +1,9 @@
+.contact {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 140px;
+}
+
+.contact-email {
+  color: #fff;
+}
