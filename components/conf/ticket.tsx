@@ -1,13 +1,15 @@
+import cn from 'classnames';
 import Layout from './layout';
 import styles from './ticket.module.css';
 import layoutStyles from './layout.module.css';
 import TicketForm from './ticket-form';
+import TicketFrame from './ticket-frame';
 
 export default function Ticket() {
   return (
     <Layout>
       <div className={styles['ticket-layout']}>
-        <div className={styles.centered}>
+        <div className={cn(styles.centered, styles['ticket-instructions'])}>
           <div className={styles['ticket-text']}>
             <h2 className={styles.hero}>
               You're in.
@@ -20,7 +22,9 @@ export default function Ticket() {
           </div>
           <TicketForm />
         </div>
-        <div className={styles.centered}>?</div>
+        <div className={cn(styles.centered, styles['ticket-visual'])}>
+          <TicketFrame />
+        </div>
       </div>
     </Layout>
   );
