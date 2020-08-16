@@ -81,17 +81,13 @@ export default function Conf() {
             </div>
             <div className={styles['top-separator']} />
             <div className={styles.description}>
-              The first Next.js global user conference.
-              <br />
-              An interactive online experence by the community,
-              <br />
-              free for everyone.
+              An interactive online experence by the community, free for everyone.
             </div>
           </div>
           <h1 className={styles.hero}>
-            October 27, 2020
+            The first Next.js global
             <br />
-            Everywhere, for Everyone
+            user conference
           </h1>
           <Form />
           <div className={styles.contact}>
