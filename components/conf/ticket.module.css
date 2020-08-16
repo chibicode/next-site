@@ -1,0 +1,11 @@
+.hero {
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.ticket-text {
+  margin-bottom: 30px;
+}
