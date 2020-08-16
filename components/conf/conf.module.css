@@ -42,8 +42,8 @@
 
 .text-conf {
   font-weight: bold;
-  font-size: 26px;
-  line-height: 26px;
+  font-size: 25px;
+  line-height: 25px;
   margin-bottom: 8px;
   text-transform: uppercase;
 }
@@ -113,4 +113,25 @@
   height: 24px;
   width: 1px;
   background: var(--secondary-color);
+}
+
+.icon-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-globe {
+  background: linear-gradient(90deg, #ec6193 0%, #ec4b31 100%);
+}
+
+.icon-image {
+  background: linear-gradient(90deg, #ffbc29 0%, #eadf58 100%);
+}
+
+.icon-activity {
+  background: linear-gradient(90deg, #57c84f 0%, #53a0ec 100%);
 }
