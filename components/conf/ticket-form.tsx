@@ -90,7 +90,7 @@ export default function Form() {
           />
         </label>
         <span className={ticketFormStyles.githubIcon}>
-          <GithubIcon color="var(--secondary-color)" />
+          <GithubIcon color="var(--secondary-color)" size={24} />
         </span>
         <button type="submit" className={cn(formStyles.submit, formStyles[formState])}>
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Generate</>}

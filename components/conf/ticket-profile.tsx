@@ -14,7 +14,7 @@ export default function TicketProfile({ name, username }: Props) {
         <div className={styles.name}>{name}</div>
         <div className={styles.username}>
           <span className={styles.githubIcon}>
-            <GithubIcon color="var(--secondary-color)" />
+            <GithubIcon color="var(--secondary-color)" size={20} />
           </span>
           {username}
         </div>
