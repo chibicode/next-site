@@ -1,42 +1,33 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import useConfData from '@lib/hooks/useConfData';
 import LoadingDots from './loading-dots';
 import styles from './form.module.css';
 
-type FormState = 'default' | 'loading' | 'error' | 'success';
+type FormState = 'default' | 'loading' | 'error';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
+  const { setPageState, setUserData } = useConfData();
 
-  return formState === 'error' || formState === 'success' ? (
+  return formState === 'error' ? (
     <div className={styles.form}>
       <div className={styles['form-row']}>
-        <div
-          className={cn(styles['input-label'], {
-            [styles.error]: formState === 'error',
-            [styles.success]: formState === 'success'
-          })}
-        >
+        <div className={cn(styles['input-label'], styles.error)}>
           <div className={cn(styles.input, styles['input-text'])}>
-            {formState === 'error' ? (
-              <>Error! Please try again in a few minutes.</>
-            ) : (
-              <>You’re successfully registered!</>
-            )}
+            Error! Please try again in a few minutes.
           </div>
-          {formState === 'error' && (
-            <button
-              type="button"
-              className={styles.submit}
-              onClick={() => {
-                setFormState('default');
-              }}
-            >
-              Try Again
-            </button>
-          )}
+          <button
+            type="button"
+            className={styles.submit}
+            onClick={() => {
+              setFormState('default');
+            }}
+          >
+            Try Again
+          </button>
         </div>
       </div>
     </div>
@@ -56,9 +47,15 @@ export default function Form() {
               referrer: document.referrer
             })
           })
-            .then(() => {
-              // Reset the textarea value on success
-              setFormState('success');
+            .then(res => res.json())
+            .then(data => {
+              setUserData({
+                id: data.id,
+                ticketNumber: data.ticketNumber,
+                alreadyExists: data.exists,
+                email
+              });
+              setPageState('ticket');
             })
             .catch(() => {
               setFormState('error');

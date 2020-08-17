@@ -5,6 +5,8 @@ export type PageState = 'registration' | 'ticket';
 export type UserData = {
   id?: string;
   ticketNumber?: number;
+  alreadyExists?: boolean;
+  email?: string;
 };
 
 type ConfDataContextType = {
