@@ -1,6 +1,7 @@
 import TicketColored from './ticket-colored';
 import styles from './ticket-visual.module.css';
 import TicketProfile from './ticket-profile';
+import TicketNumber from './ticket-number';
 
 export default function TicketVisual() {
   return (
@@ -9,11 +10,11 @@ export default function TicketVisual() {
         <div className={styles.frame}>
           <TicketColored width="100%" />
         </div>
-        <div className={styles.info}>
-          <div className={styles.profile}>
-            <TicketProfile name="Evil Rabbit" username="evilrabbit" />
-          </div>
-          <div>?</div>
+        <div className={styles.profile}>
+          <TicketProfile name="Evil Rabbit" username="evilrabbit" />
+        </div>
+        <div className={styles['ticket-number']}>
+          <TicketNumber number={1} />
         </div>
       </div>
     </>
