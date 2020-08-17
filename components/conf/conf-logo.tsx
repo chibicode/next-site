@@ -65,22 +65,18 @@ function ActivityIcon({ height }: IconProps) {
   );
 }
 
-type Props = {
-  size?: number;
-};
-
-export default function ConfLogo({ size = 1 }: Props) {
+export default function ConfLogo() {
   return (
-    <div className={styles['conf-logo']} style={{ ['--size' as string]: size }}>
+    <div className={styles['conf-logo']}>
       <div className={styles['next-logo']}>
         <NextLogo fill="#fff" />
       </div>
       <div className={styles['text-and-icons']}>
         <div className={styles['text-conf']}>Conf</div>
         <div className={styles['header-icons']}>
-          <GlobeIcon height={16 * size} />
-          <ImageIcon height={16 * size} />
-          <ActivityIcon height={16 * size} />
+          <GlobeIcon height={16} />
+          <ImageIcon height={16} />
+          <ActivityIcon height={16} />
         </div>
       </div>
     </div>
