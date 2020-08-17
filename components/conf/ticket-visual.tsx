@@ -15,7 +15,7 @@ export default function TicketVisual() {
             <TicketProfile name="Evil Rabbit" username="evilrabbit" />
           </div>
           <div className={styles['conf-logo']}>
-            <ConfLogo />
+            <ConfLogo size={0.75} />
           </div>
           <div>?</div>
         </div>
