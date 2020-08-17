@@ -1,14 +1,14 @@
 .background {
   background: url('/static/conf/og-bg.jpg');
-  width: 2400px;
-  height: 1200px;
+  width: 2000px;
+  height: 1000px;
   --secondary-color: #8a8f98;
   color: #fff;
   overflow: hidden;
 }
 
 .page {
-  transform: translateY(calc(1200px - 2400px / 770 * 390));
+  transform: translateY(calc(1200px - 2000px / 770 * 390));
   width: 100%;
   height: 100%;
 }
