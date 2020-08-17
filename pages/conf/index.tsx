@@ -14,7 +14,7 @@ export default function Conf() {
         description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build static and dynamic websites and web applications.`}
       />
       <SkipNavContent />
-      <ConfContent />
+      <ConfContent defaultUserData={{}} defaultPageState="registration" />
     </Page>
   );
 }

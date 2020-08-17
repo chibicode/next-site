@@ -2,7 +2,7 @@ import { SkipNavContent } from '@reach/skip-nav';
 import Page from '@components/page';
 import { ORG_NAME } from '@lib/constants';
 import SocialMeta from '@components/social-meta';
-import TicketContent from '@components/conf/ticket';
+import ConfContent from '@components/conf';
 
 export default function Ticket() {
   return (
@@ -14,7 +14,13 @@ export default function Ticket() {
         description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build static and dynamic websites and web applications.`}
       />
       <SkipNavContent />
-      <TicketContent />
+      <ConfContent
+        defaultUserData={{
+          id: 'aa20f5fbd49c9cc7206d8361e961a6ea0ecd8019',
+          ticketNumber: 2
+        }}
+        defaultPageState="ticket"
+      />
     </Page>
   );
 }

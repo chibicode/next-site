@@ -10,7 +10,6 @@ export type UserData = {
 type ConfDataContextType = {
   userData: UserData;
   setUserData: React.Dispatch<React.SetStateAction<UserData>>;
-  pageState: PageState;
   setPageState: React.Dispatch<React.SetStateAction<PageState>>;
 };
 
