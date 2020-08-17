@@ -1,10 +1,12 @@
 import cn from 'classnames';
+import useConfData from '@lib/hooks/useConfData';
 import styles from './ticket.module.css';
 import layoutStyles from './layout.module.css';
 import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 
 export default function Ticket() {
+  const { userData } = useConfData();
   return (
     <div className={styles['ticket-layout']}>
       <div className={cn(styles.centered, styles['ticket-instructions'])}>
@@ -21,7 +23,7 @@ export default function Ticket() {
         <TicketForm />
       </div>
       <div className={cn(styles.centered, styles['ticket-visual'])}>
-        <TicketVisual />
+        <TicketVisual ticketNumber={userData.ticketNumber} />
       </div>
     </div>
   );

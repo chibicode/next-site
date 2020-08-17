@@ -8,7 +8,7 @@ export default function TicketNumber({ number }: Props) {
   return (
     <>
       № {prefix}
-      {numDigits}
+      {number}
     </>
   );
 }
