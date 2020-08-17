@@ -23,7 +23,7 @@ export default function Layout({ children }: Props) {
         </main>
         <footer className={styles.footer}>
           <div>
-            Powered by{' '}
+            Hosted by{' '}
             <a
               href="https://vercel.com"
               className={cn(styles['footer-link'], styles['footer-logo'])}
