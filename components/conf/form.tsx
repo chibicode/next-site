@@ -52,8 +52,7 @@ export default function Form() {
               setUserData({
                 id: data.id,
                 ticketNumber: data.ticketNumber,
-                alreadyExists: data.exists,
-                email
+                alreadyExists: data.exists
               });
               setPageState('ticket');
             })

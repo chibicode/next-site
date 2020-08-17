@@ -6,7 +6,6 @@ export type UserData = {
   id?: string;
   ticketNumber?: number;
   alreadyExists?: boolean;
-  email?: string;
 };
 
 type ConfDataContextType = {
