@@ -2,13 +2,7 @@ type Props = { width: number | string };
 
 export default function TicketMono({ width }: Props) {
   return (
-    <svg
-      width={{ width }}
-      height="450"
-      viewBox="0 0 770 450"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg width={width} viewBox="0 0 770 450" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_d)">
         <g style={{ mixBlendMode: 'luminosity' }}>
           <path
