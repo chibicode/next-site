@@ -1,4 +1,4 @@
-import TicketOnly from '@components/conf/ticket-only';
+import TicketOnly from '@components/conf/ticket-image';
 
 export default function TicketOnlyPage() {
   return (

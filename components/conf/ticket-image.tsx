@@ -1,6 +1,6 @@
 import GlobalStyles from '@components/global-styles';
 import TicketVisual from './ticket-visual';
-import styles from './ticket-only.module.css';
+import styles from './ticket-image.module.css';
 
 export default function TicketOnly() {
   return (
