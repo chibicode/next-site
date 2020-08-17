@@ -5,10 +5,12 @@ import TicketNumber from './ticket-number';
 
 type Props = {
   size?: number;
+  name?: string;
   ticketNumber?: number;
+  github?: string;
 };
 
-export default function TicketVisual({ size = 1, ticketNumber }: Props) {
+export default function TicketVisual({ size = 1, name, github, ticketNumber }: Props) {
   return (
     <>
       <div className={styles.visual} style={{ ['--size' as string]: size }}>
@@ -16,7 +18,7 @@ export default function TicketVisual({ size = 1, ticketNumber }: Props) {
           <TicketColored width="100%" />
         </div>
         <div className={styles.profile}>
-          <TicketProfile name="Evil Rabbit" username="evilrabbit" size={size} />
+          <TicketProfile name={name} username={github} size={size} />
         </div>
         {ticketNumber && (
           <div className={styles['ticket-number-wrapper']}>

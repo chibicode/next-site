@@ -6,6 +6,8 @@ export type UserData = {
   id?: string;
   ticketNumber?: number;
   alreadyExists?: boolean;
+  github?: string;
+  name?: string;
 };
 
 type ConfDataContextType = {

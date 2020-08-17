@@ -23,7 +23,11 @@ export default function Ticket() {
         <TicketForm />
       </div>
       <div className={cn(styles.centered, styles['ticket-visual'])}>
-        <TicketVisual ticketNumber={userData.ticketNumber} />
+        <TicketVisual
+          github={userData.github}
+          name={userData.name}
+          ticketNumber={userData.ticketNumber}
+        />
       </div>
     </div>
   );
