@@ -54,7 +54,7 @@ export default function Form() {
                 ticketNumber: data.ticketNumber,
                 alreadyExists: data.exists,
                 name: data.name,
-                github: data.github
+                username: data.username
               });
               setPageState('ticket');
             })

@@ -20,11 +20,11 @@ export default function Ticket() {
             Generate a unique ticket image with your GitHub username.
           </div>
         </div>
-        <TicketForm />
+        <TicketForm defaultUsername={userData.username} />
       </div>
       <div className={cn(styles.centered, styles['ticket-visual'])}>
         <TicketVisual
-          github={userData.github}
+          username={userData.username}
           name={userData.name}
           ticketNumber={userData.ticketNumber}
         />

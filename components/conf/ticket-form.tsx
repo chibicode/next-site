@@ -1,44 +1,42 @@
 import { useState } from 'react';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
+import { Octokit } from '@octokit/rest';
+import useConfData from '@lib/hooks/useConfData';
 import LoadingDots from './loading-dots';
 import formStyles from './form.module.css';
 import ticketFormStyles from './ticket-form.module.css';
 
-type FormState = 'default' | 'loading' | 'error' | 'success';
+const octokit = new Octokit();
 
-export default function Form() {
-  const [email, setEmail] = useState('');
+type FormState = 'default' | 'loading' | 'error';
+
+type Props = {
+  defaultUsername?: string;
+};
+
+export default function Form({ defaultUsername = '' }: Props) {
+  const [username, setUsername] = useState(defaultUsername);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
+  const { userData, setUserData } = useConfData();
 
-  return formState === 'error' || formState === 'success' ? (
+  return formState === 'error' ? (
     <div>
       <div className={formStyles['form-row']}>
-        <div
-          className={cn(formStyles['input-label'], {
-            [formStyles.error]: formState === 'error',
-            [formStyles.success]: formState === 'success'
-          })}
-        >
+        <div className={cn(formStyles['input-label'], formStyles.error)}>
           <div className={cn(formStyles.input, formStyles['input-text'])}>
-            {formState === 'error' ? (
-              <>Error! Please try again in a few minutes.</>
-            ) : (
-              <>You’re successfully registered!</>
-            )}
+            Error! Please try again in a few minutes.
           </div>
-          {formState === 'error' && (
-            <button
-              type="button"
-              className={formStyles.submit}
-              onClick={() => {
-                setFormState('default');
-              }}
-            >
-              Try Again
-            </button>
-          )}
+          <button
+            type="button"
+            className={formStyles.submit}
+            onClick={() => {
+              setFormState('default');
+            }}
+          >
+            Try Again
+          </button>
         </div>
       </div>
     </div>
@@ -47,22 +45,13 @@ export default function Form() {
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
-          fetch('https://api.nextjs.org/api/conf-email', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              email,
-              referrer: document.referrer
+          octokit.users
+            .getByUsername({
+              username
             })
-          })
-            .then(() => {
-              // Reset the textarea value on success
-              setFormState('success');
-            })
-            .catch(() => {
-              setFormState('error');
+            .then(({ data }) => {
+              setUserData({ ...userData, username, name: data.name });
+              setFormState('default');
             });
         } else {
           setFormState('default');
@@ -81,8 +70,8 @@ export default function Form() {
             className={ticketFormStyles.input}
             type="text"
             id="github-input-field"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            value={username}
+            onChange={e => setUsername(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             disabled={false}

@@ -6,7 +6,7 @@ export type UserData = {
   id?: string;
   ticketNumber?: number;
   alreadyExists?: boolean;
-  github?: string;
+  username?: string;
   name?: string;
 };
 
