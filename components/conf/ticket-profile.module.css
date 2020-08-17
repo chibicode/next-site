@@ -1,0 +1,32 @@
+.profile {
+  display: flex;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.text {
+  flex: 1;
+}
+
+.name {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.username {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.githubIcon {
+  margin-right: 5px;
+  display: inline-flex;
+}

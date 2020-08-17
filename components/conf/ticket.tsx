@@ -3,7 +3,7 @@ import Layout from './layout';
 import styles from './ticket.module.css';
 import layoutStyles from './layout.module.css';
 import TicketForm from './ticket-form';
-import TicketFrame from './ticket-frame';
+import TicketVisual from './ticket-visual';
 
 export default function Ticket() {
   return (
@@ -23,7 +23,7 @@ export default function Ticket() {
           <TicketForm />
         </div>
         <div className={cn(styles.centered, styles['ticket-visual'])}>
-          <TicketFrame />
+          <TicketVisual />
         </div>
       </div>
     </Layout>
