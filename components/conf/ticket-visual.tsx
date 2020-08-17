@@ -13,8 +13,10 @@ export default function TicketVisual() {
         <div className={styles.profile}>
           <TicketProfile name="Evil Rabbit" username="evilrabbit" />
         </div>
-        <div className={styles['ticket-number']}>
-          <TicketNumber number={1} />
+        <div className={styles['ticket-number-wrapper']}>
+          <div className={styles['ticket-number']}>
+            <TicketNumber number={1} />
+          </div>
         </div>
       </div>
     </>

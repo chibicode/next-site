@@ -1,0 +1,16 @@
+.page {
+  color: #fff;
+  --secondary-color: #8a8f98;
+  width: 2400px;
+  height: 1200px;
+  margin-top: calc(1200px - 2400px / 770 * 390);
+}
+
+.wrapper {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
+}

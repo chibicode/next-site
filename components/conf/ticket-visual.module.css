@@ -8,15 +8,22 @@
   top: 0;
   width: 100%;
   height: 100%;
-  padding-top: 10%;
-  padding-left: 15%;
+  padding: 12% 16%;
+}
+
+.ticket-number-wrapper {
+  position: absolute;
+  top: 6.6%;
+  width: 100%;
+  left: 85%;
 }
 
 .ticket-number {
   font-weight: bold;
   font-size: 40px;
-  position: absolute;
+  line-height: 1;
+  width: calc(100% * 330 / 770);
+  text-align: center;
   transform: rotate(90deg);
-  top: 35%;
-  right: 5%;
+  transform-origin: top left;
 }
