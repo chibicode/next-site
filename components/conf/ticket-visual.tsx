@@ -1,6 +1,7 @@
 import TicketColored from './ticket-colored';
 import styles from './ticket-visual.module.css';
 import TicketProfile from './ticket-profile';
+import ConfLogo from './conf-logo';
 
 export default function TicketVisual() {
   return (
@@ -10,7 +11,13 @@ export default function TicketVisual() {
           <TicketColored width="100%" />
         </div>
         <div className={styles.info}>
-          <TicketProfile name="Evil Rabbit" username="evilrabbit" />
+          <div className={styles.profile}>
+            <TicketProfile name="Evil Rabbit" username="evilrabbit" />
+          </div>
+          <div className={styles['conf-logo']}>
+            <ConfLogo />
+          </div>
+          <div>?</div>
         </div>
       </div>
     </>

@@ -10,3 +10,12 @@
   height: 100%;
   padding: 10% 15% 20%;
 }
+
+.profile {
+  margin-bottom: 40px;
+}
+
+.conf-logo {
+  display: flex;
+  align-items: center;
+}
