@@ -3,10 +3,10 @@
 }
 
 .image {
-  width: 80px;
-  height: 80px;
+  width: calc(80px * var(--size));
+  height: calc(80px * var(--size));
   border-radius: 50%;
-  margin-right: 15px;
+  margin-right: calc(15px * var(--size));
 }
 
 .text {
@@ -14,19 +14,20 @@
 }
 
 .name {
-  font-size: 32px;
+  font-size: calc(32px * var(--size));
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: -0.02em;
 }
 
 .username {
+  font-size: calc(1em * var(--size));
   color: var(--secondary-color);
   display: flex;
   align-items: center;
 }
 
 .githubIcon {
-  margin-right: 7px;
+  margin-right: calc(7px * var(--size));
   display: inline-flex;
 }

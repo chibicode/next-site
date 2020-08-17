@@ -11,7 +11,7 @@ export default function TicketOnly() {
       </div>
       <div className={styles.page}>
         <GlobalStyles />
-        <TicketVisual />
+        <TicketVisual size={2400 / 770} />
       </div>
     </div>
   );

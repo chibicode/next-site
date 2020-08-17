@@ -13,14 +13,14 @@
 
 .ticket-number-wrapper {
   position: absolute;
-  top: 6.6%;
+  top: 6.8%;
   width: 100%;
-  left: 85%;
+  left: 84%;
 }
 
 .ticket-number {
   font-weight: bold;
-  font-size: 40px;
+  font-size: calc(40px * var(--size));
   line-height: 1;
   width: calc(100% * 330 / 770);
   text-align: center;
