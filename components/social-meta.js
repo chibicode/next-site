@@ -5,13 +5,13 @@ const SocialMeta = ({ title, description, image, url, keywords = undefined }) =>
   <Head>
     <meta name="twitter:site" content={`@${TWITTER_USER_NAME}`} />
     <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-    {title && <meta name="og:title" content={title} />}
-    {url && <meta name="og:url" content={url} />}
+    {title && <meta property="og:title" content={title} />}
+    {url && <meta property="og:url" content={url} />}
     {description && <meta name="description" content={description} />}
-    {description && <meta name="og:description" content={description} />}
+    {description && <meta property="og:description" content={description} />}
     {image && (
       <meta
-        name="og:image"
+        property="og:image"
         content={image.startsWith('https://') ? image : `https://nextjs.org${image}`}
       />
     )}
