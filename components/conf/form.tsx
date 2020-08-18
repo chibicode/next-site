@@ -57,6 +57,10 @@ export default function Form() {
                 username: data.username
               });
               setPageState('ticket');
+              // Prefetch the share URL to eagerly generate the page
+              fetch(`https://nextjs.org/conf/tickets/${data.id}`, {
+                mode: 'no-cors'
+              }).catch(_ => {});
             })
             .catch(() => {
               setFormState('error');
