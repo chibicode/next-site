@@ -40,7 +40,7 @@
   justify-content: center;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   .ticket-layout {
     grid-template-columns: 1fr 1fr;
   }
