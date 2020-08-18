@@ -30,7 +30,7 @@ export default function Layout({ children, inner }: Props) {
       <div className={styles.page}>
         <header
           className={cn(styles.header, {
-            [styles['appear--opacity-only']]: !inner,
+            [styles.appear]: !inner,
             [styles['appear-fifth']]: !inner
           })}
         >
@@ -53,7 +53,7 @@ export default function Layout({ children, inner }: Props) {
 
         <footer
           className={cn(styles.footer, {
-            [styles['appear--opacity-only']]: !inner,
+            [styles.appear]: !inner,
             [styles['appear-fifth']]: !inner
           })}
         >
