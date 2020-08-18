@@ -4,6 +4,7 @@ import styles from './layout.module.css';
 import ConfLogo from './conf-logo';
 
 type Props = {
+  inner: boolean;
   children: React.ReactNode;
 };
 
@@ -23,11 +24,16 @@ function HostedByVercel() {
   );
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, inner }: Props) {
   return (
     <div className={styles.background}>
       <div className={styles.page}>
-        <header className={styles.header}>
+        <header
+          className={cn(styles.header, {
+            [styles['appear--opacity-only']]: !inner,
+            [styles['appear-fifth']]: !inner
+          })}
+        >
           <div className={styles['header-logos']}>
             <ConfLogo />
             <div className={styles['header-logos-secondary']}>
@@ -44,7 +50,13 @@ export default function Layout({ children }: Props) {
         <main className={styles.main}>
           <div>{children}</div>
         </main>
-        <footer className={styles.footer}>
+
+        <footer
+          className={cn(styles.footer, {
+            [styles['appear--opacity-only']]: !inner,
+            [styles['appear-fifth']]: !inner
+          })}
+        >
           <div className={styles['footer-legal']}>
             <div className={styles['footer-hostedby']}>
               <HostedByVercel />
@@ -52,7 +64,7 @@ export default function Layout({ children }: Props) {
             </div>
             <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
             <div className={styles['footer-separator']} />
-            <div>
+            <p>
               <a
                 href="https://vercel.com/legal/privacy-policy"
                 className={styles['footer-link']}
@@ -61,7 +73,7 @@ export default function Layout({ children }: Props) {
               >
                 Privacy Policy
               </a>
-            </div>
+            </p>
           </div>
         </footer>
       </div>

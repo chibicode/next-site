@@ -12,19 +12,25 @@ export default function Ticket() {
     <div className={styles['ticket-layout']}>
       <div className={cn(styles['ticket-instructions'])}>
         <div className={styles['ticket-text']}>
-          <h2 className={styles.hero}>
-            You're in.
-            <br />
-            Now make it unique.
+          <h2 className={cn(styles.hero, layoutStyles.appear, layoutStyles['appear-first'])}>
+            You're in. Now make it unique.
           </h2>
-          <div className={layoutStyles.description}>
+          <p className={cn(styles.description, layoutStyles.appear, layoutStyles['appear-second'])}>
             Generate a unique ticket image with your GitHub username.
-          </div>
+          </p>
         </div>
-        <TicketForm defaultUsername={userData.username} />
+        <div className={cn(layoutStyles.appear, layoutStyles['appear-third'])}>
+          <TicketForm defaultUsername={userData.username} />
+        </div>
       </div>
       <div>
-        <div className={styles['ticket-visual']}>
+        <div
+          className={cn(
+            styles['ticket-visual'],
+            layoutStyles.appear,
+            layoutStyles['appear-fourth']
+          )}
+        >
           <TicketVisual
             username={userData.username}
             name={userData.name}
@@ -32,7 +38,13 @@ export default function Ticket() {
           />
         </div>
         {userData.id && userData.username && (
-          <div className={styles['ticket-actions']}>
+          <div
+            className={cn(
+              styles['ticket-actions'],
+              layoutStyles.appear,
+              layoutStyles['appear-fifth']
+            )}
+          >
             <TicketActions id={userData.id} />
           </div>
         )}

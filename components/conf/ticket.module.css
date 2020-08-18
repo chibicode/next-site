@@ -6,19 +6,24 @@
   margin: 0 0 20px;
 }
 
+.description {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--secondary-color);
+}
+
 .ticket-text {
   margin-bottom: 30px;
 }
 
 .ticket-layout {
-  display: flex;
-  align-items: flex-start;
-  margin: 120px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .ticket-instructions {
   margin-right: 20px;
-  margin-top: 50px;
 }
 
 .ticket-visual {
