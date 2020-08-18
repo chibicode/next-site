@@ -29,8 +29,8 @@ export default function Layout({ children, inner }: Props) {
     <div className={styles.background}>
       <div className={styles.page}>
         <header
-          className={`${inner ? '' : styles['appear--opacity-only']} ${
-            inner ? '' : styles['appear-fifth']
+          className={`${!inner ? styles['appear--opacity-only'] : ''} ${
+            !inner ? styles['appear-fifth'] : ''
           } ${styles.header}`}
         >
           <div className={styles['header-logos']}>
@@ -51,8 +51,8 @@ export default function Layout({ children, inner }: Props) {
         </main>
 
         <footer
-          className={`${inner ? '' : styles['appear--opacity-only']} ${
-            inner ? '' : styles['appear-fifth']
+          className={`${!inner ? styles['appear--opacity-only'] : ''} ${
+            !inner ? styles['appear-fifth'] : ''
           } ${styles.footer}`}
         >
           <div className={styles['footer-legal']}>
