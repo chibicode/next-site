@@ -5,7 +5,6 @@ import Footer from '../components/footer';
 import Notification from '../components/notification';
 
 import Intro from '../components/home/intro';
-import Demo from '../components/home/demo';
 import Features from '../components/home/features';
 import Customers from '../components/home/customers';
 import Newsletter from '../components/home/newsletter';
@@ -29,7 +28,6 @@ export default function Index() {
         <span className="highlight">Learn More →</span>
       </Notification>
       <Intro />
-      <Demo />
       <Features />
       <Customers />
       <Learn />
@@ -38,7 +36,3 @@ export default function Index() {
     </Page>
   );
 }
-
-export const config = {
-  amp: 'hybrid'
-};

@@ -33,13 +33,13 @@ export const Code = ({ children, syntax }) => (
   </pre>
 );
 
-export const InlineCode = ({ children, noWrap }) => (
+export const InlineCode = ({ children, inheritColor = false, noWrap = false }) => (
   <code className={noWrap ? 'no-wrap' : ''}>
     {children}
     <style jsx>
       {`
         code {
-          color: ${COLOR_CODE_LIGHT};
+          color: ${inheritColor ? 'inherit' : COLOR_CODE_LIGHT};
           font-family: ${FONT_FAMILY_MONO};
           font-size: 0.9em;
           white-space: pre-wrap;

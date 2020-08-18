@@ -73,7 +73,7 @@ export default function Intro() {
         }
 
         .main-button {
-          margin-bottom: 60px;
+          margin-bottom: 30px;
         }
 
         .intro-container {
@@ -110,7 +110,7 @@ export default function Intro() {
           }
 
           .intro-container {
-            padding: 60px 0 50px;
+            padding: 60px 0 0;
           }
         }
 
@@ -125,12 +125,8 @@ export default function Intro() {
             font-size: 20px;
           }
 
-          .main-button {
-            margin-bottom: 120px;
-          }
-
           .intro-container {
-            padding: 100px 0 50px;
+            padding: 140px 0 30px;
           }
         }
 

@@ -10,13 +10,15 @@ import Profile from './Profile';
 import CheckIcon from '../icons/check';
 import ArrowIcon from '../icons/arrow-right';
 
-const Step = ({ href, children, selected, finished, title, label }) => {
+const Step = ({ href, children, selected, finished, title, label, checkMark }) => {
+  const finishedClassName = checkMark ? 'check-mark' : 'blue-dot';
+
   return (
     <li>
       <Link href={href}>
-        <a className={classNames('f5', { fw7: selected, selected, finished })}>
+        <a className={classNames('f5', { fw7: selected, selected, [finishedClassName]: finished })}>
           <span className="step" title={title}>
-            {finished && <CheckIcon color="#0070F3" />}
+            {checkMark && finished && <CheckIcon color="#0070F3" />}
           </span>
           <span className="label">{label}</span>
         </a>
@@ -58,13 +60,16 @@ const Step = ({ href, children, selected, finished, title, label }) => {
           background: #111;
           transform: translateX(-5px);
         }
-        .finished .step {
+        .check-mark .step {
           width: 16px;
           height: 16px;
           line-height: 16px;
           margin-right: -16px;
           background: white;
           transform: translateX(-8px);
+        }
+        .blue-dot .step {
+          background: #0070f3;
         }
         .label {
           width: 100%;
@@ -97,6 +102,7 @@ const Lesson = ({ course, lesson, selected, meta }) => {
       finished={finished}
       title={`${finishedSteps.length} / ${totalSteps} finished`}
       label={lesson.name}
+      checkMark
     >
       {selected && (
         <ul>

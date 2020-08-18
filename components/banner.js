@@ -9,6 +9,7 @@ const Banner = () => {
           href={`${PLATFORM_URL}?utm_source=next-site&utm_medium=banner&utm_campaign=next-website`}
           target="_blank"
           rel="noopener noreferrer"
+          title="Go to the Vercel website"
         >
           <Logo color="#fff" />
         </a>

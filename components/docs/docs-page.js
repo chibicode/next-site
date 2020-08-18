@@ -17,7 +17,6 @@ function areEqual(prevProps, props) {
 function DocsPage({ route, html, prevRoute, nextRoute }) {
   const router = useRouter();
   const { tag, slug } = getSlug(router.query);
-  const href = '/docs/[[...slug]]';
   const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/canary${route.path}`;
 
   useEffect(() => {
@@ -29,10 +28,10 @@ function DocsPage({ route, html, prevRoute, nextRoute }) {
       if (nodeHref && nodeHref[0] !== '#' && !nodeHref.startsWith(slug)) {
         if (nodeHref.startsWith('/docs')) {
           // Handle relative documentation paths
-          const as = addTagToSlug(nodeHref, tag);
+          const href = addTagToSlug(nodeHref, tag);
 
-          router.prefetch(href, as);
-          listeners.push(addRouterEvents(node, router, { href, as }));
+          router.prefetch(href);
+          listeners.push(addRouterEvents(node, router, { href }));
         } else {
           // Handle any other relative path
           router.prefetch(nodeHref);
@@ -53,7 +52,7 @@ function DocsPage({ route, html, prevRoute, nextRoute }) {
 
       <div className="page-nav">
         {prevRoute ? (
-          <Button href={href} as={addTagToSlug(removeFromLast(prevRoute.path, '.'), tag)}>
+          <Button href={addTagToSlug(removeFromLast(prevRoute.path, '.'), tag)}>
             <ArrowIcon left flex>
               <LeftArrow color="#0070f3" />
             </ArrowIcon>
@@ -63,7 +62,7 @@ function DocsPage({ route, html, prevRoute, nextRoute }) {
           <span />
         )}
         {nextRoute && (
-          <Button href={href} as={addTagToSlug(removeFromLast(nextRoute.path, '.'), tag)}>
+          <Button href={addTagToSlug(removeFromLast(nextRoute.path, '.'), tag)}>
             {nextRoute.title}
             <ArrowIcon right flex>
               <RightArrow color="#0070f3" />
@@ -78,7 +77,7 @@ function DocsPage({ route, html, prevRoute, nextRoute }) {
 
       <footer>
         {tag ? (
-          <Link href="/docs/[[...slug]]" as={slug}>
+          <Link href={slug}>
             <a>Go to the live version of this page</a>
           </Link>
         ) : (
