@@ -1,16 +1,8 @@
-import styles from './ticket-svg.module.css';
-
 type Props = { width: number | string };
 
 export default function TicketMonoMobile({ width }: Props) {
   return (
-    <svg
-      width={width}
-      viewBox="0 0 330 520"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={styles.shadow}
-    >
+    <svg width={width} viewBox="0 0 330 520" fill="none" xmlns="http://www.w3.org/2000/svg">
       <mask
         id="mask0"
         mask-type="alpha"
@@ -43,9 +35,8 @@ export default function TicketMonoMobile({ width }: Props) {
         fillRule="evenodd"
         clipRule="evenodd"
         d="M5 499C5 507.837 12.1634 515 21 515L133.388 515C135.789 499.702 149.028 488 165 488C180.972 488 194.211 499.702 196.612 515L309 515C317.837 515 325 507.837 325 499L325 21C325 12.1634 317.837 4.99999 309 4.99999L196.612 4.99999C194.211 20.2981 180.972 32 165 32C149.028 32 135.789 20.2981 133.388 4.99999L21 5C12.1634 5 4.99998 12.1635 4.99998 21L5 499Z"
-        fill="#252729"
+        fill="black"
       />
-      <path opacity="0.3" d="M326 397H5" stroke="#8A8F98" strokeDasharray="6 6" />
       <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#paint0_linear)" />
       <circle cx="269.304" cy="177.407" r="11.5722" fill="url(#paint1_linear)" />
       <path

@@ -16,9 +16,7 @@ export default function Ticket() {
       <ConfContent
         defaultUserData={{
           id: 'e9bb985f0cfb0721ffc3f100411765c9af9a7fa1',
-          ticketNumber: 1,
-          name: 'Shu Uesugi',
-          username: 'chibicode'
+          ticketNumber: 1
         }}
         defaultPageState="ticket"
       />
