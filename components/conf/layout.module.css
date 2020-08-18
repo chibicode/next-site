@@ -22,10 +22,46 @@
   justify-content: center;
 }
 
+.secondary-text {
+  color: var(--secondary-color);
+}
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logos {
   max-width: 720px;
   display: flex;
   align-items: center;
+}
+
+.header-logos-secondary {
+  display: none;
+}
+
+.header-right {
+  display: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .header-logos-secondary {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header-right {
+    align-items: items-center;
+    display: flex;
+  }
 }
 
 .header-separator {
