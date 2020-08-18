@@ -38,7 +38,7 @@ export default function Layout({ children, inner }: Props) {
             <div className={styles['header-logos-secondary']}>
               <div className={styles['header-separator']} />
               <div className={styles.description}>
-                An interactive online experence by the community, free for everyone.
+                An interactive online experience by the community, free for everyone.
               </div>
             </div>
           </div>

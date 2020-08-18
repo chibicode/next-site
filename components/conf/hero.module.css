@@ -5,6 +5,7 @@
   font-weight: 800;
   text-align: center;
   margin: 50px 0 40px;
+  width: 800px;
 }
 
 .info {
@@ -17,6 +18,16 @@
   margin-bottom: 100px;
 }
 
+.description {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.4;
+  text-align: center;
+  width: 531px;
+  margin: 40px auto;
+  color: #8a8f98;
+}
+
 .info p {
   margin: 0;
 }
@@ -26,4 +37,16 @@
   width: 1px;
   background: var(--secondary-color);
   margin: 0 16px;
+}
+
+@media (min-width: 1200px) {
+  .hide-on-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hide-on-tablet {
+    display: none;
+  }
 }
