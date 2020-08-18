@@ -82,6 +82,7 @@ export default function Form() {
         >
           <input
             className={styles.input}
+            autoComplete="off"
             type="email"
             id="email-input-field"
             value={email}

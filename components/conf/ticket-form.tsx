@@ -95,6 +95,7 @@ export default function Form({ defaultUsername = '' }: Props) {
         >
           <input
             className={ticketFormStyles.input}
+            autoComplete="off"
             type="text"
             id="github-input-field"
             value={username}
