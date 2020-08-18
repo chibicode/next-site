@@ -13,7 +13,7 @@ export default function Ticket() {
       <div className={cn(styles['ticket-instructions'])}>
         <div className={styles['ticket-text']}>
           <h2 className={cn(styles.hero, layoutStyles.appear, layoutStyles['appear-first'])}>
-            You're in. Now make it unique.
+            You're in. <br className={styles['hide-on-desktop']} /> Make it unique.
           </h2>
           <p className={cn(styles.description, layoutStyles.appear, layoutStyles['appear-second'])}>
             Generate a unique ticket image with your GitHub username.

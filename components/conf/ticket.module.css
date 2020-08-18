@@ -1,15 +1,19 @@
 .hero {
-  font-size: 64px;
+  font-size: 100px;
   line-height: 1;
   letter-spacing: -0.08em;
   font-weight: 800;
   margin: 0 0 20px;
+  text-align: center;
 }
 
 .description {
   font-size: 24px;
   line-height: 1.4;
   color: var(--secondary-color);
+  width: 415px;
+  text-align: center;
+  margin: 40px auto;
 }
 
 .ticket-text {
@@ -18,7 +22,7 @@
 
 .ticket-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .ticket-instructions {
@@ -34,4 +38,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 1280px) {
+  .ticket-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero {
+    font-size: 64px;
+    text-align: left;
+  }
+  .description {
+    text-align: left;
+    width: 100%;
+    margin: 40px 0;
+  }
 }
