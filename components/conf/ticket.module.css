@@ -12,19 +12,25 @@
 
 .ticket-layout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin: 120px 0;
-}
-
-.centered {
-  align-self: center;
 }
 
 .ticket-instructions {
   margin-right: 20px;
+  margin-top: 50px;
 }
 
 .ticket-visual {
   width: 770px;
   transform: translateY(30px);
+}
+
+.ticket-actions {
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  /* Need to place above the visual so it’s clickable */
+  position: relative;
+  z-index: 2;
 }
