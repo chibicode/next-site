@@ -29,9 +29,10 @@ export default function Layout({ children, inner }: Props) {
     <div className={styles.background}>
       <div className={styles.page}>
         <header
-          className={`${!inner ? styles['appear--opacity-only'] : ''} ${
-            !inner ? styles['appear-fifth'] : ''
-          } ${styles.header}`}
+          className={cn(styles.header, {
+            [styles['appear--opacity-only']]: !inner,
+            [styles['appear-fifth']]: !inner
+          })}
         >
           <div className={styles['header-logos']}>
             <ConfLogo />
@@ -51,9 +52,10 @@ export default function Layout({ children, inner }: Props) {
         </main>
 
         <footer
-          className={`${!inner ? styles['appear--opacity-only'] : ''} ${
-            !inner ? styles['appear-fifth'] : ''
-          } ${styles.footer}`}
+          className={cn(styles.footer, {
+            [styles['appear--opacity-only']]: !inner,
+            [styles['appear-fifth']]: !inner
+          })}
         >
           <div className={styles['footer-legal']}>
             <div className={styles['footer-hostedby']}>
