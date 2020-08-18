@@ -46,7 +46,7 @@ export default function TicketMonoMobile({ width }: Props) {
         fill="#252729"
       />
       <path opacity="0.3" d="M326 397H5" stroke="#8A8F98" strokeDasharray="6 6" />
-      <circle cx="292.449" cy="177.407" r="11.5722" filil="url(#paint0_linear)" />
+      <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#paint0_linear)" />
       <circle cx="269.304" cy="177.407" r="11.5722" fill="url(#paint1_linear)" />
       <path
         fillRule="evenodd"
