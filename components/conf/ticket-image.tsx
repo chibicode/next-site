@@ -11,7 +11,7 @@ export default function TicketImage() {
         <div className={styles.page}>
           <GlobalStyles />
           <TicketVisual
-            size={2000 / 770}
+            size={1700 / 650}
             username={query.username.toString()}
             ticketNumber={parseInt(query.ticketNumber.toString(), 10)}
             name={query.name ? query.name?.toString() : undefined}
