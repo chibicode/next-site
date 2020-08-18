@@ -32,8 +32,8 @@
 }
 
 .ticket-actions {
-  margin-top: -30px;
   display: flex;
+  align-items: center;
   justify-content: center;
   /* Need to place above the visual so it’s clickable */
   position: relative;

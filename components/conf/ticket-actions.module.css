@@ -1,23 +1,31 @@
 .button {
-  padding: 8px 30px;
-  margin: 0 10px;
-  border-radius: 4px;
-  border: 1px solid #fff;
-  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #8a8f98;
+  color: #fff;
+  background: #000;
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   letter-spacing: -0.02em;
+  font-weight: 500;
   outline: none;
-  color: #000;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  display: inline-flex;
+  transition: border-color 0.2s ease;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  text-align: center;
   align-items: center;
-  justify-content: center;
+  padding: 0 16px;
+  height: 55px;
+  width: 216px;
+  margin-right: 8px;
+}
+
+.button:last-child {
+  margin-right: 0;
 }
 
 .button:hover,
 .button:focus {
-  background: transparent;
   color: #fff;
+  border-color: #fff;
 }
