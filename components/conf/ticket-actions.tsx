@@ -6,17 +6,17 @@ import styleUtils from './utils.module.css';
 import styles from './ticket-actions.module.css';
 
 type Props = {
-  id: string;
+  username: string;
 };
 
-export default function TicketActions({ id }: Props) {
-  const permalink = encodeURIComponent(`https://nextjs.org/conf/tickets/${id}`);
+export default function TicketActions({ username }: Props) {
+  const permalink = encodeURIComponent(`https://nextjs.org/conf/tickets/${username}`);
   const text = encodeURIComponent(
     'Just got my free ticket to Next.js Conf, the first #nextjs global user conference:'
   );
   const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=vercel&text=${text}`;
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
-  const downloadUrl = `/conf/download-ticket/${id}`;
+  const downloadUrl = `/conf/download-ticket/${username}`;
 
   return (
     <>
