@@ -45,7 +45,8 @@ export default function Form() {
             },
             body: JSON.stringify({
               email,
-              referrer: document.referrer
+              referrer: document.referrer,
+              queryParams: window.location.search
             })
           })
             .then(res => res.json())
