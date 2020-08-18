@@ -11,18 +11,22 @@ export default function Layout({ children }: Props) {
   return (
     <div className={styles.background}>
       <div className={styles.page}>
-        <header className={styles.header}>
+        <header
+          className={`${styles['appear--opacity-only']} ${styles['appear-fifth']} ${styles.header}`}
+        >
           <ConfLogo />
           <div className={styles['header-separator']} />
-          <div className={styles.description}>
+          <p className={styles.description}>
             An interactive online experence by the community, free for everyone.
-          </div>
+          </p>
         </header>
         <main className={styles.main}>
           <div>{children}</div>
         </main>
-        <footer className={styles.footer}>
-          <div>
+        <footer
+          className={`${styles['appear--opacity-only']} ${styles['appear-fifth']} ${styles.footer}`}
+        >
+          <p>
             Hosted by{' '}
             <a
               href="https://vercel.com"
@@ -32,11 +36,11 @@ export default function Layout({ children }: Props) {
             >
               <VercelLogo color="currentColor" />
             </a>
-          </div>
+          </p>
           <div className={styles['footer-legal']}>
-            <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
+            <p>Copyright © 2020 Vercel, Inc. All rights reserved.</p>
             <div className={styles['footer-separator']} />
-            <div>
+            <p>
               <a
                 href="https://vercel.com/legal/privacy-policy"
                 className={styles['footer-link']}
@@ -45,7 +49,7 @@ export default function Layout({ children }: Props) {
               >
                 Privacy Policy
               </a>
-            </div>
+            </p>
           </div>
         </footer>
       </div>
