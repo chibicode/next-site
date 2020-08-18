@@ -50,8 +50,28 @@ export default function Form({ defaultUsername = '' }: Props) {
               username
             })
             .then(({ data }) => {
-              setUserData({ ...userData, username, name: data.name });
-              setFormState('default');
+              fetch('https://api.nextjs.org/api/conf-github', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  username,
+                  id: userData.id,
+                  name: data.name
+                })
+              })
+                .then(res => res.json())
+                .then(() => {
+                  setUserData({ ...userData, username, name: data.name });
+                  setFormState('default');
+                })
+                .catch(() => {
+                  setFormState('error');
+                });
+            })
+            .catch(() => {
+              setFormState('error');
             });
         } else {
           setFormState('default');
