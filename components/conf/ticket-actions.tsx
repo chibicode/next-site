@@ -1,3 +1,6 @@
+import IconTwitter from './icon-twitter';
+import IconLinkedin from './icon-linkedin';
+import IconDownload from './icon-download';
 import styles from './ticket-actions.module.css';
 
 type Props = {
@@ -9,14 +12,18 @@ export default function TicketActions({ id }: Props) {
   const text = encodeURIComponent('I just signed up for Next.js Conf!');
   const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=vercel&text=${text}`;
   const downloadUrl = `/conf/download-ticket/${id}`;
+
   return (
-    <div>
+    <>
       <a className={styles.button} href={tweetUrl} rel="noopener noreferrer" target="_blank">
-        Tweet it!
+        <IconTwitter width={24} /> Tweet it!
+      </a>
+      <a className={styles.button} href={tweetUrl} rel="noopener noreferrer" target="_blank">
+        <IconLinkedin width={20} /> Share on LinkedIn
       </a>
       <a className={styles.button} href={downloadUrl} download="ticket.png">
-        Download
+        <IconDownload width={24} /> Download
       </a>
-    </div>
+    </>
   );
 }
