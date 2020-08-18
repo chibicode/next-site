@@ -38,13 +38,7 @@ export default function Ticket() {
           />
         </div>
         {userData.id && userData.username && (
-          <div
-            className={cn(
-              styles['ticket-actions'],
-              layoutStyles.appear,
-              layoutStyles['appear-fifth']
-            )}
-          >
+          <div className={styles['ticket-actions']}>
             <TicketActions id={userData.id} />
           </div>
         )}

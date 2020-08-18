@@ -29,3 +29,13 @@
   color: #fff;
   border-color: #fff;
 }
+
+.first {
+  animation-delay: 2s;
+}
+.second {
+  animation-delay: 2.2s;
+}
+.third {
+  animation-delay: 2.4s;
+}

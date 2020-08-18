@@ -1,6 +1,8 @@
+import cn from 'classnames';
 import IconTwitter from './icon-twitter';
 import IconLinkedin from './icon-linkedin';
 import IconDownload from './icon-download';
+import layoutStyles from './layout.module.css';
 import styles from './ticket-actions.module.css';
 
 type Props = {
@@ -15,13 +17,27 @@ export default function TicketActions({ id }: Props) {
 
   return (
     <>
-      <a className={styles.button} href={tweetUrl} rel="noopener noreferrer" target="_blank">
+      <a
+        className={cn(styles.button, layoutStyles.appear, styles.first)}
+        href={tweetUrl}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <IconTwitter width={24} /> Tweet it!
       </a>
-      <a className={styles.button} href={tweetUrl} rel="noopener noreferrer" target="_blank">
+      <a
+        className={cn(styles.button, layoutStyles.appear, styles.second)}
+        href={tweetUrl}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
         <IconLinkedin width={20} /> Share on LinkedIn
       </a>
-      <a className={styles.button} href={downloadUrl} download="ticket.png">
+      <a
+        className={cn(styles.button, layoutStyles.appear, styles.third)}
+        href={downloadUrl}
+        download="ticket.png"
+      >
         <IconDownload width={24} /> Download
       </a>
     </>
