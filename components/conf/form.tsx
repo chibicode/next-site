@@ -2,6 +2,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import useConfData from '@lib/hooks/useConfData';
 import LoadingDots from './loading-dots';
+import layoutStyles from './layout.module.css';
 import styles from './form.module.css';
 
 type FormState = 'default' | 'loading' | 'error';
@@ -33,7 +34,7 @@ export default function Form() {
     </div>
   ) : (
     <form
-      className={styles.form}
+      className={`${layoutStyles.appear} ${layoutStyles['appear-third']} ${styles.form}`}
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');

@@ -11,14 +11,13 @@
 }
 
 .ticket-layout {
-  display: flex;
-  align-items: flex-start;
-  margin: 120px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 }
 
 .ticket-instructions {
   margin-right: 20px;
-  margin-top: 50px;
 }
 
 .ticket-visual {

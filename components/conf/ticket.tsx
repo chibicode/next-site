@@ -12,14 +12,10 @@ export default function Ticket() {
     <div className={styles['ticket-layout']}>
       <div className={cn(styles['ticket-instructions'])}>
         <div className={styles['ticket-text']}>
-          <h2 className={styles.hero}>
-            You're in.
-            <br />
-            Now make it unique.
-          </h2>
-          <div className={layoutStyles.description}>
+          <h2 className={styles.hero}>You're in. Now make it unique.</h2>
+          <p className={layoutStyles.description}>
             Generate a unique ticket image with your GitHub username.
-          </div>
+          </p>
         </div>
         <TicketForm defaultUsername={userData.username} />
       </div>

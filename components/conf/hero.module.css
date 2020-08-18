@@ -4,7 +4,7 @@
   letter-spacing: -0.08em;
   font-weight: 800;
   text-align: center;
-  margin: 120px 0 40px;
+  margin: 50px 0 40px;
 }
 
 .info {
@@ -15,6 +15,10 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+}
+
+.info p {
+  margin: 0;
 }
 
 .description-separator {

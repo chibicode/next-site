@@ -6,7 +6,7 @@
 }
 
 .page {
-  padding: 50px 20px 40px;
+  padding: 50px 20px;
   --secondary-color: #8a8f98;
   display: flex;
   flex-direction: column;
@@ -72,6 +72,7 @@
 }
 
 .description {
+  font-size: 24px;
   line-height: 1.4;
   color: var(--secondary-color);
 }
@@ -131,5 +132,43 @@
     width: 1px;
     background: var(--secondary-color);
     display: block;
+  }
+}
+
+.appear {
+  opacity: 0;
+  transform: translate3d(0px, 100px, 0px);
+  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.appear--opacity-only {
+  opacity: 0;
+  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.appear-first {
+  animation-delay: 0.4s;
+}
+
+.appear-second {
+  animation-delay: 0.8s;
+}
+
+.appear-third {
+  animation-delay: 1.2s;
+}
+
+.appear-fourth {
+  animation-delay: 1.6s;
+}
+
+.appear-fifth {
+  animation-delay: 2s;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
