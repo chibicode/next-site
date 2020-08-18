@@ -1,7 +1,7 @@
 .background {
   width: 2000px;
   height: 1000px;
-  background: #1b1d1f;
+  background: #000;
   --secondary-color: #8a8f98;
   color: #fff;
   overflow: hidden;
