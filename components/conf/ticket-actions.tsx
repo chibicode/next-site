@@ -9,7 +9,9 @@ type Props = {
 
 export default function TicketActions({ id }: Props) {
   const permalink = encodeURIComponent(`https://nextjs.org/conf/tickets/${id}`);
-  const text = encodeURIComponent('I just signed up for Next.js Conf!');
+  const text = encodeURIComponent(
+    'Just got my free ticket to Next.js Conf, the first #nextjs global user conference:'
+  );
   const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=vercel&text=${text}`;
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
   const downloadUrl = `/conf/download-ticket/${id}`;
