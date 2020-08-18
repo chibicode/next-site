@@ -22,7 +22,7 @@ export default function TicketActions({ id }: Props) {
       <a className={styles.button} href={linkedInUrl} rel="noopener noreferrer" target="_blank">
         <IconLinkedin width={20} /> Share on LinkedIn
       </a>
-      <a className={styles.button} href={downloadUrl} download="ticket.png">
+      <a className={styles.button} href={downloadUrl} download="Nextjs-Conf-Ticket.png">
         <IconDownload width={24} /> Download
       </a>
     </>

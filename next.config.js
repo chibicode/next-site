@@ -121,7 +121,7 @@ const nextConfig = {
       // Must use a proxy URL to enable downloading
       {
         source: '/conf/download-ticket/:path{/}?',
-        destination: 'https://next-conf-ticket.vercel.app/ticket.png?id=:path'
+        destination: 'https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?id=:path'
       }
     ];
   },

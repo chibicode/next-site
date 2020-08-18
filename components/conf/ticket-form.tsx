@@ -66,9 +66,12 @@ export default function Form({ defaultUsername = '' }: Props) {
                   setUserData({ ...userData, username, name: data.name });
                   setFormState('default');
                   // Prefetch the image URL to eagerly generate the image
-                  fetch(`https://next-conf-ticket.vercel.app/ticket.png?id=${userData.id}`, {
-                    mode: 'no-cors'
-                  }).catch(_ => {});
+                  fetch(
+                    `https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?id=${userData.id}`,
+                    {
+                      mode: 'no-cors'
+                    }
+                  ).catch(_ => {});
                 })
                 .catch(() => {
                   setFormState('error');

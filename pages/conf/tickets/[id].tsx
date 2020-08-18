@@ -17,7 +17,7 @@ export default function TicketShare({ id }: Props) {
       <SocialMeta
         image={
           id
-            ? `https://next-conf-ticket.vercel.app/ticket.png?id=${id}`
+            ? `https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?id=${id}`
             : '/static/twitter-cards/conf/twitter-card.png'
         }
         title="Next.js Conf"
