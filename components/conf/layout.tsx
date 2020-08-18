@@ -46,6 +46,10 @@ export default function Layout({ children }: Props) {
         </main>
         <footer className={styles.footer}>
           <div className={styles['footer-legal']}>
+            <div className={styles['footer-hostedby']}>
+              <HostedByVercel />
+              <div className={styles['footer-separator']} />
+            </div>
             <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
             <div className={styles['footer-separator']} />
             <div>
