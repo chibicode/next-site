@@ -39,8 +39,8 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .hide-on-tablet {
+@media (max-width: 1199px) {
+  .hide-on-mobile {
     display: none;
   }
 }
