@@ -1,0 +1,29 @@
+.visual {
+  position: relative;
+}
+
+.profile {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12% 16%;
+}
+
+.ticket-number-wrapper {
+  position: absolute;
+  top: 6.8%;
+  width: 100%;
+  left: 84%;
+}
+
+.ticket-number {
+  font-weight: bold;
+  font-size: calc(40px * var(--size));
+  line-height: 1;
+  width: calc(100% * 330 / 770);
+  text-align: center;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}

@@ -6,7 +6,6 @@ import Screen from '../../components/screen'
 import Page from '../../components/page'
 
 import Container from '../../components/container'
-import SectionHeader from '../../components/section-header'
 
 import Preview from '../../components/blog/preview'
 import { components } from '../../components/blog/post-components'
@@ -17,7 +16,7 @@ function importAll(r) {
 }
 
 const previewItems = importAll(
-  require.context('../../blog', false, /\-preview\.mdx$/)
+  require.context('../../blog', false, /^\.\/(.*)-preview\.mdx$/)
 )
 
 function dateSortDesc(a, b) {

@@ -1,0 +1,85 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.input {
+  border: none;
+  width: calc(100% - 128px);
+  background: transparent;
+  outline: none;
+  height: 56px;
+  padding-left: 15px;
+  font-size: 16px;
+  color: #fff;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: var(--secondary-color);
+}
+
+.input-label {
+  background-color: #252729;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  display: block;
+}
+
+.input-label.error {
+  background: red;
+}
+
+.input-label.success {
+  background: #0070f3;
+}
+
+.input-label.focused {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #34383d;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-text {
+  display: flex;
+  align-items: center;
+}
+
+.form-row {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+}
+
+.submit {
+  width: 120px;
+  height: 40px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  outline: none;
+  color: #000;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit.loading {
+  cursor: default;
+}
+
+.submit.default:hover,
+.submit.default:focus {
+  background: transparent;
+  color: #fff;
+}

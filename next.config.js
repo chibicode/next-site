@@ -117,6 +117,11 @@ const nextConfig = {
       {
         source: '/feed.xml',
         destination: '/_next/static/feed.xml'
+      },
+      // Must use a proxy URL to enable downloading
+      {
+        source: '/conf/download-ticket/:path{/}?',
+        destination: 'https://next-conf-ticket.vercel.app/ticket.png?id=:path'
       }
     ];
   },

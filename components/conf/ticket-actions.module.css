@@ -1,0 +1,23 @@
+.button {
+  padding: 8px 30px;
+  margin: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  outline: none;
+  color: #000;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:hover,
+.button:focus {
+  background: transparent;
+  color: #fff;
+}

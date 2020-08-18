@@ -1,0 +1,25 @@
+.hero {
+  font-size: 100px;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+  text-align: center;
+  margin: 120px 0 40px;
+}
+
+.info {
+  font-size: 24px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.description-separator {
+  height: 24px;
+  width: 1px;
+  background: var(--secondary-color);
+  margin: 0 16px;
+}

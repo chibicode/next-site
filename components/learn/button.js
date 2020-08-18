@@ -19,7 +19,6 @@ export default withPure(
     light,
     large,
     href,
-    as,
     color,
     shadowColor,
     noHover,
@@ -108,11 +107,7 @@ export default withPure(
     );
 
     if (href && !isExternal) {
-      return (
-        <Link href={href} as={as}>
-          {a}
-        </Link>
-      );
+      return <Link href={href}>{a}</Link>;
     }
     return a;
   }

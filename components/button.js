@@ -109,7 +109,7 @@ export default withPure(function Button({
     return amp || isExternal ? (
       a
     ) : (
-      <Link href={href} as={as} passHref>
+      <Link href={href} passHref>
         {a}
       </Link>
     );

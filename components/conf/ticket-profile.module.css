@@ -1,0 +1,42 @@
+.profile {
+  display: flex;
+}
+
+.image {
+  width: calc(80px * var(--size));
+  height: calc(80px * var(--size));
+  border-radius: 50%;
+  margin-right: calc(15px * var(--size));
+}
+
+.text {
+  flex: 1;
+}
+
+.name {
+  font-size: calc(32px * var(--size));
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.username {
+  font-size: calc(1em * var(--size));
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+}
+
+.githubIcon {
+  margin-right: calc(7px * var(--size));
+  display: inline-flex;
+}
+
+.name-blank {
+  color: var(--secondary-color);
+}
+
+.empty-icon {
+  display: block;
+  background: linear-gradient(135deg, #b4b6b8, #7f8183);
+}

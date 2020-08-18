@@ -8,16 +8,18 @@ function NavLink({ route: { href, pathname, title, selected }, onClick }) {
 
   return (
     <div className={cn('nav-link', { selected })}>
-      {// NOTE: use just anchor element for triggering `hashchange` event
-      onlyHashChange ? (
-        <a className={selected ? 'selected' : ''} href={pathname}>
-          {title}
-        </a>
-      ) : (
-        <Link href={href} as={pathname}>
-          <a onClick={onClick}>{title}</a>
-        </Link>
-      )}
+      {
+        // NOTE: use just anchor element for triggering `hashchange` event
+        onlyHashChange ? (
+          <a className={selected ? 'selected' : ''} href={pathname}>
+            {title}
+          </a>
+        ) : (
+          <Link href={pathname || href}>
+            <a onClick={onClick}>{title}</a>
+          </Link>
+        )
+      }
       <style jsx>{`
         div.selected {
           box-sizing: border-box;

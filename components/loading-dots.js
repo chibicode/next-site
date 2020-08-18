@@ -1,4 +1,4 @@
-export default function LoadingDots({ children }) {
+export default function LoadingDots({ children = undefined }) {
   return (
     <span className="loading">
       {children}
