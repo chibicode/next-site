@@ -7,7 +7,7 @@ export default function Hero() {
     <>
       <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
         The first <br className={styleUtils['hide-on-desktop']} /> Next.js{' '}
-        <br className={styleUtils['hide-on-tablet']} />
+        <br className={styleUtils['hide-on-mobile']} />
         global user conference
       </h1>
       <h2
