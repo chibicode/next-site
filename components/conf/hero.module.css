@@ -17,6 +17,10 @@
   margin-bottom: 100px;
 }
 
+.info p {
+  margin: 0;
+}
+
 .description-separator {
   height: 24px;
   width: 1px;

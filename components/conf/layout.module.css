@@ -77,3 +77,36 @@
   width: 1px;
   background: var(--secondary-color);
 }
+
+.appear {
+  opacity: 0;
+  transform: translate3d(0px, 100px, 0px);
+  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.appear-first {
+  animation-delay: 0.4s;
+}
+
+.appear-second {
+  animation-delay: 0.8s;
+}
+
+.appear-third {
+  animation-delay: 1.2s;
+}
+
+.appear-fourth {
+  animation-delay: 1.6s;
+}
+
+.appear-fifth {
+  animation-delay: 2s;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
