@@ -2,6 +2,7 @@ import TicketColored from './ticket-colored';
 import styles from './ticket-visual.module.css';
 import TicketProfile from './ticket-profile';
 import TicketNumber from './ticket-number';
+import TicketMono from './ticket-mono';
 
 type Props = {
   size?: number;
@@ -15,7 +16,7 @@ export default function TicketVisual({ size = 1, name, username, ticketNumber }:
     <>
       <div className={styles.visual} style={{ ['--size' as string]: size }}>
         <div className={styles.frame}>
-          <TicketColored width="100%" />
+          {username ? <TicketColored width="100%" /> : <TicketMono width="100%" />}
         </div>
         <div className={styles.profile}>
           <TicketProfile name={name} username={username} size={size} />
