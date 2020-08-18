@@ -22,7 +22,7 @@ export default function TicketProfile({ name, username, size = 1 }: Props) {
             [styles['name-blank']]: !name
           })}
         >
-          {name || 'Ful Name'}
+          {name || 'Full Name'}
         </div>
         <div className={styles.username}>
           <span className={styles.githubIcon}>
