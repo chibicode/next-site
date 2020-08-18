@@ -19,7 +19,6 @@
 .ticket-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
 }
 
 .ticket-instructions {
@@ -27,15 +26,12 @@
 }
 
 .ticket-visual {
-  width: 770px;
-  transform: translateY(30px);
+  width: 650px;
 }
 
 .ticket-actions {
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Need to place above the visual so it’s clickable */
-  position: relative;
-  z-index: 2;
 }
