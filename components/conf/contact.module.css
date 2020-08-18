@@ -7,3 +7,8 @@
 .contact-email {
   color: #fff;
 }
+
+.contact-email:hover {
+  text-decoration: underline;
+  color: #fff;
+}
