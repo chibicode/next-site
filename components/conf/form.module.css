@@ -50,6 +50,7 @@
 .form-row {
   position: relative;
   max-width: 480px;
+  margin: 40px auto;
   width: 100%;
 }
 
@@ -82,4 +83,10 @@
 .submit.default:focus {
   background: transparent;
   color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .form-row {
+    margin: 0;
+  }
 }

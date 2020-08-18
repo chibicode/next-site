@@ -1,16 +1,26 @@
 import cn from 'classnames';
-import layoutStyles from './layout.module.css';
+import styleUtils from './utils.module.css';
 import styles from './hero.module.css';
 
 export default function Hero() {
   return (
     <>
-      <h1 className={cn(layoutStyles.appear, layoutStyles['appear-third'], styles.hero)}>
-        The first Next.js
-        <br />
+      <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
+        The first <br className={styleUtils['hide-on-desktop']} /> Next.js{' '}
+        <br className={styleUtils['hide-on-tablet']} />
         global user conference
       </h1>
-      <div className={cn(layoutStyles.appear, layoutStyles['appear-fourth'], styles.info)}>
+      <h2
+        className={cn(
+          styleUtils.appear,
+          styleUtils['appear-fourth'],
+          styleUtils['hide-on-desktop'],
+          styles.description
+        )}
+      >
+        An interactive online experience by the community, free for everyone.
+      </h2>
+      <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
         <p>October 27, 2020</p>
         <div className={styles['description-separator']} />
         <p>
