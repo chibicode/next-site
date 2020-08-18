@@ -37,9 +37,9 @@ export default function Ticket() {
             ticketNumber={userData.ticketNumber}
           />
         </div>
-        {userData.id && userData.username && (
+        {userData.username && (
           <div className={styles['ticket-actions']}>
-            <TicketActions id={userData.id} />
+            <TicketActions username={userData.username} />
           </div>
         )}
       </div>

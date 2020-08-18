@@ -4,10 +4,10 @@ import { useRouter } from 'next/router';
 import SocialMeta from '@components/social-meta';
 
 type Props = {
-  id: string | null;
+  username: string | null;
 };
 
-export default function TicketShare({ id }: Props) {
+export default function TicketShare({ username }: Props) {
   const router = useRouter();
   useEffect(() => {
     router.push('/conf');
@@ -16,13 +16,13 @@ export default function TicketShare({ id }: Props) {
     <>
       <SocialMeta
         image={
-          id
-            ? `https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?id=${id}`
+          username
+            ? `https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?username=${username}`
             : '/static/twitter-cards/conf/twitter-card.png'
         }
         title="Next.js Conf"
         description="The first Next.js global user conference"
-        url={id ? `https://nextjs.org/conf/tickets/${id}` : 'https://nextjs.org/conf'}
+        url={username ? `https://nextjs.org/conf/tickets/${username}` : 'https://nextjs.org/conf'}
       />
     </>
   );
@@ -31,7 +31,7 @@ export default function TicketShare({ id }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return Promise.resolve({
     props: {
-      id: params?.id?.toString() || null
+      username: params?.username?.toString() || null
     }
   });
 };
