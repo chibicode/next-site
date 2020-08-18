@@ -131,7 +131,7 @@
 
 .appear {
   opacity: 0;
-  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  animation: appear 0.8s cubic-bezier(0.1, 0, 0.175, 1) forwards;
 }
 
 .appear-first {
@@ -152,6 +152,10 @@
 
 .appear-fifth {
   animation-delay: 2s;
+}
+
+.appear-sixth {
+  animation-delay: 2.4s;
 }
 
 @keyframes appear {
