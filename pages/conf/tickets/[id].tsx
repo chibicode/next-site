@@ -18,7 +18,7 @@ export default function TicketShare({ id }: Props) {
         image={
           id
             ? `https://next-conf-ticket.vercel.app/ticket.png?id=${id}`
-            : '/static/twitter-cards/home.jpg'
+            : '/static/twitter-cards/conf/twitter-card.png'
         }
         title="Next.js Conf"
         description="The first Next.js global user conference"
