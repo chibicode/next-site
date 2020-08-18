@@ -19,16 +19,16 @@ export default function TicketProfile({ name, username, size = 1 }: Props) {
       <div className={styles.text}>
         <div
           className={cn(styles.name, {
-            [styles['name-blank']]: !name
+            [styles['name-blank']]: !username
           })}
         >
-          {name || 'Ful Name'}
+          {name || username || 'Your Name'}
         </div>
         <div className={styles.username}>
           <span className={styles.githubIcon}>
             <GithubIcon color="var(--secondary-color)" size={20 * size} />
           </span>
-          {username || <>&nbsp;</>}
+          {username || <>username</>}
         </div>
       </div>
     </div>

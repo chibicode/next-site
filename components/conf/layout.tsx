@@ -11,14 +11,13 @@ type Props = {
 function HostedByVercel() {
   return (
     <div className={styles['secondary-text']}>
-      Hosted by{' '}
       <a
         href="https://vercel.com"
         className={cn(styles['footer-link'], styles['footer-logo'])}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <VercelLogo color="currentColor" />
+        Hosted by <VercelLogo color="currentColor" />
       </a>
     </div>
   );
