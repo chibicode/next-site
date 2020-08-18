@@ -29,8 +29,8 @@ export default function Layout({ children, inner }: Props) {
       <div className={styles.page}>
         <header
           className={cn(styles.header, {
-            [styles['appear--opacity-only']]: !inner,
-            [styles['appear-fifth']]: !inner
+            [styles.appear]: !inner,
+            [styles['appear-first']]: !inner
           })}
         >
           <div className={styles['header-logos']}>
@@ -42,7 +42,12 @@ export default function Layout({ children, inner }: Props) {
               </div>
             </div>
           </div>
-          <div className={styles['header-right']}>
+          <div
+            className={cn(styles['header-right'], {
+              [styles.appear]: !inner,
+              [styles['appear-second']]: !inner
+            })}
+          >
             <HostedByVercel />
           </div>
         </header>
@@ -52,8 +57,8 @@ export default function Layout({ children, inner }: Props) {
 
         <footer
           className={cn(styles.footer, {
-            [styles['appear--opacity-only']]: !inner,
-            [styles['appear-fifth']]: !inner
+            [styles.appear]: !inner,
+            [styles['appear-sixth']]: !inner
           })}
         >
           <div className={styles['footer-legal']}>

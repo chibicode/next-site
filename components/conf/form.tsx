@@ -34,7 +34,7 @@ export default function Form() {
     </div>
   ) : (
     <form
-      className={`${layoutStyles.appear} ${layoutStyles['appear-third']} ${styles.form}`}
+      className={cn(layoutStyles.appear, layoutStyles['appear-fifth'], styles.form)}
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
