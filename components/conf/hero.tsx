@@ -4,9 +4,9 @@ export default function Hero() {
   return (
     <>
       <h1 className={styles.hero}>
-        The first Next.js global
+        The first Next.js
         <br />
-        user conference
+        global user conference
       </h1>
       <div className={styles.info}>
         <div>October 27, 2020</div>

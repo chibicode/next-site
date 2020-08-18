@@ -14,7 +14,7 @@ export default function Ticket() {
           <h2 className={styles.hero}>
             You're in.
             <br />
-            Now make it yours.
+            Now make it unique.
           </h2>
           <div className={layoutStyles.description}>
             Generate a unique ticket image with your GitHub username.
