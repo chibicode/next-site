@@ -2,7 +2,7 @@ import cn from 'classnames';
 import IconTwitter from './icon-twitter';
 import IconLinkedin from './icon-linkedin';
 import IconDownload from './icon-download';
-import layoutStyles from './layout.module.css';
+import styleUtils from './utils.module.css';
 import styles from './ticket-actions.module.css';
 
 type Props = {
@@ -21,7 +21,7 @@ export default function TicketActions({ id }: Props) {
   return (
     <>
       <a
-        className={cn(styles.button, layoutStyles.appear, styles.first)}
+        className={cn(styles.button, styleUtils.appear, styles.first)}
         href={tweetUrl}
         rel="noopener noreferrer"
         target="_blank"
@@ -29,7 +29,7 @@ export default function TicketActions({ id }: Props) {
         <IconTwitter width={24} /> Tweet it!
       </a>
       <a
-        className={cn(styles.button, layoutStyles.appear, styles.second)}
+        className={cn(styles.button, styleUtils.appear, styles.second)}
         href={linkedInUrl}
         rel="noopener noreferrer"
         target="_blank"
@@ -37,7 +37,7 @@ export default function TicketActions({ id }: Props) {
         <IconLinkedin width={20} /> Share on LinkedIn
       </a>
       <a
-        className={cn(styles.button, layoutStyles.appear, styles.third)}
+        className={cn(styles.button, styleUtils.appear, styles.third)}
         href={downloadUrl}
         download="Nextjs-Conf-Ticket.png"
       >

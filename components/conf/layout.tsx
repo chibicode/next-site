@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import VercelLogo from '@components/icons/platform-logotype';
 import styles from './layout.module.css';
+import styleUtils from './utils.module.css';
 import ConfLogo from './conf-logo';
 
 type Props = {
@@ -29,8 +30,8 @@ export default function Layout({ children, inner }: Props) {
       <div className={styles.page}>
         <header
           className={cn(styles.header, {
-            [styles.appear]: !inner,
-            [styles['appear-first']]: !inner
+            [styleUtils.appear]: !inner,
+            [styleUtils['appear-first']]: !inner
           })}
         >
           <div className={styles['header-logos']}>
@@ -44,8 +45,8 @@ export default function Layout({ children, inner }: Props) {
           </div>
           <div
             className={cn(styles['header-right'], {
-              [styles.appear]: !inner,
-              [styles['appear-second']]: !inner
+              [styleUtils.appear]: !inner,
+              [styleUtils['appear-second']]: !inner
             })}
           >
             <HostedByVercel />
@@ -57,8 +58,8 @@ export default function Layout({ children, inner }: Props) {
 
         <footer
           className={cn(styles.footer, {
-            [styles.appear]: !inner,
-            [styles['appear-sixth']]: !inner
+            [styleUtils.appear]: !inner,
+            [styleUtils['appear-sixth']]: !inner
           })}
         >
           <div className={styles['footer-legal']}>

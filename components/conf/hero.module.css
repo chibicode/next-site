@@ -38,15 +38,3 @@
   background: var(--secondary-color);
   margin: 0 16px;
 }
-
-@media (min-width: 1200px) {
-  .hide-on-desktop {
-    display: none;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hide-on-tablet {
-    display: none;
-  }
-}
