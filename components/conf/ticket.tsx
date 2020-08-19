@@ -8,6 +8,7 @@ import TicketActions from './ticket-actions';
 
 export default function Ticket() {
   const { userData } = useConfData();
+
   return (
     <div className={styles['ticket-layout']}>
       <div className={cn(styles['ticket-instructions'])}>
