@@ -20,3 +20,15 @@
   left: 18px;
   display: inline-flex;
 }
+
+.form-row {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1200px) {
+  .form-row {
+    margin: 0;
+  }
+}
