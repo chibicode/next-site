@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
 import { Octokit } from '@octokit/rest';
@@ -22,6 +23,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
   const { userData, setUserData } = useConfData();
+  const formRef = useRef<HTMLFormElement>(null);
 
   return formState === 'error' ? (
     <div>
@@ -45,6 +47,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
     </div>
   ) : (
     <form
+      ref={formRef}
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
@@ -105,7 +108,13 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             id="github-input-field"
             value={username}
             onChange={e => setUsername(e.target.value)}
-            onFocus={() => setFocused(true)}
+            onFocus={() => {
+              if (formRef && formRef.current) {
+                scrollTo(formRef.current, -30);
+              }
+
+              setFocused(true);
+            }}
             onBlur={() => setFocused(false)}
             placeholder="GitHub username…"
             required
