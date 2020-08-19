@@ -43,9 +43,17 @@
   display: block;
 }
 
+.hide-on-mobile {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .show-on-mobile {
     display: none;
+  }
+
+  .hide-on-mobile {
+    display: block;
   }
 }
 

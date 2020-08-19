@@ -1,19 +1,33 @@
 .hero {
-  font-size: 100px;
+  font-size: 52px;
   line-height: 1;
   letter-spacing: -0.08em;
-  font-weight: 800;
+  font-weight: 700;
   margin: 0;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .hero {
+    font-size: 100px;
+    font-weight: 800;
+  }
+}
+
 .description {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.4;
   color: var(--secondary-color);
-  width: 415px;
   text-align: center;
   margin: 30px auto;
+  max-width: 350px;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 24px;
+    max-width: 415px;
+  }
 }
 
 .ticket-text {

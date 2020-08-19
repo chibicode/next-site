@@ -16,8 +16,7 @@ export default function Ticket() {
             You're in. <br /> Make it unique.
           </h2>
           <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
-            Generate a unique ticket image with
-            <br />
+            Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
             your GitHub username.
           </p>
         </div>
