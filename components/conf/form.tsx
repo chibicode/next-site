@@ -60,7 +60,7 @@ export default function Form() {
               });
               setPageState('ticket');
               // Prefetch the share URL to eagerly generate the page
-              fetch(`https://nextjs.org/conf/tickets/${data.username}`).catch(_ => {});
+              fetch(`/conf/tickets/${data.username}`).catch(_ => {});
             })
             .catch(() => {
               setFormState('error');

@@ -71,7 +71,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
                   setFormState('default');
                   setTicketGenerationState('default');
                   // Prefetch the image URL to eagerly generate the image
-                  fetch(`https://nextjs.org/conf/download-ticket/${username}`).catch(_ => {});
+                  fetch(`/conf/download-ticket/${username}`).catch(_ => {});
                 })
                 .catch(() => {
                   setFormState('error');
