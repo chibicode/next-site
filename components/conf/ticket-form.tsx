@@ -109,7 +109,13 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             value={username}
             onChange={e => setUsername(e.target.value)}
             onFocus={() => {
-              if (formRef && formRef.current) {
+              // https://stackoverflow.com/a/8876069/114157
+              const viewportWidth = Math.max(
+                document.documentElement.clientWidth || 0,
+                window.innerWidth || 0
+              );
+              const isMobileOrTablet = viewportWidth < 1200;
+              if (isMobileOrTablet && formRef && formRef.current) {
                 scrollTo(formRef.current, -30);
               }
 
