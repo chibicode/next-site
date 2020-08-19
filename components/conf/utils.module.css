@@ -1,30 +1,34 @@
+:global(.get-ticket-clicked) .appear {
+  --delay-offset: -1.2s;
+}
+
 .appear {
   opacity: 0;
   animation: appear 0.8s cubic-bezier(0.1, 0, 0.175, 1) forwards;
 }
 
 .appear-first {
-  animation-delay: 0.4s;
+  animation-delay: calc(0.4s + var(--delay-offset, 0s));
 }
 
 .appear-second {
-  animation-delay: 0.8s;
+  animation-delay: calc(0.8s + var(--delay-offset, 0s));
 }
 
 .appear-third {
-  animation-delay: 1.2s;
+  animation-delay: calc(1.2s + var(--delay-offset, 0s));
 }
 
 .appear-fourth {
-  animation-delay: 1.6s;
+  animation-delay: calc(1.6s + var(--delay-offset, 0s));
 }
 
 .appear-fifth {
-  animation-delay: 2s;
+  animation-delay: calc(2s + var(--delay-offset, 0s));
 }
 
 .appear-sixth {
-  animation-delay: 2.4s;
+  animation-delay: calc(2.4s + var(--delay-offset, 0s));
 }
 
 @keyframes appear {
