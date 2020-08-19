@@ -40,6 +40,10 @@
   justify-content: center;
 }
 
+.ticket-actions-placeholder {
+  height: 75px;
+}
+
 @media (min-width: 1200px) {
   .ticket-layout {
     grid-template-columns: 1fr 1fr;

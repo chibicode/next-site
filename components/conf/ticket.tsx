@@ -33,10 +33,12 @@ export default function Ticket() {
             ticketNumber={userData.ticketNumber}
           />
         </div>
-        {userData.username && (
+        {userData.username ? (
           <div className={styles['ticket-actions']}>
             <TicketActions username={userData.username} />
           </div>
+        ) : (
+          <div className={styles['ticket-actions-placeholder']} />
         )}
       </div>
     </div>
