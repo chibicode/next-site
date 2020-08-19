@@ -6,7 +6,7 @@
 }
 
 .page {
-  padding: 40px 35px 30px;
+  padding: 20px 18px 60px;
   --secondary-color: #8a8f98;
   display: flex;
   flex-direction: column;
@@ -15,12 +15,24 @@
   flex: 1;
 }
 
+@media (min-width: 768px) {
+  .page {
+    padding: 40px 35px 30px;
+  }
+}
+
 .main {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0 120px;
+  padding: 30px 0 60px;
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding: 100px 0 120px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -115,7 +127,7 @@
 }
 
 .footer-separator {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 @media screen and (min-width: 768px) {
@@ -134,4 +146,8 @@
     background: var(--secondary-color);
     display: block;
   }
+}
+
+.footer-paragraph {
+  margin: 0;
 }

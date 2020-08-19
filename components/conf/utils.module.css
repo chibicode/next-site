@@ -39,8 +39,30 @@
   }
 }
 
-@media (max-width: 1199px) {
-  .hide-on-mobile {
+.show-on-mobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+.hide-on-tablet {
+  display: block;
+}
+
+.show-on-tablet {
+  display: none;
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .show-on-tablet {
+    display: block;
+  }
+
+  .hide-on-tablet {
     display: none;
   }
 }
