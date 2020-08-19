@@ -6,7 +6,7 @@
 }
 
 .page {
-  padding: 50px 35px;
+  padding: 40px 35px 30px;
   --secondary-color: #8a8f98;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 100px 0;
 }
 
 .secondary-text {
@@ -78,7 +79,7 @@
 }
 
 .footer {
-  margin: 100px auto 0;
+  margin: 0 auto;
   width: 100%;
   font-size: 14px;
   line-height: 1.5;
@@ -126,11 +127,5 @@
     width: 1px;
     background: var(--secondary-color);
     display: block;
-  }
-}
-
-@media (min-width: 1200px) {
-  .page {
-    padding: 50px 20px;
   }
 }
