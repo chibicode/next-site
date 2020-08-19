@@ -20,21 +20,21 @@ type Props = {
 
 export default function Ticket({ username, name, ticketNumber, sharePage }: Props) {
   const ticketRef = useRef<HTMLDivElement>(null);
+  const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
+    'default'
+  );
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ticketRef.current) {
       Tilt.init(ticketRef.current, {
         glare: true,
-        max: 1,
-        'max-glare': 0.12
+        max: 5,
+        'max-glare': 0.16,
+        'full-page-listening': true
       });
     }
   }, [ticketRef]);
-
-  const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
-    'default'
-  );
-  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (divRef && divRef.current) {
