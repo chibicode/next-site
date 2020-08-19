@@ -2,13 +2,8 @@
   position: relative;
 }
 
-
-.frame {
-  display: flex;
-}
-
-.frame:before,
-.frame:after {
+.visual:before,
+.visual:after {
   content: '';
   display: block;
   width: 72px;
@@ -21,11 +16,11 @@
   border-radius: 50%;
 }
 
-.frame:before {
+.visual:before {
   left: -7%;
 }
 
-.frame:after {
+.visual:after {
   right: -7%;
 }
 .horizontal-ticket {
