@@ -28,7 +28,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
       <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <div className={cn(formStyles['input-label'], formStyles.error)}>
           <div className={cn(formStyles.input, formStyles['input-text'])}>
-            Error! Please try again in a few minutes.
+            Error! Please try again later.
           </div>
           <button
             type="button"

@@ -18,7 +18,7 @@ export default function Form() {
       <div className={styles['form-row']}>
         <div className={cn(styles['input-label'], styles.error)}>
           <div className={cn(styles.input, styles['input-text'])}>
-            Error! Please try again in a few minutes.
+            Error! Please try again later.
           </div>
           <button
             type="button"
