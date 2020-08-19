@@ -20,7 +20,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  padding: 100px 0 120px;
+}
+
+@media screen and (min-width: 1200px) {
+  .main {
+    padding: 100px 0;
+  }
 }
 
 .secondary-text {
