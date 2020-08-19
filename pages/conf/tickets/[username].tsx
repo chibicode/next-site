@@ -56,7 +56,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
           username: username || null,
           name: name || username || null,
           ticketNumber: ticketNumber || null
-        }
+        },
+        revalidate: 5
       };
     }
   }
@@ -65,7 +66,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       username: null,
       name: null,
       ticketNumber: null
-    }
+    },
+    revalidate: 5
   };
 };
 
