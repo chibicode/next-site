@@ -3,6 +3,7 @@ import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
 import useConfData from '@lib/hooks/useConfData';
 import { TicketGenerationState } from '@lib/conf';
+import { scrollTo } from '@lib/smooth-scroll';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
 import TicketForm from './ticket-form';
@@ -31,10 +32,7 @@ export default function Ticket() {
 
   useEffect(() => {
     if (divRef && divRef.current) {
-      window.scrollTo({
-        behavior: 'smooth',
-        top: divRef.current.offsetTop - 30
-      });
+      scrollTo(divRef.current, -30);
     }
   }, [divRef]);
 
