@@ -12,40 +12,23 @@ import TicketActions from './ticket-actions';
 export default function Ticket() {
   const { userData } = useConfData();
 
-  const ticketRef = useRef();
+  const ticketRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    let ticket;
-
     if (ticketRef.current) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
       Tilt.init(ticketRef.current, {
         glare: true,
         max: 1,
         'max-glare': 0.12
       });
-
-      ticket = ticketRef.current;
     }
-
-    return () => {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore
-      if (ticket?.vanillaTilt) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
-        ticket.vanillaTilt.destroy();
-      }
-    };
   }, [ticketRef]);
 
   const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
     'default'
   );
   const divRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (divRef && divRef.current) {
       window.scrollTo({
@@ -54,7 +37,6 @@ export default function Ticket() {
       });
     }
   }, [divRef]);
-
 
   return (
     <div className={styles['ticket-layout']}>
