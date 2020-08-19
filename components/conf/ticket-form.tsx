@@ -49,6 +49,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
         if (formState === 'default') {
           setFormState('loading');
           setTicketGenerationState('loading');
+          // Prefetch image
+          new Image().src = `https://github.com/${username}.png`;
           octokit.users
             .getByUsername({
               username
