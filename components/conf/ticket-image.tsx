@@ -14,7 +14,7 @@ export default function TicketImage() {
             size={1700 / 650}
             username={query.username.toString()}
             ticketNumber={parseInt(query.ticketNumber.toString(), 10)}
-            name={query.name ? query.name?.toString() : undefined}
+            name={query.name ? query.name?.toString() : query.username.toString()}
           />
         </div>
       </div>
