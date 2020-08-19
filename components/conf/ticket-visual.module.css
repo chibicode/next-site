@@ -2,8 +2,22 @@
   position: relative;
 }
 
-.frame {
+.horizontal-ticket {
+  display: none;
+}
+
+.vertical-ticket {
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .horizontal-ticket {
+    display: flex;
+  }
+
+  .vertical-ticket {
+    display: none;
+  }
 }
 
 .profile {
