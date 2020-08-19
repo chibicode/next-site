@@ -24,7 +24,13 @@
 .form-row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  max-width: 400px;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    margin-bottom: 40px;
+  }
 }
 
 @media (min-width: 1200px) {

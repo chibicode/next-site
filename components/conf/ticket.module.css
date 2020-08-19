@@ -41,7 +41,14 @@
 }
 
 .ticket-visual {
-  width: 650px;
+  width: 330px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .ticket-visual {
+    width: 650px;
+  }
 }
 
 .ticket-actions {
@@ -49,6 +56,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .ticket-actions {
+    flex-direction: row;
+  }
 }
 
 .ticket-actions-placeholder {
@@ -67,4 +81,8 @@
     text-align: left;
     margin: 30px 0;
   }
+}
+
+.ticket-visual-wrapper {
+  width: 100%;
 }
