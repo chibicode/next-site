@@ -69,7 +69,8 @@
 
 @media (min-width: 768px) {
   .profile {
-    padding: calc(44px * var(--size)) calc(63px * var(--size));
+    padding: calc(44px * var(--size)) calc(160px * var(--size)) calc(44px * var(--size))
+      calc(63px * var(--size));
   }
 }
 
