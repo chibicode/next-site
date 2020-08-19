@@ -1,10 +1,14 @@
-type Props = { width: number | string };
-
-export default function TicketMonoMobile({ width }: Props) {
+export default function TicketMonoMobile() {
   return (
-    <svg width={width} viewBox="0 0 330 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      height="100%"
+      width="100%"
+      viewBox="0 0 330 520"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <mask
-        id="mask0"
+        id="mobile-mask0"
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
         x="0"
@@ -19,8 +23,8 @@ export default function TicketMonoMobile({ width }: Props) {
           fill="#252729"
         />
       </mask>
-      <g mask="url(#mask0)">
-        <g filter="url(#filter0_f)">
+      <g mask="url(#mobile-mask0)">
+        <g filter="url(#mobile-filter0_f)">
           <ellipse
             cx="165"
             cy="251.5"
@@ -37,8 +41,8 @@ export default function TicketMonoMobile({ width }: Props) {
         d="M5 499C5 507.837 12.1634 515 21 515L133.388 515C135.789 499.702 149.028 488 165 488C180.972 488 194.211 499.702 196.612 515L309 515C317.837 515 325 507.837 325 499L325 21C325 12.1634 317.837 4.99999 309 4.99999L196.612 4.99999C194.211 20.2981 180.972 32 165 32C149.028 32 135.789 20.2981 133.388 4.99999L21 5C12.1634 5 4.99998 12.1635 4.99998 21L5 499Z"
         fill="black"
       />
-      <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#paint0_linear)" />
-      <circle cx="269.304" cy="177.407" r="11.5722" fill="url(#paint1_linear)" />
+      <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#mobile-paint0_linear)" />
+      <circle cx="269.304" cy="177.407" r="11.5722" fill="url(#mobile-paint1_linear)" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -87,8 +91,8 @@ export default function TicketMonoMobile({ width }: Props) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="246.16" cy="177.407" r="11.5722" fill="url(#paint2_linear)" />
-      <g clipPath="url(#clip0)">
+      <circle cx="246.16" cy="177.407" r="11.5722" fill="url(#mobile-paint2_linear)" />
+      <g clipPath="url(#mobile-clip0)">
         <path
           d="M246.16 183.836C249.71 183.836 252.589 180.957 252.589 177.407C252.589 173.856 249.71 170.978 246.16 170.978C242.609 170.978 239.731 173.856 239.731 177.407C239.731 180.957 242.609 183.836 246.16 183.836Z"
           stroke="white"
@@ -154,7 +158,7 @@ export default function TicketMonoMobile({ width }: Props) {
       />
       <defs>
         <filter
-          id="filter0_f"
+          id="mobile-filter0_f"
           x="-222.242"
           y="-138.242"
           width="774.485"
@@ -167,7 +171,7 @@ export default function TicketMonoMobile({ width }: Props) {
           <feGaussianBlur stdDeviation="27.1212" result="effect1_foregroundBlur" />
         </filter>
         <linearGradient
-          id="paint0_linear"
+          id="mobile-paint0_linear"
           x1="304.021"
           y1="177.407"
           x2="280.877"
@@ -178,7 +182,7 @@ export default function TicketMonoMobile({ width }: Props) {
           <stop offset="1" stopColor="#57C84F" />
         </linearGradient>
         <linearGradient
-          id="paint1_linear"
+          id="mobile-paint1_linear"
           x1="257.732"
           y1="177.407"
           x2="280.877"
@@ -189,7 +193,7 @@ export default function TicketMonoMobile({ width }: Props) {
           <stop offset="1" stopColor="#EADF58" />
         </linearGradient>
         <linearGradient
-          id="paint2_linear"
+          id="mobile-paint2_linear"
           x1="234.588"
           y1="177.407"
           x2="257.732"
@@ -199,7 +203,7 @@ export default function TicketMonoMobile({ width }: Props) {
           <stop stopColor="#EC6193" />
           <stop offset="1" stopColor="#EC4B31" />
         </linearGradient>
-        <clipPath id="clip0">
+        <clipPath id="mobile-clip0">
           <rect
             width="15.4296"
             height="15.4296"

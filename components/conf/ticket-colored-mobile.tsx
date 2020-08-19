@@ -1,10 +1,14 @@
-type Props = { width: number | string };
-
-export default function TicketColoredMobile({ width }: Props) {
+export default function TicketColoredMobile() {
   return (
-    <svg width={width} viewBox="0 0 330 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 330 520"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <mask
-        id="mask0"
+        id="mobile-mask0"
         mask-type="alpha"
         maskUnits="userSpaceOnUse"
         x="0"
@@ -19,35 +23,35 @@ export default function TicketColoredMobile({ width }: Props) {
           fill="#252729"
         />
       </mask>
-      <g mask="url(#mask0)">
-        <g filter="url(#filter0_f)">
+      <g mask="url(#mobile-mask0)">
+        <g filter="url(#mobile-filter0_f)">
           <ellipse
             cx="165"
             cy="399"
             rx="177"
             ry="220"
             transform="rotate(90 165 399)"
-            fill="url(#paint0_linear)"
+            fill="url(#mobile-paint0_linear)"
           />
         </g>
-        <g filter="url(#filter1_f)">
+        <g filter="url(#mobile-filter1_f)">
           <ellipse
             cx="165"
             cy="296"
             rx="177"
             ry="220"
             transform="rotate(90 165 296)"
-            fill="url(#paint1_linear)"
+            fill="url(#mobile-paint1_linear)"
           />
         </g>
-        <g filter="url(#filter2_f)">
+        <g filter="url(#mobile-filter2_f)">
           <ellipse
             cx="165"
             cy="133"
             rx="177"
             ry="220"
             transform="rotate(90 165 133)"
-            fill="url(#paint2_linear)"
+            fill="url(#mobile-paint2_linear)"
           />
         </g>
       </g>
@@ -58,8 +62,8 @@ export default function TicketColoredMobile({ width }: Props) {
         fill="black"
       />
       <path opacity="0.3" d="M326 402H5" stroke="#8A8F98" strokeDasharray="6 6" />
-      <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#paint3_linear)" />
-      <circle cx="269.305" cy="177.407" r="11.5722" fill="url(#paint4_linear)" />
+      <circle cx="292.449" cy="177.407" r="11.5722" fill="url(#mobile-paint3_linear)" />
+      <circle cx="269.305" cy="177.407" r="11.5722" fill="url(#mobile-paint4_linear)" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -108,8 +112,8 @@ export default function TicketColoredMobile({ width }: Props) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <circle cx="246.16" cy="177.407" r="11.5722" fill="url(#paint5_linear)" />
-      <g clipPath="url(#clip0)">
+      <circle cx="246.16" cy="177.407" r="11.5722" fill="url(#mobile-paint5_linear)" />
+      <g clipPath="url(#mobile-clip0)">
         <path
           d="M246.16 183.836C249.711 183.836 252.589 180.957 252.589 177.407C252.589 173.856 249.711 170.978 246.16 170.978C242.609 170.978 239.731 173.856 239.731 177.407C239.731 180.957 242.609 183.836 246.16 183.836Z"
           stroke="white"
@@ -175,7 +179,7 @@ export default function TicketColoredMobile({ width }: Props) {
       />
       <defs>
         <filter
-          id="filter0_f"
+          id="mobile-filter0_f"
           x="-109.242"
           y="167.758"
           width="548.485"
@@ -188,7 +192,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <feGaussianBlur stdDeviation="27.1212" result="effect1_foregroundBlur" />
         </filter>
         <filter
-          id="filter1_f"
+          id="mobile-filter1_f"
           x="-109.242"
           y="64.7576"
           width="548.485"
@@ -201,7 +205,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <feGaussianBlur stdDeviation="27.1212" result="effect1_foregroundBlur" />
         </filter>
         <filter
-          id="filter2_f"
+          id="mobile-filter2_f"
           x="-109.242"
           y="-98.2424"
           width="548.485"
@@ -214,7 +218,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <feGaussianBlur stdDeviation="27.1212" result="effect1_foregroundBlur" />
         </filter>
         <linearGradient
-          id="paint0_linear"
+          id="mobile-paint0_linear"
           x1="342"
           y1="399"
           x2="-12"
@@ -225,7 +229,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop offset="1" stopColor="#57C84F" />
         </linearGradient>
         <linearGradient
-          id="paint1_linear"
+          id="mobile-paint1_linear"
           x1="-12"
           y1="296"
           x2="342"
@@ -236,7 +240,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop offset="1" stopColor="#EADF58" />
         </linearGradient>
         <linearGradient
-          id="paint2_linear"
+          id="mobile-paint2_linear"
           x1="-12"
           y1="133"
           x2="342"
@@ -247,7 +251,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop offset="1" stopColor="#EC4B31" />
         </linearGradient>
         <linearGradient
-          id="paint3_linear"
+          id="mobile-paint3_linear"
           x1="304.021"
           y1="177.407"
           x2="280.877"
@@ -258,7 +262,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop offset="1" stopColor="#57C84F" />
         </linearGradient>
         <linearGradient
-          id="paint4_linear"
+          id="mobile-paint4_linear"
           x1="257.732"
           y1="177.407"
           x2="280.877"
@@ -269,7 +273,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop offset="1" stopColor="#EADF58" />
         </linearGradient>
         <linearGradient
-          id="paint5_linear"
+          id="mobile-paint5_linear"
           x1="234.588"
           y1="177.407"
           x2="257.732"
@@ -279,7 +283,7 @@ export default function TicketColoredMobile({ width }: Props) {
           <stop stopColor="#EC6193" />
           <stop offset="1" stopColor="#EC4B31" />
         </linearGradient>
-        <clipPath id="clip0">
+        <clipPath id="mobile-clip0">
           <rect
             width="15.4296"
             height="15.4296"

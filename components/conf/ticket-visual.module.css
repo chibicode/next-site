@@ -2,6 +2,7 @@
   position: relative;
 }
 
+
 .frame {
   display: flex;
 }
@@ -27,6 +28,23 @@
 .frame:after {
   right: -7%;
 }
+.horizontal-ticket {
+  display: none;
+}
+
+.vertical-ticket {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .horizontal-ticket {
+    display: flex;
+  }
+
+  .vertical-ticket {
+    display: none;
+  }
+}
 
 .profile {
   z-index: 1;
@@ -34,13 +52,25 @@
   top: 0;
   width: 100%;
   height: 100%;
-  padding: calc(44px * var(--size)) calc(63px * var(--size));
+  padding: 46px 29px;
+}
+
+@media (min-width: 768px) {
+  .profile {
+    padding: calc(44px * var(--size)) calc(63px * var(--size));
+  }
 }
 
 .ticket-number-wrapper {
   position: absolute;
-  bottom: 0;
+  bottom: 55px;
   right: 0;
+}
+
+@media (min-width: 768px) {
+  .ticket-number-wrapper {
+    bottom: 0;
+  }
 }
 
 .ticket-number {
@@ -49,6 +79,11 @@
   line-height: 1;
   width: calc(330px * var(--size));
   text-align: center;
-  transform: rotate(90deg) translateY(calc(100px * var(--size)));
-  transform-origin: bottom right;
+}
+
+@media (min-width: 768px) {
+  .ticket-number {
+    transform: rotate(90deg) translateY(calc(100px * var(--size)));
+    transform-origin: bottom right;
+  }
 }

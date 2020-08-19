@@ -12,8 +12,15 @@ type Props = {
 export default function Conf({ defaultUserData, defaultPageState }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
+
   return (
-    <ConfDataContext.Provider value={{ userData, setUserData, setPageState }}>
+    <ConfDataContext.Provider
+      value={{
+        userData,
+        setUserData,
+        setPageState
+      }}
+    >
       <Layout inner={pageState !== 'registration'}>
         {pageState === 'registration' ? <Registration /> : <Ticket />}
       </Layout>

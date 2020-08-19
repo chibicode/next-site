@@ -3,6 +3,7 @@ import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
 import { Octokit } from '@octokit/rest';
 import useConfData from '@lib/hooks/useConfData';
+import { TicketGenerationState } from '@lib/conf';
 import LoadingDots from './loading-dots';
 import formStyles from './form.module.css';
 import ticketFormStyles from './ticket-form.module.css';
@@ -13,9 +14,10 @@ type FormState = 'default' | 'loading' | 'error';
 
 type Props = {
   defaultUsername?: string;
+  setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
 };
 
-export default function Form({ defaultUsername = '' }: Props) {
+export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
   const [username, setUsername] = useState(defaultUsername);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
@@ -26,13 +28,14 @@ export default function Form({ defaultUsername = '' }: Props) {
       <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <div className={cn(formStyles['input-label'], formStyles.error)}>
           <div className={cn(formStyles.input, formStyles['input-text'])}>
-            Error! Please try again in a few minutes.
+            Error! Please try again later.
           </div>
           <button
             type="button"
             className={formStyles.submit}
             onClick={() => {
               setFormState('default');
+              setTicketGenerationState('default');
             }}
           >
             Try Again
@@ -45,6 +48,7 @@ export default function Form({ defaultUsername = '' }: Props) {
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
+          setTicketGenerationState('loading');
           octokit.users
             .getByUsername({
               username
@@ -65,6 +69,7 @@ export default function Form({ defaultUsername = '' }: Props) {
                 .then(() => {
                   setUserData({ ...userData, username, name: data.name });
                   setFormState('default');
+                  setTicketGenerationState('default');
                   // Prefetch the image URL to eagerly generate the image
                   fetch(`https://nextjs.org/conf/download-ticket/${username}`).catch(_ => {});
                 })
@@ -76,6 +81,7 @@ export default function Form({ defaultUsername = '' }: Props) {
               setFormState('error');
             });
         } else {
+          setTicketGenerationState('default');
           setFormState('default');
         }
         e.preventDefault();
@@ -97,14 +103,18 @@ export default function Form({ defaultUsername = '' }: Props) {
             onChange={e => setUsername(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={false}
-            placeholder="Enter your GitHub username…"
+            placeholder="GitHub username…"
+            required
           />
         </label>
         <span className={ticketFormStyles.githubIcon}>
           <GithubIcon color="var(--secondary-color)" size={24} />
         </span>
-        <button type="submit" className={cn(formStyles.submit, formStyles[formState])}>
+        <button
+          type="submit"
+          className={cn(formStyles.submit, formStyles[formState])}
+          disabled={formState === 'loading'}
+        >
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Generate</>}
         </button>
       </div>

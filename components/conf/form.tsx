@@ -18,7 +18,7 @@ export default function Form() {
       <div className={styles['form-row']}>
         <div className={cn(styles['input-label'], styles.error)}>
           <div className={cn(styles.input, styles['input-text'])}>
-            Error! Please try again in a few minutes.
+            Error! Please try again later.
           </div>
           <button
             type="button"
@@ -87,11 +87,15 @@ export default function Form() {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={false}
             placeholder="Enter email to register free"
+            required
           />
         </label>
-        <button type="submit" className={cn(styles.submit, styles[formState])}>
+        <button
+          type="submit"
+          className={cn(styles.submit, styles[formState])}
+          disabled={formState === 'loading'}
+        >
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
         </button>
       </div>

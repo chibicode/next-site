@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import VercelLogo from '@components/icons/platform-logotype';
+import { useEffect } from 'react';
 import styles from './layout.module.css';
 import styleUtils from './utils.module.css';
 import ConfLogo from './conf-logo';
@@ -25,6 +26,10 @@ function HostedByVercel() {
 }
 
 export default function Layout({ children, inner }: Props) {
+  useEffect(() => {
+    document.documentElement.style.background = '#000';
+    document.body.style.background = '#000';
+  }, []);
   return (
     <div className={styles.background}>
       <div className={styles.page}>
@@ -53,7 +58,7 @@ export default function Layout({ children, inner }: Props) {
           </div>
         </header>
         <main className={styles.main}>
-          <div>{children}</div>
+          <div className={styles.full}>{children}</div>
         </main>
 
         <footer
