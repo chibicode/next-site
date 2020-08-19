@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useRef, useEffect } from 'react';
 import useConfData from '@lib/hooks/useConfData';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
@@ -8,10 +9,19 @@ import TicketActions from './ticket-actions';
 
 export default function Ticket() {
   const { userData } = useConfData();
+  const divRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (divRef && divRef.current) {
+      window.scrollTo({
+        behavior: 'smooth',
+        top: divRef.current.offsetTop - 30
+      });
+    }
+  }, [divRef]);
 
   return (
     <div className={styles['ticket-layout']}>
-      <div className={cn(styles['ticket-instructions'])}>
+      <div ref={divRef}>
         <div className={styles['ticket-text']}>
           <h2 className={cn(styles.hero, styleUtils.appear, styleUtils['appear-first'])}>
             You're in. <br /> Make it unique.
