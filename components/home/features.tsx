@@ -133,7 +133,7 @@ export default function Features() {
               </div>
             );
             return cardClickable ? (
-              <Link as={url} href="/docs/[[...slug]]">
+              <Link key={title} as={url} href="/docs/[[...slug]]">
                 {card}
               </Link>
             ) : (
