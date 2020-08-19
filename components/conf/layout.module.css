@@ -56,6 +56,12 @@
   padding: 0 40px;
 }
 
+@media screen and (min-width: 1360px) {
+  .header {
+    padding: 0;
+  }
+}
+
 .header-logos {
   max-width: 720px;
   display: flex;
