@@ -104,8 +104,8 @@ export default function Form({ defaultUsername = '' }: Props) {
             onChange={e => setUsername(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={false}
-            placeholder="Enter your GitHub username…"
+            disabled={formState === 'loading'}
+            placeholder="GitHub username…"
           />
         </label>
         <span className={ticketFormStyles.githubIcon}>

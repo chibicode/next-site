@@ -25,7 +25,7 @@ export default function Ticket() {
           <TicketForm defaultUsername={userData.username} />
         </div>
       </div>
-      <div>
+      <div className={styles['ticket-visual-wrapper']}>
         <div
           className={cn(styles['ticket-visual'], styleUtils.appear, styleUtils['appear-fourth'])}
         >

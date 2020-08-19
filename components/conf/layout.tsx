@@ -53,7 +53,7 @@ export default function Layout({ children, inner }: Props) {
           </div>
         </header>
         <main className={styles.main}>
-          <div>{children}</div>
+          <div className={styles.full}>{children}</div>
         </main>
 
         <footer
