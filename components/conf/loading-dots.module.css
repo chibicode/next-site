@@ -23,6 +23,10 @@
   margin: 0 1px;
 }
 
+.loading.reverse span {
+  background-color: var(--accents-2);
+}
+
 .loading span:nth-of-type(2) {
   animation-delay: 0.2s;
 }
