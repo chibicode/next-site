@@ -72,7 +72,18 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
           ) : (
             <div className={styles['get-ticket']}>
               <Link href="/conf">
-                <a className={styles['get-ticket-button']}>Get your own!</a>
+                {/* eslint-disable-next-line */}
+                <a
+                  className={styles['get-ticket-button']}
+                  onClick={() => {
+                    document.body.classList.add('get-ticket-clicked');
+                    setTimeout(() => {
+                      document.body.classList.remove('get-ticket-clicked');
+                    }, 3000);
+                  }}
+                >
+                  Get your own!
+                </a>
               </Link>
             </div>
           )}
