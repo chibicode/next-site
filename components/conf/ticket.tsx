@@ -52,11 +52,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
         <div className={styles['ticket-text']}>
           <h2 className={cn(styles.hero, styleUtils.appear, styleUtils['appear-first'])}>
             {sharePage ? (
-              <>
-                {name}’s
-                <br />
-                Ticket
-              </>
+              <>{name}’s Ticket</>
             ) : (
               <>
                 You're in. <br /> Make it unique.
