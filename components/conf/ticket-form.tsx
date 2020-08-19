@@ -3,6 +3,7 @@ import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
 import { Octokit } from '@octokit/rest';
 import useConfData from '@lib/hooks/useConfData';
+import { TicketGenerationState } from '@lib/conf';
 import LoadingDots from './loading-dots';
 import formStyles from './form.module.css';
 import ticketFormStyles from './ticket-form.module.css';
@@ -13,13 +14,14 @@ type FormState = 'default' | 'loading' | 'error';
 
 type Props = {
   defaultUsername?: string;
+  setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
 };
 
-export default function Form({ defaultUsername = '' }: Props) {
+export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
   const [username, setUsername] = useState(defaultUsername);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  const { userData, setUserData, setTicketGenerationState } = useConfData();
+  const { userData, setUserData } = useConfData();
 
   return formState === 'error' ? (
     <div>
@@ -33,7 +35,7 @@ export default function Form({ defaultUsername = '' }: Props) {
             className={formStyles.submit}
             onClick={() => {
               setFormState('default');
-              setTicketGenerationState('loading');
+              setTicketGenerationState('default');
             }}
           >
             Try Again
@@ -67,12 +69,9 @@ export default function Form({ defaultUsername = '' }: Props) {
                 .then(() => {
                   setUserData({ ...userData, username, name: data.name });
                   setFormState('default');
+                  setTicketGenerationState('default');
                   // Prefetch the image URL to eagerly generate the image
-                  fetch(`https://nextjs.org/conf/download-ticket/${username}`)
-                    .catch(_ => {})
-                    .then(() => {
-                      setTicketGenerationState('default');
-                    });
+                  fetch(`https://nextjs.org/conf/download-ticket/${username}`).catch(_ => {});
                 })
                 .catch(() => {
                   setFormState('error');

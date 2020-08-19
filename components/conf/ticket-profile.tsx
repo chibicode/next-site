@@ -1,6 +1,6 @@
+import { TicketGenerationState } from '@lib/conf';
 import GithubIcon from '@components/icons/github';
 import cn from 'classnames';
-import useConfData from '@lib/hooks/useConfData';
 import IconAvatar from './icon-avatar';
 import styles from './ticket-profile.module.css';
 
@@ -8,10 +8,10 @@ type Props = {
   name?: string;
   username?: string;
   size?: number;
+  ticketGenerationState: TicketGenerationState;
 };
 
-export default function TicketProfile({ name, username, size = 1 }: Props) {
-  const { ticketGenerationState } = useConfData();
+export default function TicketProfile({ name, username, size = 1, ticketGenerationState }: Props) {
   return (
     <div className={styles.profile}>
       <span

@@ -10,14 +10,10 @@ export type UserData = {
   name?: string;
 };
 
-export type TicketGenerationState = 'default' | 'loading';
-
 type ConfDataContextType = {
   userData: UserData;
-  ticketGenerationState: TicketGenerationState;
   setUserData: React.Dispatch<React.SetStateAction<UserData>>;
   setPageState: React.Dispatch<React.SetStateAction<PageState>>;
-  setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
 };
 
 export const ConfDataContext = createContext<ConfDataContextType | null>(null);
