@@ -22,7 +22,15 @@ export default function Conf({ defaultUserData, defaultPageState }: Props) {
       }}
     >
       <Layout inner={pageState !== 'registration'}>
-        {pageState === 'registration' ? <Registration /> : <Ticket />}
+        {pageState === 'registration' ? (
+          <Registration />
+        ) : (
+          <Ticket
+            username={userData.username}
+            name={userData.name}
+            ticketNumber={userData.ticketNumber}
+          />
+        )}
       </Layout>
     </ConfDataContext.Provider>
   );
