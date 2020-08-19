@@ -3,10 +3,17 @@
 }
 
 .image {
-  width: calc(80px * var(--size));
-  height: calc(80px * var(--size));
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-right: calc(15px * var(--size));
+}
+
+@media (min-width: 768px) {
+  .image {
+    width: calc(80px * var(--size));
+    height: calc(80px * var(--size));
+  }
 }
 
 .text {
@@ -14,10 +21,16 @@
 }
 
 .name {
-  font-size: calc(32px * var(--size));
+  font-size: 24px;
   font-weight: bold;
   line-height: 1.4;
   letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: calc(32px * var(--size));
+  }
 }
 
 .username {
@@ -28,12 +41,8 @@
 }
 
 .githubIcon {
-  margin-right: calc(7px * var(--size));
+  margin-right: calc(5px * var(--size));
   display: inline-flex;
-}
-
-.name-blank {
-  color: var(--secondary-color);
 }
 
 .empty-icon {
