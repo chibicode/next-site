@@ -23,7 +23,7 @@ export default function Form({ defaultUsername = '' }: Props) {
 
   return formState === 'error' ? (
     <div>
-      <div className={formStyles['form-row']}>
+      <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <div className={cn(formStyles['input-label'], formStyles.error)}>
           <div className={cn(formStyles.input, formStyles['input-text'])}>
             Error! Please try again in a few minutes.
@@ -81,7 +81,7 @@ export default function Form({ defaultUsername = '' }: Props) {
         e.preventDefault();
       }}
     >
-      <div className={formStyles['form-row']}>
+      <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <label
           htmlFor="github-input-field"
           className={cn(formStyles['input-label'], {

@@ -16,7 +16,8 @@ export default function Ticket() {
             You're in. <br /> Make it unique.
           </h2>
           <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
-            Generate a unique ticket image with your GitHub username.
+            Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
+            your GitHub username.
           </p>
         </div>
         <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
@@ -33,10 +34,12 @@ export default function Ticket() {
             ticketNumber={userData.ticketNumber}
           />
         </div>
-        {userData.username && (
+        {userData.username ? (
           <div className={styles['ticket-actions']}>
             <TicketActions username={userData.username} />
           </div>
+        ) : (
+          <div className={styles['ticket-actions-placeholder']} />
         )}
       </div>
     </div>

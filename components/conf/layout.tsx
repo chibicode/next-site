@@ -69,7 +69,7 @@ export default function Layout({ children, inner }: Props) {
             </div>
             <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
             <div className={styles['footer-separator']} />
-            <p>
+            <p className={styles['footer-paragraph']}>
               <a
                 href="https://vercel.com/legal/privacy-policy"
                 className={styles['footer-link']}

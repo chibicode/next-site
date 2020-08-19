@@ -88,7 +88,7 @@ export default function Form() {
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
             disabled={false}
-            placeholder="Please enter your email…"
+            placeholder="Enter email to register free"
           />
         </label>
         <button type="submit" className={cn(styles.submit, styles[formState])}>
