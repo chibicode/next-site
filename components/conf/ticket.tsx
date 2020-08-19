@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
 import useConfData from '@lib/hooks/useConfData';
 import { TicketGenerationState } from '@lib/conf';
@@ -10,10 +11,24 @@ import TicketActions from './ticket-actions';
 
 export default function Ticket() {
   const { userData } = useConfData();
+
+  const ticketRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (ticketRef.current) {
+      Tilt.init(ticketRef.current, {
+        glare: true,
+        max: 1,
+        'max-glare': 0.12
+      });
+    }
+  }, [ticketRef]);
+
   const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
     'default'
   );
   const divRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (divRef && divRef.current) {
       window.scrollTo({
@@ -44,6 +59,7 @@ export default function Ticket() {
       </div>
       <div className={styles['ticket-visual-wrapper']}>
         <div
+          ref={ticketRef}
           className={cn(styles['ticket-visual'], styleUtils.appear, styleUtils['appear-fourth'])}
         >
           <TicketVisual

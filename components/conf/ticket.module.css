@@ -41,6 +41,9 @@
 }
 
 .ticket-visual {
+
+  border-radius: 16px;
+  overflow: hidden;
   width: 330px;
   margin: 0 auto;
 }

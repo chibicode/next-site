@@ -60,7 +60,8 @@
     "remark-rehype": "5.0.0",
     "twemoji": "13.0.0",
     "unified": "8.4.1",
-    "unist-util-visit": "2.0.0"
+    "unist-util-visit": "2.0.0",
+    "vanilla-tilt": "1.7.0"
   },
   "devDependencies": {
     "@types/classnames": "2.2.10",

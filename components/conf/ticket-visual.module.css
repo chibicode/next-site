@@ -2,6 +2,44 @@
   position: relative;
 }
 
+.vertical-ticket:before,
+.vertical-ticket:after,
+.horizontal-ticket:before,
+.horizontal-ticket:after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 58px;
+  background-color: black;
+  position: absolute;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.horizontal-ticket:before {
+  top: 50%;
+  left: -7%;
+  transform: translateY(-50%);
+}
+
+.horizontal-ticket:after {
+  top: 50%;
+  right: -7%;
+  transform: translateY(-50%);
+}
+
+.vertical-ticket:before {
+  left: 50%;
+  top: -7.5%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.vertical-ticket:after {
+  left: 50%;
+  bottom: -7.5%;
+  transform: translateX(-50%) rotate(90deg);
+}
+
 .horizontal-ticket {
   display: none;
 }
