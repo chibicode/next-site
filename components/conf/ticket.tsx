@@ -22,7 +22,8 @@ export default function Ticket() {
       // @ts-ignore
       Tilt.init(ticketRef.current, {
         glare: true,
-        'max-glare': 0.8
+        max: 1,
+        'max-glare': 0.12
       });
 
       ticket = ticketRef.current;
