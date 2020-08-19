@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react';
 import cn from 'classnames';
+import Tilt from 'vanilla-tilt';
 import useConfData from '@lib/hooks/useConfData';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
@@ -8,6 +10,35 @@ import TicketActions from './ticket-actions';
 
 export default function Ticket() {
   const { userData } = useConfData();
+  const ticketRef = useRef();
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    let ticket;
+
+    if (ticketRef.current) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      Tilt.init(ticketRef.current, {
+        glare: true,
+        'max-glare': 0.8
+      });
+
+      ticket = ticketRef.current;
+    }
+
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+      // @ts-ignore
+      if (ticket?.vanillaTilt) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        ticket.vanillaTilt.destroy();
+      }
+    };
+  }, [ticketRef]);
+
   return (
     <div className={styles['ticket-layout']}>
       <div className={cn(styles['ticket-instructions'])}>
@@ -26,6 +57,7 @@ export default function Ticket() {
       </div>
       <div>
         <div
+          ref={ticketRef}
           className={cn(styles['ticket-visual'], styleUtils.appear, styleUtils['appear-fourth'])}
         >
           <TicketVisual

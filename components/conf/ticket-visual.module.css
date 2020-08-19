@@ -3,7 +3,29 @@
 }
 
 .frame {
-  display: fle¨;
+  display: flex;
+}
+
+.frame:before,
+.frame:after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 58px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.frame:before {
+  left: -7%;
+}
+
+.frame:after {
+  right: -7%;
 }
 
 .profile {

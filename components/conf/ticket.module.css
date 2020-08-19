@@ -42,6 +42,8 @@
 
 .ticket-visual {
   width: 650px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .ticket-actions {
