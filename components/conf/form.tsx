@@ -87,11 +87,15 @@ export default function Form() {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={formState === 'loading'}
             placeholder="Enter email to register free"
+            required
           />
         </label>
-        <button type="submit" className={cn(styles.submit, styles[formState])}>
+        <button
+          type="submit"
+          className={cn(styles.submit, styles[formState])}
+          disabled={formState === 'loading'}
+        >
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
         </button>
       </div>

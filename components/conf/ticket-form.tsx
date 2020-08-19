@@ -103,14 +103,18 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             onChange={e => setUsername(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={formState === 'loading'}
             placeholder="GitHub username…"
+            required
           />
         </label>
         <span className={ticketFormStyles.githubIcon}>
           <GithubIcon color="var(--secondary-color)" size={24} />
         </span>
-        <button type="submit" className={cn(formStyles.submit, formStyles[formState])}>
+        <button
+          type="submit"
+          className={cn(formStyles.submit, formStyles[formState])}
+          disabled={formState === 'loading'}
+        >
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Generate</>}
         </button>
       </div>
