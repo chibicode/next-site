@@ -54,6 +54,7 @@
 .empty-icon {
   display: block;
   background: linear-gradient(135deg, #b4b6b8, #7f8183);
+  width: calc(80px * var(--size));
 }
 
 @keyframes loading {
