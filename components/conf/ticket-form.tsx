@@ -19,7 +19,7 @@ export default function Form({ defaultUsername = '' }: Props) {
   const [username, setUsername] = useState(defaultUsername);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  const { userData, setUserData } = useConfData();
+  const { userData, setUserData, setTicketGenerationState } = useConfData();
 
   return formState === 'error' ? (
     <div>
@@ -33,6 +33,7 @@ export default function Form({ defaultUsername = '' }: Props) {
             className={formStyles.submit}
             onClick={() => {
               setFormState('default');
+              setTicketGenerationState('loading');
             }}
           >
             Try Again
@@ -45,6 +46,7 @@ export default function Form({ defaultUsername = '' }: Props) {
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
+          setTicketGenerationState('loading');
           octokit.users
             .getByUsername({
               username
@@ -66,7 +68,11 @@ export default function Form({ defaultUsername = '' }: Props) {
                   setUserData({ ...userData, username, name: data.name });
                   setFormState('default');
                   // Prefetch the image URL to eagerly generate the image
-                  fetch(`https://nextjs.org/conf/download-ticket/${username}`).catch(_ => {});
+                  fetch(`https://nextjs.org/conf/download-ticket/${username}`)
+                    .catch(_ => {})
+                    .then(() => {
+                      setTicketGenerationState('default');
+                    });
                 })
                 .catch(() => {
                   setFormState('error');
@@ -76,6 +82,7 @@ export default function Form({ defaultUsername = '' }: Props) {
               setFormState('error');
             });
         } else {
+          setTicketGenerationState('loading');
           setFormState('default');
         }
         e.preventDefault();
