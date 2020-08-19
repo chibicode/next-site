@@ -1,3 +1,4 @@
+import { TicketGenerationState } from '@lib/conf';
 import TicketColoredMobile from './ticket-colored-mobile';
 import TicketColored from './ticket-colored';
 import styles from './ticket-visual.module.css';
@@ -11,9 +12,16 @@ type Props = {
   name?: string;
   ticketNumber?: number;
   username?: string;
+  ticketGenerationState?: TicketGenerationState;
 };
 
-export default function TicketVisual({ size = 1, name, username, ticketNumber }: Props) {
+export default function TicketVisual({
+  size = 1,
+  name,
+  username,
+  ticketNumber,
+  ticketGenerationState = 'default'
+}: Props) {
   return (
     <>
       <div className={styles.visual} style={{ ['--size' as string]: size }}>
@@ -24,7 +32,12 @@ export default function TicketVisual({ size = 1, name, username, ticketNumber }:
           {username ? <TicketColoredMobile width="100%" /> : <TicketMonoMobile width="100%" />}
         </div>
         <div className={styles.profile}>
-          <TicketProfile name={name} username={username} size={size} />
+          <TicketProfile
+            name={name}
+            username={username}
+            size={size}
+            ticketGenerationState={ticketGenerationState}
+          />
         </div>
         {ticketNumber && (
           <div className={styles['ticket-number-wrapper']}>

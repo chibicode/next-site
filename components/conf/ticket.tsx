@@ -1,6 +1,7 @@
 import cn from 'classnames';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import useConfData from '@lib/hooks/useConfData';
+import { TicketGenerationState } from '@lib/conf';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
 import TicketForm from './ticket-form';
@@ -9,6 +10,9 @@ import TicketActions from './ticket-actions';
 
 export default function Ticket() {
   const { userData } = useConfData();
+  const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
+    'default'
+  );
   const divRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (divRef && divRef.current) {
@@ -32,7 +36,10 @@ export default function Ticket() {
           </p>
         </div>
         <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
-          <TicketForm defaultUsername={userData.username} />
+          <TicketForm
+            defaultUsername={userData.username}
+            setTicketGenerationState={setTicketGenerationState}
+          />
         </div>
       </div>
       <div className={styles['ticket-visual-wrapper']}>
@@ -43,6 +50,7 @@ export default function Ticket() {
             username={userData.username}
             name={userData.name}
             ticketNumber={userData.ticketNumber}
+            ticketGenerationState={ticketGenerationState}
           />
         </div>
         {userData.username ? (
