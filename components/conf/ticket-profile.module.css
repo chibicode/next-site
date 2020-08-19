@@ -7,7 +7,6 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  margin-right: calc(15px * var(--size));
   border: 1px solid #333;
 }
 
@@ -21,6 +20,12 @@
 .text {
   flex: 1;
   margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .text {
+    margin-left: calc(15px * var(--size));
+  }
 }
 
 .name {
