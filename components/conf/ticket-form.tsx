@@ -82,7 +82,7 @@ export default function Form({ defaultUsername = '' }: Props) {
               setFormState('error');
             });
         } else {
-          setTicketGenerationState('loading');
+          setTicketGenerationState('default');
           setFormState('default');
         }
         e.preventDefault();

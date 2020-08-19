@@ -18,7 +18,7 @@ export default function Conf({ defaultUserData, defaultPageState }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
   const [ticketGenerationState, setTicketGenerationState] = useState<TicketGenerationState>(
-    'loading'
+    'default'
   );
 
   return (
