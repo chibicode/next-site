@@ -97,7 +97,7 @@ export default function Form({ defaultUsername = '' }: Props) {
             onChange={e => setUsername(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={false}
+            disabled={formState === 'loading'}
             placeholder="GitHub username…"
           />
         </label>

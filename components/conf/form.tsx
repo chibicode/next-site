@@ -87,7 +87,7 @@ export default function Form() {
             onChange={e => setEmail(e.target.value)}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
-            disabled={false}
+            disabled={formState === 'loading'}
             placeholder="Enter email to register free"
           />
         </label>
