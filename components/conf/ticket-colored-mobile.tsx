@@ -1,8 +1,12 @@
-type Props = { width: number | string };
-
-export default function TicketColoredMobile({ width }: Props) {
+export default function TicketColoredMobile() {
   return (
-    <svg width={width} viewBox="0 0 330 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 330 520"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <mask
         id="mobile-mask0"
         mask-type="alpha"

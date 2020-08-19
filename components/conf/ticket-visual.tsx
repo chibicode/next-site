@@ -26,10 +26,10 @@ export default function TicketVisual({
     <>
       <div className={styles.visual} style={{ ['--size' as string]: size }}>
         <div className={styles['horizontal-ticket']}>
-          {username ? <TicketColored width="100%" /> : <TicketMono width="100%" />}
+          {username ? <TicketColored /> : <TicketMono />}
         </div>
         <div className={styles['vertical-ticket']}>
-          {username ? <TicketColoredMobile width="100%" /> : <TicketMonoMobile width="100%" />}
+          {username ? <TicketColoredMobile /> : <TicketMonoMobile />}
         </div>
         <div className={styles.profile}>
           <TicketProfile

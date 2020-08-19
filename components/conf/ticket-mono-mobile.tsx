@@ -1,8 +1,12 @@
-type Props = { width: number | string };
-
-export default function TicketMonoMobile({ width }: Props) {
+export default function TicketMonoMobile() {
   return (
-    <svg width={width} viewBox="0 0 330 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      height="100%"
+      width="100%"
+      viewBox="0 0 330 520"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <mask
         id="mobile-mask0"
         mask-type="alpha"

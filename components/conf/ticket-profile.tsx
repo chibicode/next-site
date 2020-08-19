@@ -23,7 +23,7 @@ export default function TicketProfile({ name, username, size = 1, ticketGenerati
           <img src={`https://github.com/${username}.png`} alt={username} className={styles.image} />
         ) : (
           <span className={cn(styles.image, styles['empty-icon'])}>
-            <IconAvatar width="100%" />
+            <IconAvatar />
           </span>
         )}
       </span>
