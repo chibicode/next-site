@@ -1,6 +1,12 @@
 .conf-logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  color: inherit;
+}
+
+.conf-logo:hover {
+  color: inherit;
 }
 
 .text-and-icons {

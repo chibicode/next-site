@@ -66,8 +66,9 @@ function ActivityIcon({ height }: IconProps) {
 }
 
 export default function ConfLogo() {
+  // Use <a> tag to force-reload the page on click
   return (
-    <div className={styles['conf-logo']}>
+    <a className={styles['conf-logo']} href="/conf">
       <div className={styles['next-logo']}>
         <NextLogo fill="#fff" />
       </div>
@@ -79,6 +80,6 @@ export default function ConfLogo() {
           <ActivityIcon height={16} />
         </div>
       </div>
-    </div>
+    </a>
   );
 }
