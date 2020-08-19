@@ -1,5 +1,6 @@
 .profile {
   display: flex;
+  align-items: center;
 }
 
 .image {
@@ -28,12 +29,13 @@
   font-weight: bold;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin: 5px 0;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
   .name {
     font-size: calc(32px * var(--size));
+    margin-bottom: 5px;
   }
 }
 
@@ -54,7 +56,13 @@
 .empty-icon {
   display: block;
   background: linear-gradient(135deg, #b4b6b8, #7f8183);
-  width: calc(80px * var(--size));
+  width: 60px;
+}
+
+@media (min-width: 768px) {
+  .empty-icon {
+    width: calc(80px * var(--size));
+  }
 }
 
 @keyframes loading {
@@ -115,7 +123,16 @@
 
 .rounded,
 .rounded.wrapper::before {
-  width: calc(82px * var(--size));
-  height: calc(82px * var(--size));
+  width: 62px;
+  height: 62px;
   border-radius: 50% !important;
+}
+
+@media (min-width: 768px) {
+  .rounded,
+  .rounded.wrapper::before {
+    width: calc(82px * var(--size));
+    height: calc(82px * var(--size));
+    border-radius: 50% !important;
+  }
 }
