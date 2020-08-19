@@ -59,8 +59,6 @@ export default function Form() {
                 username: data.username
               });
               setPageState('ticket');
-              // Prefetch the share URL to eagerly generate the page
-              fetch(`/conf/tickets/${data.username}`).catch(_ => {});
             })
             .catch(() => {
               setFormState('error');

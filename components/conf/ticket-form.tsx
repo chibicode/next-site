@@ -72,6 +72,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
                   setTicketGenerationState('default');
                   // Prefetch the image URL to eagerly generate the image
                   fetch(`/conf/download-ticket/${username}`).catch(_ => {});
+                  // Prefetch the twitter share URL to eagerly generate the page
+                  fetch(`/conf/tickets/${username}`).catch(_ => {});
                 })
                 .catch(() => {
                   setFormState('error');
