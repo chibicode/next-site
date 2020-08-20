@@ -73,6 +73,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
               })
                 .then(res => res.json())
                 .then(() => {
+                  document.body.classList.add('ticket-generated');
                   setUserData({ ...userData, username, name: data.name });
                   setFormState('default');
                   setTicketGenerationState('default');

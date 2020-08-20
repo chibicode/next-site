@@ -5,7 +5,6 @@ export type PageState = 'registration' | 'ticket';
 export type UserData = {
   id?: string;
   ticketNumber?: number;
-  alreadyExists?: boolean;
   username?: string;
   name?: string;
 };

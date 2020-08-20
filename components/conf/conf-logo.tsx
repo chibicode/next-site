@@ -1,8 +1,12 @@
 import NextLogo from '@components/logo';
 import cn from 'classnames';
+import Link from 'next/link';
 import styles from './conf-logo.module.css';
 
 type IconProps = { height: number };
+type Props = {
+  link?: string;
+};
 
 function GlobeIcon({ height }: IconProps) {
   return (
@@ -65,10 +69,20 @@ function ActivityIcon({ height }: IconProps) {
   );
 }
 
-export default function ConfLogo() {
+export default function ConfLogo({ link }: Props) {
   // Use <a> tag to force-reload the page on click
-  return (
-    <a className={styles['conf-logo']} href="/conf">
+  const resetBackground = () => {
+    document.documentElement.style.background = '#fff';
+    document.body.style.background = '#fff';
+  };
+  const skipAnimation = () => {
+    document.body.classList.add('skip-three-animations');
+    setTimeout(() => {
+      document.body.classList.remove('skip-three-animations');
+    }, 5000);
+  };
+  const logo = (
+    <>
       <div className={styles['next-logo']}>
         <NextLogo fill="#fff" />
       </div>
@@ -80,6 +94,21 @@ export default function ConfLogo() {
           <ActivityIcon height={16} />
         </div>
       </div>
-    </a>
+    </>
+  );
+
+  return typeof link === 'undefined' ? (
+    <span className={styles['conf-logo']}>{logo}</span>
+  ) : (
+    <Link href={link}>
+      {/* eslint-disable-next-line */}
+      <a
+        className={styles['conf-logo']}
+        onClick={link === '/' ? resetBackground : skipAnimation}
+        onKeyPress={link === '/' ? resetBackground : skipAnimation}
+      >
+        {logo}
+      </a>
+    </Link>
   );
 }

@@ -4,6 +4,12 @@
   margin-bottom: 24px;
 }
 
+@media (min-width: 1200px) {
+  .form.share-page {
+    justify-content: flex-start;
+  }
+}
+
 .input {
   border: none;
   width: 100%;
