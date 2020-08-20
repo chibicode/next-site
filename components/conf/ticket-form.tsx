@@ -109,22 +109,22 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
               throw new Error('Failed to store oauth result');
             }
 
-            const { username, name } = await res.json();
+            const { username: usernameFromResponse, name } = await res.json();
 
             document.body.classList.add('ticket-generated');
-            setUserData({ ...userData, username, name });
-            setUsername(username);
+            setUserData({ ...userData, username: usernameFromResponse, name });
+            setUsername(usernameFromResponse);
             setFormState('default');
             setTicketGenerationState('default');
 
             // Prefetch image
-            new Image().src = `https://github.com/${username}.png`;
+            new Image().src = `https://github.com/${usernameFromResponse}.png`;
 
             // Prefetch the image URL to eagerly generate the image
-            fetch(`/conf/download-ticket/${username}`).catch(_ => {});
+            fetch(`/conf/download-ticket/${usernameFromResponse}`).catch(_ => {});
 
             // Prefetch the twitter share URL to eagerly generate the page
-            fetch(`/conf/tickets/${username}`).catch(_ => {});
+            fetch(`/conf/tickets/${usernameFromResponse}`).catch(_ => {});
           })
           .catch(err => {
             // eslint-disable-next-line no-console
