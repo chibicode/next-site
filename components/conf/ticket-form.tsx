@@ -131,7 +131,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             // eslint-disable-next-line no-console
             console.error(err);
             setFormState('error');
-            setErrorMsg('Error! Please try again later.');
+            setErrorMsg('Error! Please try again.');
             setTicketGenerationState('default');
           });
       }}
