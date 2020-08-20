@@ -6,12 +6,11 @@ import Layout from './layout';
 
 type Props = {
   defaultUserData: UserData;
-  defaultPageState: PageState;
 };
 
-export default function Conf({ defaultUserData, defaultPageState }: Props) {
+export default function Conf({ defaultUserData }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
-  const [pageState, setPageState] = useState<PageState>(defaultPageState);
+  const [pageState, setPageState] = useState<PageState>('registration');
 
   return (
     <ConfDataContext.Provider

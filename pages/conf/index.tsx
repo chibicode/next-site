@@ -14,7 +14,7 @@ export default function Conf() {
         description="The first Next.js global user conference"
       />
       <SkipNavContent />
-      <ConfContent defaultUserData={{}} defaultPageState="registration" />
+      <ConfContent defaultUserData={{}} />
     </Page>
   );
 }
