@@ -27,7 +27,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (ticketRef.current) {
+    if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
       Tilt.init(ticketRef.current, {
         glare: true,
         max: 5,
