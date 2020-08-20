@@ -2,13 +2,14 @@ import cn from 'classnames';
 import Tilt from 'vanilla-tilt';
 import { useRef, useEffect, useState } from 'react';
 import { UserData } from '@lib/hooks/useConfData';
-import { TicketGenerationState } from '@lib/conf';
+import { TicketGenerationState, isMobileOrTablet } from '@lib/conf';
 import { scrollTo } from '@lib/smooth-scroll';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
 import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
+
 import Form from './form';
 
 type Props = {
@@ -37,13 +38,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
   }, [ticketRef]);
 
   useEffect(() => {
-    // https://stackoverflow.com/a/8876069/114157
-    const viewportWidth = Math.max(
-      document.documentElement.clientWidth || 0,
-      window.innerWidth || 0
-    );
-    const isMobileOrTablet = viewportWidth < 1200;
-    if (isMobileOrTablet && !sharePage && divRef && divRef.current) {
+    if (!sharePage && divRef && divRef.current && isMobileOrTablet()) {
       scrollTo(divRef.current, -30);
     }
   }, [divRef, sharePage]);
