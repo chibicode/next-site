@@ -80,6 +80,7 @@
   font-size: 16px;
   letter-spacing: -0.02em;
   outline: none;
+  font-weight: 500;
   color: #000;
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-flex;
@@ -110,7 +111,7 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: transparent;
+  background: black;
   color: #fff;
 }
 
