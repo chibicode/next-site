@@ -25,6 +25,8 @@ export default function TicketActions({ username }: Props) {
   const downloadUrl = `/conf/download-ticket/${username}`;
 
   useEffect(() => {
+    setImgReady(false);
+
     const img = new Image();
 
     img.src = downloadUrl;
