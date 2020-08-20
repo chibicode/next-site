@@ -35,8 +35,8 @@
 
 .button:hover,
 .button:focus {
-  background: transparent;
-  color: inherit;
+  background: black;
+  color: #fff;
 }
 
 .first {
