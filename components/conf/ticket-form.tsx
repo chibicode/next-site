@@ -61,13 +61,13 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
 
         const openedWindow = window.open(
           `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
-            process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID
+            process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID!
           )}`,
           'githubOAuth',
           'resizable,scrollbars,status,width=600,height=700'
         );
 
-        new Promise(resolve => {
+        new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
             if (!openedWindow || openedWindow.closed) {
               clearInterval(interval);
@@ -81,7 +81,9 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
               return;
             }
 
-            openedWindow.close();
+            if (openedWindow) {
+              openedWindow.close();
+            }
             clearInterval(interval);
             resolve(e.data);
           });
@@ -140,7 +142,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             formStyles['generate-with-github'],
             formStyles[formState]
           )}
-          disabled={formState === 'loading' || username}
+          disabled={formState === 'loading' || Boolean(username)}
         >
           <div className={ticketFormStyles.generateWithGithub}>
             <span className={ticketFormStyles.githubIcon}>
