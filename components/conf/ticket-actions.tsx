@@ -43,7 +43,7 @@ export default function TicketActions({ username }: Props) {
   return (
     <>
       <a
-        className={cn(styles.button, styleUtils.appear, styles.first)}
+        className={cn(styles.button, styleUtils.appear, styles.first, 'icon-button')}
         href={tweetUrl}
         rel="noopener noreferrer"
         target="_blank"
@@ -51,7 +51,7 @@ export default function TicketActions({ username }: Props) {
         <IconTwitter width={24} /> Tweet it!
       </a>
       <a
-        className={cn(styles.button, styleUtils.appear, styles.second)}
+        className={cn(styles.button, styleUtils.appear, styles.second, 'icon-button')}
         href={linkedInUrl}
         rel="noopener noreferrer"
         target="_blank"
@@ -59,7 +59,7 @@ export default function TicketActions({ username }: Props) {
         <IconLinkedin width={20} /> Share on LinkedIn
       </a>
       <a
-        className={cn(styles.button, styleUtils.appear, styles.third, {
+        className={cn(styles.button, styleUtils.appear, styles.third, 'icon-button', {
           [styles.loading]: loading
         })}
         href={loading ? undefined : downloadUrl}
@@ -74,7 +74,7 @@ export default function TicketActions({ username }: Props) {
         download="Nextjs-Conf-Ticket.png"
       >
         {loading ? (
-          <LoadingDots size={4} reverse />
+          <LoadingDots size={4} />
         ) : (
           <>
             <IconDownload width={24} /> Download
