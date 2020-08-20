@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import cn from 'classnames';
 import { SITE_URL } from '@lib/constants';
 import IconTwitter from './icon-twitter';
@@ -14,6 +14,8 @@ type Props = {
 
 export default function TicketActions({ username }: Props) {
   const [imgReady, setImgReady] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const downloadLink = useRef<HTMLAnchorElement>();
   const permalink = encodeURIComponent(`${SITE_URL}/conf/tickets/${username}`);
   const text = encodeURIComponent(
     'Just got my free ticket to #nextjsconf, the first #nextjs global user conference:'
@@ -23,13 +25,16 @@ export default function TicketActions({ username }: Props) {
   const downloadUrl = `/conf/download-ticket/${username}`;
 
   useEffect(() => {
-    setImgReady(false);
-
     const img = new Image();
 
     img.src = downloadUrl;
     img.onload = () => {
       setImgReady(true);
+      setLoading(false);
+      if (downloadLink.current) {
+        downloadLink.current.click();
+        downloadLink.current = undefined;
+      }
     };
   }, [downloadUrl]);
 
@@ -53,17 +58,25 @@ export default function TicketActions({ username }: Props) {
       </a>
       <a
         className={cn(styles.button, styleUtils.appear, styles.third, {
-          [styles.loading]: !imgReady
+          [styles.loading]: loading
         })}
-        href={imgReady ? downloadUrl : undefined}
+        href={loading ? undefined : downloadUrl}
+        onClick={e => {
+          if (imgReady) return;
+
+          e.preventDefault();
+          downloadLink.current = e.currentTarget;
+          // Wait for the image download to finish
+          setLoading(true);
+        }}
         download="Nextjs-Conf-Ticket.png"
       >
-        {imgReady ? (
+        {loading ? (
+          <LoadingDots size={4} reverse />
+        ) : (
           <>
             <IconDownload width={24} /> Download
           </>
-        ) : (
-          <LoadingDots size={4} reverse />
         )}
       </a>
     </>
