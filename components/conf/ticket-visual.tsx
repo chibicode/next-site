@@ -42,7 +42,7 @@ export default function TicketVisual({
         {ticketNumber && (
           <div className={styles['ticket-number-wrapper']}>
             <div className={styles['ticket-number']}>
-              <TicketNumber number={ticketNumber} />
+              <TicketNumber number={username === 'evilrabbit' ? 666 : ticketNumber} />
             </div>
           </div>
         )}
