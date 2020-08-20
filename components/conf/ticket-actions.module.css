@@ -1,15 +1,15 @@
 .button {
   border-radius: 8px;
-  border: 1px solid #8a8f98;
-  color: #fff;
-  background: #000;
+  border: 1px solid #fff;
+  color: #000;
+  background: #fff;
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   letter-spacing: -0.02em;
   font-weight: 500;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: background-color 0.2s ease;
   display: grid;
   grid-template-columns: 24px 1fr;
   text-align: center;
@@ -35,8 +35,8 @@
 
 .button:hover,
 .button:focus {
-  color: #fff;
-  border-color: #fff;
+  background: transparent;
+  color: inherit;
 }
 
 .first {
