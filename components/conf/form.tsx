@@ -65,8 +65,13 @@ export default function Form({ sharePage }: Props) {
               queryParams: window.location.search
             })
           })
-            .then(res => res.json())
-            .then(data => {
+            .then(async res => {
+              if (!res.ok) {
+                throw new Error();
+              }
+
+              const data = await res.json();
+
               const params = {
                 id: data.id,
                 ticketNumber: data.ticketNumber,
