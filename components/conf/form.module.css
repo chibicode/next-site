@@ -126,6 +126,21 @@
   color: #fff;
 }
 
+.submit.default:disabled {
+  cursor: default;
+}
+
+.submit.default:disabled:hover,
+.submit.default:disabled:focus {
+  background: #fff;
+  color: #000;
+}
+
+.submit.default.generate-with-github:disabled:hover path,
+.submit.default.generate-with-github:disabled:focus path {
+  fill: #000;
+}
+
 @media (min-width: 1200px) {
   .form-row {
     margin: 0;
