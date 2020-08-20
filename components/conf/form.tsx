@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import cn from 'classnames';
+import { API_URL } from '@lib/constants';
 import useConfData from '@lib/hooks/useConfData';
 import LoadingDots from './loading-dots';
 import styleUtils from './utils.module.css';
@@ -38,7 +39,7 @@ export default function Form() {
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
-          fetch('https://api.nextjs.org/api/conf-email', {
+          fetch(`${API_URL}/conf-email`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

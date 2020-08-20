@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Error from 'next/error';
 import Head from 'next/head';
 import matter from 'gray-matter';
+import { SITE_URL } from '../../lib/constants';
 import hashMap from '../../lib/docs/hash-map.json';
 import { getSlug, removeFromLast, addTagToSlug } from '../../lib/docs/utils';
 import { getPaths, getCurrentTag, findRouteByPath, fetchDocsManifest } from '../../lib/docs/page';
@@ -139,7 +140,7 @@ const Docs = ({ routes, route: _route, data, html }) => {
             </Container>
             <SocialMeta
               title={title}
-              url={`https://nextjs.org${asPath}`}
+              url={`${SITE_URL}${asPath}`}
               image="/static/twitter-cards/documentation.png"
               description={data.description}
             />

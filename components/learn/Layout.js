@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { SkipNavContent } from '@reach/skip-nav';
+import { SITE_URL, ORG_NAME } from '../../lib/constants';
 import { RecordsProvider } from '../../lib/learn/records';
 import { useIsMobile } from '../media-query';
 import NProgress from '../nprogress';
@@ -13,7 +14,6 @@ import Navigation from './Navigation';
 import Lesson from './Lesson';
 import Markdown, { H2 } from './Markdown';
 import FeedbackContext from '../feedback-context';
-import { ORG_NAME } from '../../lib/constants';
 
 const Layout = ({ meta, children }) => {
   const isMobile = useIsMobile();
@@ -98,7 +98,7 @@ const Layout = ({ meta, children }) => {
         <SocialMeta
           image="/static/twitter-cards/learn-twitter.png"
           title="Learn | Next.js"
-          url="https://nextjs.org/learn"
+          url={`${SITE_URL}/learn`}
           description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build pre-rendered applications, static websites, and more.`}
         />
         <SkipNavContent />

@@ -1,6 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { SkipNavContent } from '@reach/skip-nav';
 import Error from 'next/error';
+import { SITE_URL, API_URL } from '@lib/constants';
 import Page from '@components/page';
 import SocialMeta from '@components/social-meta';
 import Layout from '@components/conf/layout';
@@ -28,7 +29,7 @@ export default function TicketShare({ username, ticketNumber, name }: Props) {
         }
         title={title}
         description={`Join ${name} for the first global user conference for Next.js. An interactive online experience by the community, free for everyone.`}
-        url={`https://nextjs.org/conf/tickets/${username}`}
+        url={`${SITE_URL}/conf/tickets/${username}`}
       />
       <SkipNavContent />
       <Layout inner>
@@ -46,9 +47,7 @@ export default function TicketShare({ username, ticketNumber, name }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const username = params?.username?.toString() || null;
   if (username) {
-    const res = await fetch(
-      `https://api.nextjs.org/api/conf-user?username=${params?.username?.toString()}`
-    );
+    const res = await fetch(`${API_URL}/conf-user?username=${params?.username?.toString()}`);
     if (res.ok) {
       const { name, ticketNumber } = await res.json();
       return {

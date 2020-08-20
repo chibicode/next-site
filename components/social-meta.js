@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { TWITTER_USER_NAME } from '../lib/constants';
+import { SITE_URL, TWITTER_USER_NAME } from '../lib/constants';
 
 const SocialMeta = ({ title, description, image, url, keywords = undefined }) => (
   <Head>
@@ -12,7 +12,7 @@ const SocialMeta = ({ title, description, image, url, keywords = undefined }) =>
     {image && (
       <meta
         property="og:image"
-        content={image.startsWith('https://') ? image : `https://nextjs.org${image}`}
+        content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
       />
     )}
     {keywords && <meta name="keywords" content={keywords} />}

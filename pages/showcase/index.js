@@ -9,7 +9,7 @@ import List from '../../components/showcase/list';
 import Filter from '../../components/showcase/filter';
 import SiteDetail from '../../components/showcase/site-detail';
 import SocialMeta from '../../components/social-meta';
-import { ORG_NAME } from '../../lib/constants';
+import { SITE_URL, ORG_NAME } from '../../lib/constants';
 import { categories, mapping } from '../../showcase-manifest';
 
 function Showcase({ item }) {
@@ -18,7 +18,7 @@ function Showcase({ item }) {
       <SocialMeta
         image="/static/twitter-cards/showcase.png"
         title="Showcase | Next.js"
-        url="https://nextjs.org/showcase"
+        url={`${SITE_URL}/showcase`}
         description={`Meet hundreds of beautiful websites powered by Next.js by ${ORG_NAME}`}
       />
       <Tabs data={categories} anchor>

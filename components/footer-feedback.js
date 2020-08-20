@@ -2,6 +2,7 @@
 import { memo, Component } from 'react';
 import cn from 'classnames';
 import twemoji from 'twemoji';
+import { SITE_URL, API_URL } from '../lib/constants';
 import FeedbackContext from './feedback-context';
 
 // Components
@@ -90,7 +91,7 @@ export default class FooterFeedback extends Component {
         return;
       }
 
-      fetch('https://api.nextjs.org/api/feedback', {
+      fetch(`${API_URL}/feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -98,7 +99,7 @@ export default class FooterFeedback extends Component {
         body: JSON.stringify({
           url:
             window.location.hostname === 'localhost'
-              ? `https://nextjs.org/dev-mode${window.location.pathname}`
+              ? `${SITE_URL}/dev-mode${window.location.pathname}`
               : window.location.toString(),
           note: value,
           email: this.state.emailValue || '',
