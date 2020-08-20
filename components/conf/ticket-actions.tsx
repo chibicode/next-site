@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
+import { SITE_URL } from '@lib/constants';
 import IconTwitter from './icon-twitter';
 import IconLinkedin from './icon-linkedin';
 import IconDownload from './icon-download';
@@ -13,7 +14,7 @@ type Props = {
 
 export default function TicketActions({ username }: Props) {
   const [imgReady, setImgReady] = useState(false);
-  const permalink = encodeURIComponent(`https://nextjs.org/conf/tickets/${username}`);
+  const permalink = encodeURIComponent(`${SITE_URL}/conf/tickets/${username}`);
   const text = encodeURIComponent(
     'Just got my free ticket to #nextjsconf, the first #nextjs global user conference:'
   );

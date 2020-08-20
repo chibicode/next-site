@@ -3,6 +3,7 @@ import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
 import { Octokit } from '@octokit/rest';
+import { API_URL } from '@lib/constants';
 import useConfData from '@lib/hooks/useConfData';
 import { TicketGenerationState } from '@lib/conf';
 import LoadingDots from './loading-dots';
@@ -59,7 +60,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
               username
             })
             .then(({ data }) => {
-              fetch('https://api.nextjs.org/api/conf-github', {
+              fetch(`${API_URL}/conf-github`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json'
