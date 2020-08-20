@@ -8,24 +8,34 @@ import ConfLogo from './conf-logo';
 type Props = {
   inner: boolean;
   children: React.ReactNode;
+  confLogoLink?: string;
 };
 
-function HostedByVercel() {
+function HostedByVercel({ linkEnabled }: { linkEnabled: boolean }) {
+  const child = (
+    <>
+      Hosted by <VercelLogo color="currentColor" />
+    </>
+  );
   return (
     <div className={styles['secondary-text']}>
-      <a
-        href="https://vercel.com"
-        className={cn(styles['footer-link'], styles['footer-logo'])}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Hosted by <VercelLogo color="currentColor" />
-      </a>
+      {linkEnabled ? (
+        <a
+          href="https://vercel.com"
+          className={cn(styles['footer-link'], styles['footer-logo'])}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {child}
+        </a>
+      ) : (
+        <span className={cn(styles['footer-logo'])}>{child}</span>
+      )}
     </div>
   );
 }
 
-export default function Layout({ children, inner }: Props) {
+export default function Layout({ children, inner, confLogoLink }: Props) {
   useEffect(() => {
     document.documentElement.style.background = '#000';
     document.body.style.background = '#000';
@@ -40,7 +50,7 @@ export default function Layout({ children, inner }: Props) {
           })}
         >
           <div className={styles['header-logos']}>
-            <ConfLogo />
+            <ConfLogo link={confLogoLink} />
             <div className={styles['header-logos-secondary']}>
               <div className={styles['header-separator']} />
               <div className={styles.description}>
@@ -54,7 +64,7 @@ export default function Layout({ children, inner }: Props) {
               [styleUtils['appear-second']]: !inner
             })}
           >
-            <HostedByVercel />
+            <HostedByVercel linkEnabled={!!confLogoLink} />
           </div>
         </header>
         <main className={styles.main}>
@@ -69,7 +79,7 @@ export default function Layout({ children, inner }: Props) {
         >
           <div className={styles['footer-legal']}>
             <div className={styles['footer-hostedby']}>
-              <HostedByVercel />
+              <HostedByVercel linkEnabled={!!confLogoLink} />
               <div className={styles['footer-separator']} />
             </div>
             <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>

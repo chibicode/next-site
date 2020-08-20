@@ -26,7 +26,10 @@ export default function Conf({
         setPageState
       }}
     >
-      <Layout inner={pageState !== 'registration' || !!sharePage}>
+      <Layout
+        inner={pageState !== 'registration' || !!sharePage}
+        confLogoLink={sharePage ? '/conf' : pageState === 'registration' ? undefined : '/'}
+      >
         {pageState === 'registration' && !sharePage ? (
           <Registration />
         ) : (
@@ -35,7 +38,6 @@ export default function Conf({
             name={userData.name}
             ticketNumber={userData.ticketNumber}
             sharePage={sharePage}
-            skipAnimation={defaultPageState === 'registration'}
           />
         )}
       </Layout>
