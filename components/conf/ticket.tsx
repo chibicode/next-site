@@ -71,7 +71,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             ) : (
               <>
                 Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
-                your GitHub username.
+                your GitHub profile.
               </>
             )}
           </p>

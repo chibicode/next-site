@@ -34,7 +34,7 @@ export default function Form({ sharePage }: Props) {
           </div>
           <button
             type="button"
-            className={styles.submit}
+            className={cn(styles.submit, styles.register)}
             onClick={() => {
               setFormState('default');
               setErrorTryAgain(true);
@@ -121,7 +121,7 @@ export default function Form({ sharePage }: Props) {
         </label>
         <button
           type="submit"
-          className={cn(styles.submit, styles[formState])}
+          className={cn(styles.submit, styles.register, styles[formState])}
           disabled={formState === 'loading'}
         >
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
