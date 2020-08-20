@@ -80,12 +80,6 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           }, 250);
 
           window.addEventListener('message', function onMessage(e) {
-            if (!API_URL.startsWith(e.origin)) {
-              // eslint-disable-next-line no-console
-              console.error('Unexpected origin', e.origin);
-              return;
-            }
-
             if (openedWindow) {
               openedWindow.close();
             }
