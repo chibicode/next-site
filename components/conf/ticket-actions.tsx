@@ -18,7 +18,7 @@ export default function TicketActions({ username }: Props) {
   const downloadLink = useRef<HTMLAnchorElement>();
   const permalink = encodeURIComponent(`${SITE_URL}/conf/tickets/${username}`);
   const text = encodeURIComponent(
-    'Just got my free ticket to #nextjsconf, the first #nextjs global user conference:'
+    `Just got my free ticket to #nextjsconf, grab yours! Let’s build a better web with #nextjs:`
   );
   const tweetUrl = `https://twitter.com/intent/tweet?url=${permalink}&via=vercel&text=${text}`;
   const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${permalink}`;
