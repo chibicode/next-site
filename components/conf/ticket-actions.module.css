@@ -40,11 +40,21 @@
 }
 
 .first {
-  animation-delay: 1.6s;
+  animation-delay: 2s;
 }
 .second {
-  animation-delay: 1.8s;
+  animation-delay: 2.2s;
 }
 .third {
-  animation-delay: 2s;
+  animation-delay: 2.4s;
+}
+
+:global(.ticket-generated) .first {
+  animation-delay: 0.6s;
+}
+:global(.ticket-generated) .second {
+  animation-delay: 0.8s;
+}
+:global(.ticket-generated) .third {
+  animation-delay: 1s;
 }
