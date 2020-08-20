@@ -1,30 +1,31 @@
-.input {
-  border: none;
-  width: calc(100% - 128px);
-  background: transparent;
-  outline: none;
-  height: 56px;
-  padding-left: 54px;
-  font-size: 16px;
-  color: #fff;
-  font-family: inherit;
-}
-
-.input::placeholder {
-  color: var(--secondary-color);
-}
-
 .githubIcon {
-  position: absolute;
-  top: 17px;
-  left: 18px;
+  margin-left: 12px;
+  margin-right: 16px;
   display: inline-flex;
+}
+
+.checkIcon {
+  position: absolute;
+  right: 16px;
+  display: inline-flex;
+}
+
+.generateWithGithub {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
 }
 
 .form-row {
   margin-left: auto;
   margin-right: auto;
   max-width: 400px;
+}
+
+.description {
+  color: var(--secondary-color);
+  margin: 0;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -36,5 +37,13 @@
 @media (min-width: 1200px) {
   .form-row {
     margin: 0;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .generateWithGithub {
+    width: 100%;
   }
 }

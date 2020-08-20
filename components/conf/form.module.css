@@ -50,15 +50,10 @@
   background: #0070f3;
 }
 
-.input-label.focused {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background-color: #34383d;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
 .input-text {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .form-row {
@@ -93,8 +88,14 @@
   justify-content: center;
 }
 
+.submit.generate-with-github {
+  display: flex;
+  margin-bottom: 12px;
+  position: relative;
+}
+
 @media (min-width: 768px) {
-  .submit {
+  .submit.register {
     width: 120px;
     height: 40px;
     margin-top: 0;
@@ -114,8 +115,23 @@
   color: #fff;
 }
 
+.submit.default.generate-with-github:hover path,
+.submit.default.generate-with-github:focus path {
+  fill: #fff;
+}
+
+.submit.error:hover,
+.submit.error:focus {
+  background: #000;
+  color: #fff;
+}
+
 @media (min-width: 1200px) {
   .form-row {
     margin: 0;
+  }
+
+  .submit.generate-with-github {
+    width: 240px;
   }
 }

@@ -1,16 +1,13 @@
 import { useState, useRef } from 'react';
-import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
-import { Octokit } from '@octokit/rest';
+import CheckIcon from '@components/icons/check';
 import { API_URL } from '@lib/constants';
 import useConfData from '@lib/hooks/useConfData';
 import { TicketGenerationState } from '@lib/conf';
 import LoadingDots from './loading-dots';
 import formStyles from './form.module.css';
 import ticketFormStyles from './ticket-form.module.css';
-
-const octokit = new Octokit();
 
 type FormState = 'default' | 'loading' | 'error';
 
@@ -21,8 +18,8 @@ type Props = {
 
 export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
   const [username, setUsername] = useState(defaultUsername);
-  const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
+  const [errorMsg, setErrorMsg] = useState('');
   const { userData, setUserData } = useConfData();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -30,12 +27,10 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
     <div>
       <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <div className={cn(formStyles['input-label'], formStyles.error)}>
-          <div className={cn(formStyles.input, formStyles['input-text'])}>
-            Error! Please try again later.
-          </div>
+          <div className={cn(formStyles.input, formStyles['input-text'])}>{errorMsg}</div>
           <button
             type="button"
-            className={formStyles.submit}
+            className={cn(formStyles.submit, formStyles.error)}
             onClick={() => {
               setFormState('default');
               setTicketGenerationState('default');
@@ -50,94 +45,129 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
     <form
       ref={formRef}
       onSubmit={e => {
-        if (formState === 'default') {
-          setFormState('loading');
-          setTicketGenerationState('loading');
-          // Prefetch image
-          new Image().src = `https://github.com/${username}.png`;
-          octokit.users
-            .getByUsername({
-              username
-            })
-            .then(({ data }) => {
-              fetch(`${API_URL}/conf-github`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                  username,
-                  id: userData.id,
-                  name: data.name
-                })
-              })
-                .then(res => res.json())
-                .then(() => {
-                  document.body.classList.add('ticket-generated');
-                  setUserData({ ...userData, username, name: data.name });
-                  setFormState('default');
-                  setTicketGenerationState('default');
-                  // Prefetch the image URL to eagerly generate the image
-                  fetch(`/conf/download-ticket/${username}`).catch(_ => {});
-                  // Prefetch the twitter share URL to eagerly generate the page
-                  fetch(`/conf/tickets/${username}`).catch(_ => {});
-                })
-                .catch(() => {
-                  setFormState('error');
-                });
-            })
-            .catch(() => {
-              setFormState('error');
-            });
-        } else {
+        e.preventDefault();
+
+        if (formState !== 'default') {
           setTicketGenerationState('default');
           setFormState('default');
+          return;
         }
-        e.preventDefault();
+
+        setFormState('loading');
+        setTicketGenerationState('loading');
+
+        if (!process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID) {
+          setFormState('error');
+          // Message for OS contributors
+          setErrorMsg('Only enabled for production deployments.');
+          return;
+        }
+
+        const openedWindow = window.open(
+          `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
+            process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID
+          )}`,
+          'githubOAuth',
+          'resizable,scrollbars,status,width=600,height=700'
+        );
+
+        new Promise<{ token: string } | undefined>(resolve => {
+          const interval = setInterval(() => {
+            if (!openedWindow || openedWindow.closed) {
+              clearInterval(interval);
+              resolve();
+            }
+          }, 250);
+
+          window.addEventListener('message', function onMessage(e) {
+            if (!API_URL.startsWith(e.origin)) {
+              // eslint-disable-next-line no-console
+              console.error('Unexpected origin', e.origin);
+              return;
+            }
+
+            if (openedWindow) {
+              openedWindow.close();
+            }
+            clearInterval(interval);
+            resolve(e.data);
+          });
+        })
+          .then(async data => {
+            if (!data) {
+              setFormState('default');
+              setTicketGenerationState('default');
+              return;
+            }
+
+            const res = await fetch(`${API_URL}/conf-github`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: userData.id,
+                token: data.token
+              })
+            });
+
+            if (!res.ok) {
+              throw new Error('Failed to store oauth result');
+            }
+
+            const { username, name } = await res.json();
+
+            document.body.classList.add('ticket-generated');
+            setUserData({ ...userData, username, name });
+            setUsername(username);
+            setFormState('default');
+            setTicketGenerationState('default');
+
+            // Prefetch image
+            new Image().src = `https://github.com/${username}.png`;
+
+            // Prefetch the image URL to eagerly generate the image
+            fetch(`/conf/download-ticket/${username}`).catch(_ => {});
+
+            // Prefetch the twitter share URL to eagerly generate the page
+            fetch(`/conf/tickets/${username}`).catch(_ => {});
+          })
+          .catch(err => {
+            // eslint-disable-next-line no-console
+            console.error(err);
+            setFormState('error');
+            setErrorMsg('Error! Please try again later.');
+            setTicketGenerationState('default');
+          });
       }}
     >
       <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
-        <label
-          htmlFor="github-input-field"
-          className={cn(formStyles['input-label'], {
-            [formStyles.focused]: focused
-          })}
-        >
-          <input
-            className={ticketFormStyles.input}
-            autoComplete="off"
-            type="text"
-            id="github-input-field"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            onFocus={() => {
-              // https://stackoverflow.com/a/8876069/114157
-              const viewportWidth = Math.max(
-                document.documentElement.clientWidth || 0,
-                window.innerWidth || 0
-              );
-              const isMobileOrTablet = viewportWidth < 1200;
-              if (isMobileOrTablet && formRef && formRef.current) {
-                scrollTo(formRef.current, -30);
-              }
-
-              setFocused(true);
-            }}
-            onBlur={() => setFocused(false)}
-            placeholder="GitHub username…"
-            required
-          />
-        </label>
-        <span className={ticketFormStyles.githubIcon}>
-          <GithubIcon color="var(--secondary-color)" size={24} />
-        </span>
         <button
           type="submit"
-          className={cn(formStyles.submit, formStyles[formState])}
-          disabled={formState === 'loading'}
+          className={cn(
+            formStyles.submit,
+            formStyles['generate-with-github'],
+            formStyles[formState]
+          )}
+          disabled={formState === 'loading' || Boolean(username)}
         >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Generate</>}
+          <div className={ticketFormStyles.generateWithGithub}>
+            <span className={ticketFormStyles.githubIcon}>
+              <GithubIcon color="#000" size={24} />
+            </span>
+            {formState === 'loading' ? (
+              <LoadingDots size={4} />
+            ) : (
+              username || 'Generate with GitHub'
+            )}
+          </div>
+          {username ? (
+            <span className={ticketFormStyles.checkIcon}>
+              <CheckIcon color="#000" size={24} />
+            </span>
+          ) : null}
         </button>
+        <p className={ticketFormStyles.description}>Only public info will be used.</p>
       </div>
     </form>
   );
