@@ -29,9 +29,7 @@ export default function Form({ sharePage }: Props) {
     >
       <div className={styles['form-row']}>
         <div className={cn(styles['input-label'], styles.error)}>
-          <div className={cn(styles.input, styles['input-text'])}>
-            Error! Please try again later.
-          </div>
+          <div className={cn(styles.input, styles['input-text'])}>Error! Please try again.</div>
           <button
             type="button"
             className={cn(styles.submit, styles.register)}
@@ -67,8 +65,13 @@ export default function Form({ sharePage }: Props) {
               queryParams: window.location.search
             })
           })
-            .then(res => res.json())
-            .then(data => {
+            .then(async res => {
+              if (!res.ok) {
+                throw new Error();
+              }
+
+              const data = await res.json();
+
               const params = {
                 id: data.id,
                 ticketNumber: data.ticketNumber,

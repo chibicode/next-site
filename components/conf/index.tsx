@@ -28,7 +28,7 @@ export default function Conf({
     >
       <Layout
         inner={pageState !== 'registration' || !!sharePage}
-        confLogoLink={sharePage ? '/conf' : pageState === 'registration' ? undefined : '/'}
+        confLogoLink={!sharePage && pageState === 'ticket' ? '/' : undefined}
       >
         {pageState === 'registration' && !sharePage ? (
           <Registration />
