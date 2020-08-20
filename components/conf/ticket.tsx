@@ -60,7 +60,14 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             )}
           </h2>
           <p className={cn(styles.description, styleUtils.appear, styleUtils['appear-second'])}>
-            Join them on October 27, 2020.
+            {sharePage ? (
+              <>Join them on October 27, 2020.</>
+            ) : (
+              <>
+                Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
+                your GitHub username.
+              </>
+            )}
           </p>
         </div>
         <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
