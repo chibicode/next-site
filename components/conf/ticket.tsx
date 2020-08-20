@@ -37,10 +37,10 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
   }, [ticketRef]);
 
   useEffect(() => {
-    if (divRef && divRef.current) {
+    if (!sharePage && divRef && divRef.current) {
       scrollTo(divRef.current, -30);
     }
-  }, [divRef]);
+  }, [divRef, sharePage]);
 
   return (
     <div
