@@ -6,9 +6,10 @@ import Layout from './layout';
 
 type Props = {
   defaultUserData: UserData;
+  sharePage?: boolean;
 };
 
-export default function Conf({ defaultUserData }: Props) {
+export default function Conf({ defaultUserData, sharePage }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>('registration');
 
@@ -20,14 +21,15 @@ export default function Conf({ defaultUserData }: Props) {
         setPageState
       }}
     >
-      <Layout inner={pageState !== 'registration'}>
-        {pageState === 'registration' ? (
+      <Layout inner={pageState !== 'registration' || !!sharePage}>
+        {pageState === 'registration' && !sharePage ? (
           <Registration />
         ) : (
           <Ticket
             username={userData.username}
             name={userData.name}
             ticketNumber={userData.ticketNumber}
+            sharePage={sharePage}
           />
         )}
       </Layout>

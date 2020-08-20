@@ -4,8 +4,7 @@ import Error from 'next/error';
 import { SITE_URL, API_URL } from '@lib/constants';
 import Page from '@components/page';
 import SocialMeta from '@components/social-meta';
-import Layout from '@components/conf/layout';
-import Ticket from '@components/conf/ticket';
+import ConfContent from '@components/conf';
 
 type Props = {
   username: string | null;
@@ -32,14 +31,14 @@ export default function TicketShare({ username, ticketNumber, name }: Props) {
         url={`${SITE_URL}/conf/tickets/${username}`}
       />
       <SkipNavContent />
-      <Layout inner>
-        <Ticket
-          username={username}
-          name={name || undefined}
-          ticketNumber={ticketNumber}
-          sharePage
-        />
-      </Layout>
+      <ConfContent
+        defaultUserData={{
+          username,
+          name: name || '',
+          ticketNumber
+        }}
+        sharePage
+      />
     </Page>
   );
 }

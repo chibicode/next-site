@@ -4,12 +4,12 @@ import { useRef, useEffect, useState } from 'react';
 import { UserData } from '@lib/hooks/useConfData';
 import { TicketGenerationState } from '@lib/conf';
 import { scrollTo } from '@lib/smooth-scroll';
-import Link from 'next/link';
 import styles from './ticket.module.css';
 import styleUtils from './utils.module.css';
 import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
+import Form from './form';
 
 type Props = {
   username: UserData['username'];
@@ -77,22 +77,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               setTicketGenerationState={setTicketGenerationState}
             />
           ) : (
-            <div className={styles['get-ticket']}>
-              <Link href="/conf">
-                {/* eslint-disable-next-line */}
-                <a
-                  className={styles['get-ticket-button']}
-                  onClick={() => {
-                    document.body.classList.add('get-ticket-clicked');
-                    setTimeout(() => {
-                      document.body.classList.remove('get-ticket-clicked');
-                    }, 3000);
-                  }}
-                >
-                  Get your own!
-                </a>
-              </Link>
-            </div>
+            <Form />
           )}
         </div>
       </div>
