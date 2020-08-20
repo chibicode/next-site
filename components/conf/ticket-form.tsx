@@ -9,8 +9,6 @@ import LoadingDots from './loading-dots';
 import formStyles from './form.module.css';
 import ticketFormStyles from './ticket-form.module.css';
 
-const { NEXT_PUBLIC_NEXT_API_HOST } = process.env;
-
 type FormState = 'default' | 'loading' | 'error';
 
 type Props = {
@@ -75,9 +73,10 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             }
           }, 250);
 
-          window.addEventListener('message', function (e) {
-            if (NEXT_PUBLIC_NEXT_API_HOST && e.origin !== NEXT_PUBLIC_NEXT_API_HOST) {
-              console.warn('Unexpected origin', e.origin);
+          window.addEventListener('message', function onMessage(e) {
+            if (!API_URL.startsWith(e.origin)) {
+              // eslint-disable-next-line no-console
+              console.error('Unexpected origin', e.origin);
               return;
             }
 
