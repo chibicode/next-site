@@ -4,6 +4,10 @@
   margin-bottom: 24px;
 }
 
+.form.share-page {
+  justify-content: flex-start;
+}
+
 .input {
   border: none;
   width: 100%;

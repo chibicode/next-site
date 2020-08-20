@@ -2,20 +2,31 @@ import { useState } from 'react';
 import cn from 'classnames';
 import { API_URL } from '@lib/constants';
 import useConfData from '@lib/hooks/useConfData';
+import { useRouter } from 'next/router';
 import LoadingDots from './loading-dots';
 import styleUtils from './utils.module.css';
 import styles from './form.module.css';
 
 type FormState = 'default' | 'loading' | 'error';
 
-export default function Form() {
+type Props = {
+  sharePage?: boolean;
+};
+
+export default function Form({ sharePage }: Props) {
   const [email, setEmail] = useState('');
+  const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
   const { setPageState, setUserData } = useConfData();
+  const router = useRouter();
 
   return formState === 'error' ? (
-    <div className={styles.form}>
+    <div
+      className={cn(styles.form, {
+        [styles['share-page']]: sharePage
+      })}
+    >
       <div className={styles['form-row']}>
         <div className={cn(styles['input-label'], styles.error)}>
           <div className={cn(styles.input, styles['input-text'])}>
@@ -26,6 +37,7 @@ export default function Form() {
             className={styles.submit}
             onClick={() => {
               setFormState('default');
+              setErrorTryAgain(true);
             }}
           >
             Try Again
@@ -35,7 +47,12 @@ export default function Form() {
     </div>
   ) : (
     <form
-      className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.form)}
+      className={cn(styles.form, {
+        [styles['share-page']]: sharePage,
+        [styleUtils.appear]: !errorTryAgain,
+        [styleUtils['appear-fifth']]: !errorTryAgain && !sharePage,
+        [styleUtils['appear-third']]: !errorTryAgain && sharePage
+      })}
       onSubmit={e => {
         if (formState === 'default') {
           setFormState('loading');
@@ -52,14 +69,26 @@ export default function Form() {
           })
             .then(res => res.json())
             .then(data => {
-              setUserData({
+              const params = {
                 id: data.id,
                 ticketNumber: data.ticketNumber,
-                alreadyExists: data.exists,
                 name: data.name,
                 username: data.username
-              });
-              setPageState('ticket');
+              };
+              if (sharePage) {
+                const queryString = Object.keys(params)
+                  .map(
+                    key =>
+                      `${encodeURIComponent(key)}=${encodeURIComponent(
+                        params[key as keyof typeof params] || ''
+                      )}`
+                  )
+                  .join('&');
+                router.replace(`/conf?${queryString}`, '/conf');
+              } else {
+                setUserData(params);
+                setPageState('ticket');
+              }
             })
             .catch(() => {
               setFormState('error');

@@ -37,7 +37,13 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
   }, [ticketRef]);
 
   useEffect(() => {
-    if (!sharePage && divRef && divRef.current) {
+    // https://stackoverflow.com/a/8876069/114157
+    const viewportWidth = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    const isMobileOrTablet = viewportWidth < 1200;
+    if (isMobileOrTablet && !sharePage && divRef && divRef.current) {
       scrollTo(divRef.current, -30);
     }
   }, [divRef, sharePage]);
@@ -77,7 +83,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               setTicketGenerationState={setTicketGenerationState}
             />
           ) : (
-            <Form />
+            <Form sharePage />
           )}
         </div>
       </div>
