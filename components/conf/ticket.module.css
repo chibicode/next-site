@@ -1,6 +1,6 @@
 .hero {
   font-size: 52px;
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.08em;
   font-weight: 700;
   margin: 0;
@@ -10,6 +10,7 @@
 @media (min-width: 768px) {
   .hero {
     font-size: 100px;
+    line-height: 1;
     font-weight: 800;
     max-width: 800px;
     margin-left: auto;
