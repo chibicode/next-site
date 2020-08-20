@@ -10,6 +10,7 @@
   --secondary-color: #8a8f98;
   display: flex;
   flex-direction: column;
+  min-width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   flex: 1;
