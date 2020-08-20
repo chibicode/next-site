@@ -21,7 +21,7 @@ function HostedByVercel({ linkEnabled }: { linkEnabled: boolean }) {
     <div className={styles['secondary-text']}>
       {linkEnabled ? (
         <a
-          href="https://vercel.com"
+          href="https://vercel.com?utm_source=next-site&utm_medium=logo&utm_campaign=next-conf"
           className={cn(styles['footer-link'], styles['footer-logo'])}
           target="_blank"
           rel="noopener noreferrer"
@@ -86,7 +86,7 @@ export default function Layout({ children, inner, confLogoLink }: Props) {
             <div className={styles['footer-separator']} />
             <p className={styles['footer-paragraph']}>
               <a
-                href="https://vercel.com/legal/privacy-policy"
+                href="https://vercel.com/legal/privacy-policy?utm_source=next-site&utm_medium=footer&utm_campaign=next-conf"
                 className={styles['footer-link']}
                 target="_blank"
                 rel="noopener noreferrer"
