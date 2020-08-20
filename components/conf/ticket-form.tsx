@@ -19,6 +19,7 @@ type Props = {
 export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
   const [username, setUsername] = useState(defaultUsername);
   const [formState, setFormState] = useState<FormState>('default');
+  const [errorMsg, setErrorMsg] = useState('');
   const { userData, setUserData } = useConfData();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -26,12 +27,10 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
     <div>
       <div className={cn(formStyles['form-row'], ticketFormStyles['form-row'])}>
         <div className={cn(formStyles['input-label'], formStyles.error)}>
-          <div className={cn(formStyles.input, formStyles['input-text'])}>
-            Error! Please try again later.
-          </div>
+          <div className={cn(formStyles.input, formStyles['input-text'])}>{errorMsg}</div>
           <button
             type="button"
-            className={formStyles.submit}
+            className={cn(formStyles.submit, formStyles.error)}
             onClick={() => {
               setFormState('default');
               setTicketGenerationState('default');
@@ -57,9 +56,16 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
         setFormState('loading');
         setTicketGenerationState('loading');
 
+        if (!process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID) {
+          setFormState('error');
+          // Message for OS contributors
+          setErrorMsg('Only enabled for production deployments.');
+          return;
+        }
+
         const openedWindow = window.open(
           `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
-            process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID!
+            process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID
           )}`,
           'githubOAuth',
           'resizable,scrollbars,status,width=600,height=700'
@@ -127,8 +133,10 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             fetch(`/conf/tickets/${username}`).catch(_ => {});
           })
           .catch(err => {
+            // eslint-disable-next-line no-console
             console.error(err);
             setFormState('error');
+            setErrorMsg('Error! Please try again later.');
             setTicketGenerationState('default');
           });
       }}
