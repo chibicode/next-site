@@ -130,19 +130,19 @@
   color: #fff;
 }
 
-.submit.default:disabled {
-  cursor: default;
-}
-
+.submit.default:disabled,
 .submit.default:disabled:hover,
 .submit.default:disabled:focus {
-  background: #fff;
-  color: #000;
+  cursor: default;
+  background: #252729;
+  border-color: #252729;
+  color: #fff;
 }
 
+.submit.default.generate-with-github:disabled path,
 .submit.default.generate-with-github:disabled:hover path,
 .submit.default.generate-with-github:disabled:focus path {
-  fill: #000;
+  fill: #fff;
 }
 
 @media (min-width: 1200px) {
