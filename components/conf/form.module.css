@@ -137,6 +137,7 @@
   background: #252729;
   border-color: #252729;
   color: #fff;
+  justify-content: flex-start;
 }
 
 .submit.default.generate-with-github:disabled path,
