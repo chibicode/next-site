@@ -1,11 +1,3 @@
 {
-  "SITE_URL": "https://next-site-private-delta.vercel.app",
-  "API_URL": "https://next-api-git-preview.vercel.vercel.app/api",
-  "TICKET_IMAGE_URL": "https://next-conf-ticket-git-preview.vercel.vercel.app/",
-  "TWITTER_USER_NAME": "vercel",
-  "PLATFORM_NAME": "Vercel",
-  "ORG_NAME": "Vercel",
-  "PLATFORM_LOWERCASE": "vercel",
-  "PLATFORM_CDN_NAME": "Vercel Edge Network",
-  "PLATFORM_URL": "https://vercel.com"
+  "TICKET_IMAGE_URL": "https://next-conf-ticket-git-preview.vercel.vercel.app/"
 }
