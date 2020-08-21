@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Head from 'next/head';
 import VercelLogo from '@components/icons/platform-logotype';
 import { useEffect } from 'react';
 import styles from './layout.module.css';
@@ -39,6 +40,10 @@ export default function Layout({ children, inner, confLogoLink }: Props) {
   useEffect(() => {
     document.documentElement.style.background = '#000';
     document.body.style.background = '#000';
+    return () => {
+      document.documentElement.style.background = '#fff';
+      document.body.style.background = '#fff';
+    };
   }, []);
   return (
     <div className={styles.background}>

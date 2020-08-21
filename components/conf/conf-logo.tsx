@@ -70,17 +70,6 @@ function ActivityIcon({ height }: IconProps) {
 }
 
 export default function ConfLogo({ link }: Props) {
-  // Use <a> tag to force-reload the page on click
-  const resetBackground = () => {
-    document.documentElement.style.background = '#fff';
-    document.body.style.background = '#fff';
-  };
-  const skipAnimation = () => {
-    document.body.classList.add('skip-three-animations');
-    setTimeout(() => {
-      document.body.classList.remove('skip-three-animations');
-    }, 5000);
-  };
   const logo = (
     <>
       <div className={styles['next-logo']}>
@@ -102,13 +91,7 @@ export default function ConfLogo({ link }: Props) {
   ) : (
     <Link href={link}>
       {/* eslint-disable-next-line */}
-      <a
-        className={styles['conf-logo']}
-        onClick={link === '/' ? resetBackground : skipAnimation}
-        onKeyPress={link === '/' ? resetBackground : skipAnimation}
-      >
-        {logo}
-      </a>
+      <a className={styles['conf-logo']}>{logo}</a>
     </Link>
   );
 }

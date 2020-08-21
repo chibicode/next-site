@@ -22,10 +22,9 @@ export default function Index() {
         description={`Production grade React applications that scale. The world’s leading companies use Next.js by ${ORG_NAME} to build static and dynamic websites and web applications.`}
       />
       <SkipNavContent />
-      <Notification href="/blog/next-9-5" title="Next 9.5 is out!" titleMobile="Next 9.5 is out!">
-        <b>Next 9.5 is out!</b> — Stable Incremental Static Regeneration, Custom Base Path,
-        Redirects and Rewrites, Webpack 5 Beta, and more!
-        <span className="highlight">Learn More →</span>
+      <Notification href="/conf" title="Next.js Conf" titleMobile="Next.js Conf">
+        <b>Next.js Conf</b> — An interactive online experience by the community, free for everyone.{' '}
+        <span className="highlight">Register →</span>
       </Notification>
       <Intro />
       <Features />
