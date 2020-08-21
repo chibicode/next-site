@@ -88,6 +88,17 @@ export default function Layout({ children, inner, confLogoLink }: Props) {
             <div className={styles['footer-separator']} />
             <p className={styles['footer-paragraph']}>
               <a
+                href="https://www.notion.so/vercel/Next-js-Conf-Code-of-Conduct-2dae92927656409db28aaf2a62d99c41"
+                className={styles['footer-link']}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Code of Conduct
+              </a>
+            </p>
+            <div className={styles['footer-separator']} />
+            <p className={styles['footer-paragraph']}>
+              <a
                 href="https://vercel.com/legal/privacy-policy?utm_source=next-site&utm_medium=footer&utm_campaign=next-conf"
                 className={styles['footer-link']}
                 target="_blank"
