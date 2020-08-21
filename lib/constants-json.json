@@ -1,7 +1,7 @@
 {
   "SITE_URL": "https://next-site-private-delta.vercel.app",
-  "API_URL": "https://next-api-git-conf-oauth.vercel.vercel.app/api",
-  "TICKET_IMAGE_URL": "https://next-conf-ticket.vercel.app",
+  "API_URL": "https://next-api-git-preview.vercel.vercel.app/api",
+  "TICKET_IMAGE_URL": "https://next-conf-ticket-git-preview.vercel.vercel.app/",
   "TWITTER_USER_NAME": "vercel",
   "PLATFORM_NAME": "Vercel",
   "ORG_NAME": "Vercel",
