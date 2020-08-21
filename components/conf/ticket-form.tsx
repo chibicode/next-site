@@ -64,12 +64,18 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           return;
         }
 
+        const windowWidth = 600;
+        const windowHeight = 700;
+        // https://stackoverflow.com/a/32261263/114157
+        const windowTop = window.top.outerHeight / 2 + window.top.screenY - 700 / 2;
+        const windowLeft = window.top.outerWidth / 2 + window.top.screenX - 600 / 2;
+
         const openedWindow = window.open(
           `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
             process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID
           )}`,
           'githubOAuth',
-          'resizable,scrollbars,status,width=600,height=700'
+          `resizable,scrollbars,status,width=${windowWidth},height=${windowHeight},top=${windowTop},left=${windowLeft}`
         );
 
         new Promise<{ token: string } | undefined>(resolve => {
