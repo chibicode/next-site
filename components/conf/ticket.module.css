@@ -1,7 +1,7 @@
 .hero {
   font-size: 52px;
   line-height: 1.15;
-  letter-spacing: -0.08em;
+  letter-spacing: -0.05em;
   font-weight: 700;
   margin: 0;
   text-align: center;
@@ -41,14 +41,10 @@
 .ticket-layout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 50px;
+  gap: 45px;
 }
 
 @media screen and (min-width: 768px) {
-  .ticket-layout {
-    padding: 0 40px;
-  }
-
   .ticket-share-layout {
     padding: 0;
   }
