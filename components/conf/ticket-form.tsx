@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
@@ -15,49 +15,6 @@ type FormState = 'default' | 'loading' | 'error';
 type Props = {
   defaultUsername?: string;
   setTicketGenerationState: React.Dispatch<React.SetStateAction<TicketGenerationState>>;
-};
-
-// https://stackoverflow.com/a/16861050/114157
-const popupCenter = ({
-  url,
-  title,
-  w,
-  h
-}: {
-  url: string;
-  title: string;
-  w: number;
-  h: number;
-}) => {
-  // Fixes dual-screen position                             Most browsers      Firefox
-  const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-  const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
-
-  const width = window.innerWidth
-    ? window.innerWidth
-    : document.documentElement.clientWidth
-    ? document.documentElement.clientWidth
-    : window.screen.width;
-  const height = window.innerHeight
-    ? window.innerHeight
-    : document.documentElement.clientHeight
-    ? document.documentElement.clientHeight
-    : window.screen.height;
-
-  const systemZoom = width / window.screen.availWidth;
-  const left = (width - w) / 2 / systemZoom + dualScreenLeft;
-  const top = (height - h) / 2 / systemZoom + dualScreenTop;
-  return window.open(
-    url,
-    title,
-    `
-    resizable,scrollbars,status,
-    width=${w / systemZoom},
-    height=${h / systemZoom},
-    top=${top},
-    left=${left}
-    `
-  );
 };
 
 export default function Form({ defaultUsername = '', setTicketGenerationState }: Props) {
@@ -107,14 +64,13 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           return;
         }
 
-        const openedWindow = popupCenter({
-          url: `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
+        const openedWindow = window.open(
+          `https://github.com/login/oauth/authorize?client_id=${encodeURIComponent(
             process.env.NEXT_PUBLIC_CONF_GITHUB_OAUTH_CLIENT_ID
           )}`,
-          title: 'githubOAuth',
-          w: 600,
-          h: 700
-        });
+          'githubOAuth',
+          'resizable,scrollbars,status,width=600,height=700'
+        );
 
         new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
