@@ -21,7 +21,7 @@ export default function Conf() {
         image="/static/twitter-cards/conf/twitter-card.png"
         title="Next.js Conf"
         url={`${SITE_URL}/conf`}
-        description="The first Next.js global user conference"
+        description="The first global user conference for Next.js. An interactive online experience by the community, free for everyone."
       />
       <SkipNavContent />
       <ConfContent
