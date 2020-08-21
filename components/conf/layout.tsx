@@ -82,7 +82,9 @@ export default function Layout({ children, inner, confLogoLink }: Props) {
               <HostedByVercel linkEnabled={!!confLogoLink} />
               <div className={styles['footer-separator']} />
             </div>
-            <div>Copyright © 2020 Vercel, Inc. All rights reserved.</div>
+            <div className={styles['footer-copyright']}>
+              Copyright © 2020 Vercel, Inc. All rights reserved.
+            </div>
             <div className={styles['footer-separator']} />
             <p className={styles['footer-paragraph']}>
               <a
