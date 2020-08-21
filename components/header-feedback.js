@@ -342,6 +342,7 @@ const HeaderFeedback = ({ dryRun, className, open, onClick, email, ...props }) =
                       onFocus={() => setInputFocused(emailInputRef)}
                       type="email"
                       placeholder="Your email address..."
+                      aria-label="Your email address"
                       width="100%"
                       disabled={loading === true || errorMessage != null}
                       onChange={handleEmailChange}

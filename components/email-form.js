@@ -170,6 +170,7 @@ class EmailForm extends React.Component {
                 defaultValue={this.state.defaultEmail || ''}
                 disabled={Boolean(this.props.loading || this.props.disabled)}
                 placeholder={this.props.placeholder || 'you@domain.com'}
+                aria-label="Your email address"
               />
             </AutoComplete>
           </label>

@@ -275,6 +275,7 @@ export default class FooterFeedback extends Component {
                     onFocus={() => this.handleFocusedInput(this.emailInputRef)}
                     type="email"
                     placeholder="Your email address..."
+                    aria-label="Your email address"
                     width="100%"
                     disabled={this.state.loading === true || this.state.errorMessage != null}
                     onChange={this.handleEmailChange}
