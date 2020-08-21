@@ -82,6 +82,11 @@ export default withPure(() => (
                 <a>Blog</a>
               </Link>
             </p>
+            <p>
+              <Link href="/conf" prefetch={false}>
+                <a>Next.js Conf</a>
+              </Link>
+            </p>
           </div>
           <div>
             <h4 className="fw5">More</h4>
