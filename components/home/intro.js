@@ -118,7 +118,6 @@ export default function Intro() {
           .title {
             font-size: 100px;
             line-height: 1;
-            letter-spacing: -0.08em;
           }
 
           .description {
