@@ -39,7 +39,7 @@ export default function Form({ sharePage }: Props) {
           <div className={cn(styles.input, styles['input-text'])}>{errorMsg}</div>
           <button
             type="button"
-            className={cn(styles.submit, styles.register)}
+            className={cn(styles.submit, styles.register, styles.error)}
             onClick={() => {
               setFormState('default');
               setErrorTryAgain(true);
