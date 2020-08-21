@@ -13,8 +13,15 @@ type Props = {
   sharePage?: boolean;
 };
 
+class FormError extends Error {
+  constructor(public res: Response) {
+    super();
+  }
+}
+
 export default function Form({ sharePage }: Props) {
   const [email, setEmail] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
@@ -29,7 +36,7 @@ export default function Form({ sharePage }: Props) {
     >
       <div className={styles['form-row']}>
         <div className={cn(styles['input-label'], styles.error)}>
-          <div className={cn(styles.input, styles['input-text'])}>Error! Please try again.</div>
+          <div className={cn(styles.input, styles['input-text'])}>{errorMsg}</div>
           <button
             type="button"
             className={cn(styles.submit, styles.register)}
@@ -67,11 +74,10 @@ export default function Form({ sharePage }: Props) {
           })
             .then(async res => {
               if (!res.ok) {
-                throw new Error();
+                throw new FormError(res);
               }
 
               const data = await res.json();
-
               const params = {
                 id: data.id,
                 ticketNumber: data.ticketNumber,
@@ -93,7 +99,21 @@ export default function Form({ sharePage }: Props) {
                 setPageState('ticket');
               }
             })
-            .catch(() => {
+            .catch(async err => {
+              let message = 'Error! Please try again.';
+
+              if (err instanceof FormError) {
+                const { res } = err;
+                const data = res.headers.get('Content-Type')?.includes('application/json')
+                  ? await res.json()
+                  : null;
+
+                if (data?.error?.code === 'bad_email') {
+                  message = 'Please enter a valid email';
+                }
+              }
+
+              setErrorMsg(message);
               setFormState('error');
             });
         } else {
