@@ -124,11 +124,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             setFormState('default');
             setTicketGenerationState('default');
 
-            // Prefetch image
+            // Prefetch GitHub avatar
             new Image().src = `https://github.com/${usernameFromResponse}.png`;
-
-            // Prefetch the image URL to eagerly generate the image
-            fetch(`/conf/download-ticket/${usernameFromResponse}`).catch(_ => {});
 
             // Prefetch the twitter share URL to eagerly generate the page
             fetch(`/conf/tickets/${usernameFromResponse}`).catch(_ => {});

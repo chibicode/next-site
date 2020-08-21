@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { SkipNavContent } from '@reach/skip-nav';
 import Error from 'next/error';
-import { SITE_URL, API_URL } from '@lib/constants';
+import { SITE_URL, API_URL, TICKET_IMAGE_URL } from '@lib/constants';
 import Page from '@components/page';
 import SocialMeta from '@components/social-meta';
 import ConfContent from '@components/conf';
@@ -23,7 +23,7 @@ export default function TicketShare({ username, ticketNumber, name }: Props) {
       <SocialMeta
         image={
           username
-            ? `https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?username=${username}`
+            ? `${TICKET_IMAGE_URL}/Nextjs-Conf-Ticket.png?username=${username}`
             : '/static/twitter-cards/conf/twitter-card.png'
         }
         title={title}

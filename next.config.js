@@ -3,6 +3,7 @@ const rehypePrism = require('@mapbox/rehype-prism');
 const nextMDX = require('@next/mdx');
 const bundleAnalyzer = require('@next/bundle-analyzer');
 const rehypeReadme = require('./lib/rehype-readme');
+const constantsJson = require('./lib/constants-json.json');
 
 // only enable rehypeReadme for this file
 // because the github relative path replacement
@@ -121,7 +122,7 @@ const nextConfig = {
       // Must use a proxy URL to enable downloading
       {
         source: '/conf/download-ticket/:path{/}?',
-        destination: 'https://next-conf-ticket.vercel.app/Nextjs-Conf-Ticket.png?username=:path'
+        destination: `${constantsJson.TICKET_IMAGE_URL}/Nextjs-Conf-Ticket.png?username=:path`
       }
     ];
   },
