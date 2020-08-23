@@ -58,3 +58,13 @@
 :global(.ticket-generated) .third {
   animation-delay: 1s;
 }
+
+.linkedin-button {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .linkedin-button {
+    display: grid !important;
+  }
+}

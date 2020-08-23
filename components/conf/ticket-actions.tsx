@@ -51,7 +51,14 @@ export default function TicketActions({ username }: Props) {
         <IconTwitter width={24} /> Tweet it!
       </a>
       <a
-        className={cn(styles.button, styleUtils.appear, styles.second, 'icon-button')}
+        className={cn(
+          styles.button,
+          styleUtils.appear,
+          styles.second,
+          'icon-button',
+          // LinkedIn Share widget doesn’t work on mobile
+          styles['linkedin-button']
+        )}
         href={linkedInUrl}
         rel="noopener noreferrer"
         target="_blank"
