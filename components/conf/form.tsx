@@ -67,9 +67,7 @@ export default function Form({ sharePage }: Props) {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              email,
-              referrer: document.referrer,
-              queryParams: window.location.search
+              email
             })
           })
             .then(async res => {
@@ -84,6 +82,20 @@ export default function Form({ sharePage }: Props) {
                 name: data.name,
                 username: data.username
               };
+
+              // No need to handle the errors for conf-webhook
+              fetch(`${API_URL}/conf-webhook`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  email,
+                  referrer: document.referrer,
+                  queryParams: window.location.search
+                })
+              });
+
               if (sharePage) {
                 const queryString = Object.keys(params)
                   .map(
