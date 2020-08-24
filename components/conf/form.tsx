@@ -83,7 +83,6 @@ export default function Form({ sharePage }: Props) {
                 username: data.username
               };
 
-              // No need to handle the errors for conf-webhook
               fetch(`${API_URL}/conf-webhook`, {
                 method: 'POST',
                 headers: {
@@ -94,6 +93,8 @@ export default function Form({ sharePage }: Props) {
                   referrer: document.referrer,
                   queryParams: window.location.search
                 })
+              }).catch(_ => {
+                // No need to handle the errors for conf-webhook
               });
 
               if (sharePage) {
