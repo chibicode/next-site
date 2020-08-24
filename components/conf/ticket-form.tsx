@@ -82,6 +82,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           const interval = setInterval(() => {
             console.log('INTERVAL', openedWindow);
             if (!openedWindow || openedWindow.closed) {
+              console.log('CLOSED BY INTERVAL');
               clearInterval(interval);
               resolve();
             }
@@ -94,11 +95,12 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
               console.log('WRONG MSG', msgEvent.data);
               return;
             }
-            console.log('VALID MSG', msgEvent.data, openedWindow);
+            console.log('VALID MSG', msgEvent.data);
+            clearInterval(interval);
             if (openedWindow) {
+              console.log('CLOSED BY MESSAGE');
               openedWindow.close();
             }
-            clearInterval(interval);
             resolve(msgEvent.data);
           });
         })
