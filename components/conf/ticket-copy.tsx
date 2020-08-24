@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { SITE_URL } from '@lib/constants';
-import { request } from 'http';
+import IconCopy from './icon-copy';
 import styles from './ticket-copy.module.css';
 
 type Props = {
@@ -36,6 +36,9 @@ export default function TicketCopy({ username }: Props) {
           {SITE_URL}/conf/tickets/{username}
         </span>
         <span className={styles.fade} style={{ opacity: fadeOpacity }} />
+        <button type="button" className={styles['copy-button']}>
+          <IconCopy />
+        </button>
       </div>
     </div>
   );

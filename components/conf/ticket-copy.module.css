@@ -11,6 +11,18 @@
 
 .field {
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.field * {
+  color: var(--secondary-color);
+  transition: color 0.2s ease;
+}
+
+.field:hover * {
+  color: #fff;
+  transition: color 0.2s ease;
 }
 
 .url {
@@ -21,7 +33,6 @@
   display: block;
   background: #252729;
   padding: 8px 60px 8px 14px;
-  border-radius: 8px;
 }
 
 .fade {
@@ -34,4 +45,18 @@
   z-index: 1;
   display: block;
   border-radius: 8px;
+  pointer-events: none;
+}
+
+.copy-button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 8px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 8px 14px;
 }
