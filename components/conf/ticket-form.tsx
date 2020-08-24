@@ -80,6 +80,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
 
         new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
+            console.log('INTERVAL', openedWindow?.closed);
+
             if (!openedWindow || openedWindow.closed) {
               clearInterval(interval);
               resolve();
@@ -87,6 +89,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           }, 250);
 
           window.addEventListener('message', function onMessage(e) {
+            console.log('MESSAGE', e.origin, e, e.data);
+
             if (openedWindow) {
               openedWindow.close();
             }
@@ -95,6 +99,8 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           });
         })
           .then(async data => {
+            console.log('DATA', data);
+
             if (!data) {
               setFormState('default');
               setTicketGenerationState('default');
