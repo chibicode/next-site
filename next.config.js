@@ -178,6 +178,11 @@ const nextConfig = {
         source: '/discussions',
         destination: 'https://github.com/vercel/next.js/discussions',
         permanent: false
+      },
+      {
+        source: '/conf/tickets',
+        destination: '/conf',
+        permanent: false
       }
     ];
   },
