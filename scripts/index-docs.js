@@ -58,7 +58,7 @@ async function addRecords(filePath, tag) {
   const records = [];
 
   let record = {};
-  let position = 0;
+  let pos = 0;
 
   const handleHeading = node => {
     const value = getText(node);
@@ -91,9 +91,21 @@ async function addRecords(filePath, tag) {
     const content = getText(node);
     const path = removeFromLast(filePath, '.');
     const objectID = `${path}-${md5(content)}`;
+    let position = pos;
+
+    if (record.summary?.toLowerCase() === 'examples') {
+      // Deprioritize the examples we have for most features so they only appear
+      // for exact matches or when there are no alternatives
+      position += 100;
+    }
+    if (node.tagName === 'blockquote') {
+      // Deprioritize notes we usually put in blockquotes, those usually don't provide
+      // a description of the feature but may come before it
+      position += 5;
+    }
 
     records.push({ ...record, content, path, objectID, position });
-    position += 1;
+    pos += 1;
   };
   const handleNode = (node, parent) => {
     if (node.type === 'element') {
