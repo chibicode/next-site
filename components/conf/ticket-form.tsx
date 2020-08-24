@@ -3,7 +3,7 @@ import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'classnames';
 import GithubIcon from '@components/icons/github';
 import CheckIcon from '@components/icons/check';
-import { API_URL } from '@lib/constants';
+import { SITE_URL, API_URL } from '@lib/constants';
 import useConfData from '@lib/hooks/useConfData';
 import { TicketGenerationState, isMobileOrTablet } from '@lib/conf';
 import LoadingDots from './loading-dots';
@@ -90,7 +90,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           window.addEventListener('message', function onMessage(msgEvent) {
             console.log('MESSAGE', msgEvent.origin, msgEvent, msgEvent.data);
             // When devtools is opened the message may be received multiple times
-            if (!API_URL.startsWith(msgEvent.origin) || !msgEvent.data.token) {
+            if (SITE_URL !== msgEvent.origin || !msgEvent.data.token) {
               console.log('WRONG MSG', msgEvent.data);
               return;
             }
