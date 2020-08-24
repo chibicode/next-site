@@ -80,28 +80,23 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
 
         new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
-            console.log('INTERVAL', openedWindow?.closed);
-
             if (!openedWindow || openedWindow.closed) {
               clearInterval(interval);
               resolve();
             }
           }, 250);
 
-          window.addEventListener('message', function onMessage(e) {
-            console.log('MESSAGE', e.origin, e, e.data);
-
+          window.addEventListener('message', function onMessage(msgEvent) {
+            console.log('MESSAGE', msgEvent.origin, msgEvent, msgEvent.data);
             // When devtools is opened the message may be received multiple times
-            if (!API_URL.startsWith(e.origin)) {
-              // eslint-disable-next-line no-console
+            if (!API_URL.startsWith(msgEvent.origin) || !msgEvent.data.token) {
               return;
             }
-
             if (openedWindow) {
               openedWindow.close();
             }
             clearInterval(interval);
-            resolve(e.data);
+            resolve(msgEvent.data);
           });
         })
           .then(async data => {
