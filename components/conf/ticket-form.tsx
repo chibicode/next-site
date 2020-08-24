@@ -91,6 +91,12 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           window.addEventListener('message', function onMessage(e) {
             console.log('MESSAGE', e.origin, e, e.data);
 
+            // When devtools is opened the message may be received multiple times
+            if (!API_URL.startsWith(e.origin)) {
+              // eslint-disable-next-line no-console
+              return;
+            }
+
             if (openedWindow) {
               openedWindow.close();
             }
