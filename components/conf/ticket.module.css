@@ -113,14 +113,14 @@
   flex-direction: column;
 }
 
+.ticket-copy {
+  margin-top: 20px;
+}
+
 @media (min-width: 768px) {
   .ticket-actions {
     flex-direction: row;
   }
-}
-
-.ticket-actions-placeholder {
-  height: 85px;
 }
 
 @media (min-width: 1200px) {
@@ -134,6 +134,9 @@
   .description {
     text-align: left;
     margin: 30px 0;
+  }
+  .ticket-actions-placeholder {
+    height: 85px;
   }
 }
 

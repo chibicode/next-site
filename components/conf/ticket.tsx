@@ -9,7 +9,7 @@ import styleUtils from './utils.module.css';
 import TicketForm from './ticket-form';
 import TicketVisual from './ticket-visual';
 import TicketActions from './ticket-actions';
-
+import TicketCopy from './ticket-copy';
 import Form from './form';
 
 type Props = {
@@ -97,8 +97,13 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
         {!sharePage && (
           <>
             {username ? (
-              <div className={styles['ticket-actions']}>
-                <TicketActions username={username} />
+              <div>
+                <div className={styles['ticket-actions']}>
+                  <TicketActions username={username} />
+                </div>
+                <div className={styles['ticket-copy']}>
+                  <TicketCopy username={username} />
+                </div>
               </div>
             ) : (
               <div className={styles['ticket-actions-placeholder']} />

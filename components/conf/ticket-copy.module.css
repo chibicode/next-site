@@ -1,0 +1,37 @@
+.wrapper {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.field {
+  position: relative;
+}
+
+.url {
+  max-width: 400px;
+  user-select: all;
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: block;
+  background: #252729;
+  padding: 8px 60px 8px 14px;
+  border-radius: 8px;
+}
+
+.fade {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(37, 39, 41, 0%) 0%, #252729 50%);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  z-index: 1;
+  display: block;
+  border-radius: 8px;
+}
