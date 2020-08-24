@@ -113,14 +113,21 @@
   flex-direction: column;
 }
 
+.ticket-copy {
+  margin-top: 30px;
+}
+
+.ticket-actions-placeholder {
+  height: 280px;
+}
+
 @media (min-width: 768px) {
   .ticket-actions {
     flex-direction: row;
   }
-}
-
-.ticket-actions-placeholder {
-  height: 85px;
+  .ticket-actions-placeholder {
+    height: 157px;
+  }
 }
 
 @media (min-width: 1200px) {
