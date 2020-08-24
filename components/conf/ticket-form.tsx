@@ -80,33 +80,25 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
 
         new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
-            console.log('INTERVAL', openedWindow);
             if (!openedWindow || openedWindow.closed) {
-              console.log('CLOSED BY INTERVAL');
               clearInterval(interval);
               resolve();
             }
           }, 250);
 
           window.addEventListener('message', function onMessage(msgEvent) {
-            console.log('MESSAGE', msgEvent.origin, msgEvent, msgEvent.data);
             // When devtools is opened the message may be received multiple times
             if (CONF_OAUTH_CALLBACK_URL !== msgEvent.origin || !msgEvent.data.token) {
-              console.log('WRONG MSG', msgEvent.data);
               return;
             }
-            console.log('VALID MSG', msgEvent.data);
             clearInterval(interval);
             if (openedWindow) {
-              console.log('CLOSED BY MESSAGE');
               openedWindow.close();
             }
             resolve(msgEvent.data);
           });
         })
           .then(async data => {
-            console.log('DATA', data);
-
             if (!data) {
               setFormState('default');
               setTicketGenerationState('default');
