@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import cn from 'classnames';
 import { SITE_URL } from '@lib/constants';
 import ClipboardJS from 'clipboard';
+import styleUtils from './utils.module.css';
 import IconCopy from './icon-copy';
 import styles from './ticket-copy.module.css';
 
@@ -27,7 +28,7 @@ export default function TicketCopy({ username }: Props) {
     };
   }, []);
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, styleUtils.appear)}>
       <div className={styles.label}>Your ticket URL:</div>
       <div className={styles.field}>
         <span
