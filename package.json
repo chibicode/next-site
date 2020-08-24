@@ -34,6 +34,7 @@
     "algoliasearch": "4.3.1",
     "body-scroll-lock": "2.6.4",
     "classnames": "^2.2.6",
+    "clipboard": "2.0.6",
     "date-fns": "^1.29.0",
     "email-validator": "2.0.4",
     "github-slugger": "1.2.0",
@@ -65,6 +66,7 @@
   },
   "devDependencies": {
     "@types/classnames": "2.2.10",
+    "@types/clipboard": "2.0.1",
     "@types/node": "13.13.5",
     "@types/reach__skip-nav": "0.1.0",
     "@types/react": "16.9.34",

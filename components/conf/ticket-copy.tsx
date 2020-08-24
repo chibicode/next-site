@@ -1,5 +1,7 @@
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import cn from 'classnames';
 import { SITE_URL } from '@lib/constants';
+import ClipboardJS from 'clipboard';
 import IconCopy from './icon-copy';
 import styles from './ticket-copy.module.css';
 
@@ -10,7 +12,20 @@ type Props = {
 export default function TicketCopy({ username }: Props) {
   const [fadeOpacity, setFadeOpacity] = useState(1);
   const [scrolling, setScrolling] = useState(false);
+  const [copied, setCopied] = useState(false);
   const scrollRef = useRef<HTMLSpanElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const url = `${SITE_URL}/conf/tickets/${username}`;
+  useEffect(() => {
+    let clipboard: ClipboardJS;
+    if (buttonRef.current) {
+      clipboard = new ClipboardJS(buttonRef.current);
+    }
+
+    return () => {
+      clipboard.destroy();
+    };
+  }, []);
   return (
     <div className={styles.wrapper}>
       <div className={styles.label}>Your ticket URL:</div>
@@ -33,10 +48,28 @@ export default function TicketCopy({ username }: Props) {
             }
           }}
         >
-          {SITE_URL}/conf/tickets/{username}
+          {url}
         </span>
         <span className={styles.fade} style={{ opacity: fadeOpacity }} />
-        <button type="button" className={styles['copy-button']}>
+        <span
+          className={cn(styles.copied, {
+            [styles.visible]: copied
+          })}
+        >
+          Copied!
+        </span>
+        <button
+          type="button"
+          className={styles['copy-button']}
+          data-clipboard-text={url}
+          ref={buttonRef}
+          onClick={() => {
+            setCopied(true);
+            setTimeout(() => {
+              setCopied(false);
+            }, 2000);
+          }}
+        >
           <IconCopy />
         </button>
       </div>
