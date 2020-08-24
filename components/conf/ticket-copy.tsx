@@ -27,9 +27,43 @@ export default function TicketCopy({ username }: Props) {
       clipboard.destroy();
     };
   }, []);
+
+  const copiedText = (
+    <span
+      className={cn(styles.copied, {
+        [styles.visible]: copied
+      })}
+    >
+      Copied!
+    </span>
+  );
+
+  const copyButton = (
+    <button
+      type="button"
+      className={styles['copy-button']}
+      data-clipboard-text={url}
+      ref={buttonRef}
+      onClick={() => {
+        setCopied(true);
+        setTimeout(() => {
+          setCopied(false);
+        }, 2000);
+      }}
+    >
+      <IconCopy />
+    </button>
+  );
+
   return (
     <div className={cn(styles.wrapper, styleUtils.appear)}>
-      <div className={styles.label}>Your ticket URL:</div>
+      <div className={styles['label-wrapper']}>
+        <div className={styles.label}>Your ticket URL:</div>
+        <div className={cn(styles['mobile-copy'])}>
+          {copiedText}
+          {copyButton}
+        </div>
+      </div>
       <div className={styles.field}>
         <span
           className={styles.url}
@@ -52,27 +86,10 @@ export default function TicketCopy({ username }: Props) {
           {url}
         </span>
         <span className={styles.fade} style={{ opacity: fadeOpacity }} />
-        <span
-          className={cn(styles.copied, {
-            [styles.visible]: copied
-          })}
-        >
-          Copied!
-        </span>
-        <button
-          type="button"
-          className={styles['copy-button']}
-          data-clipboard-text={url}
-          ref={buttonRef}
-          onClick={() => {
-            setCopied(true);
-            setTimeout(() => {
-              setCopied(false);
-            }, 2000);
-          }}
-        >
-          <IconCopy />
-        </button>
+        <div className={styleUtils['hide-on-mobile']}>
+          {copiedText}
+          {copyButton}
+        </div>
       </div>
     </div>
   );
