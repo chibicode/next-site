@@ -80,6 +80,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
 
         new Promise<{ token: string } | undefined>(resolve => {
           const interval = setInterval(() => {
+            console.log('INTERVAL', openedWindow);
             if (!openedWindow || openedWindow.closed) {
               clearInterval(interval);
               resolve();
@@ -90,8 +91,10 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             console.log('MESSAGE', msgEvent.origin, msgEvent, msgEvent.data);
             // When devtools is opened the message may be received multiple times
             if (!API_URL.startsWith(msgEvent.origin) || !msgEvent.data.token) {
+              console.log('WRONG MSG', msgEvent.data);
               return;
             }
+            console.log('VALID MSG', msgEvent.data, openedWindow);
             if (openedWindow) {
               openedWindow.close();
             }
